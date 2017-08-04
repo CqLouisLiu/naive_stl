@@ -188,7 +188,7 @@ namespace naive {
 		}
 
 		_List_node<_T>* _create_node() {
-			_List_node<_T> _p =_new_node();
+			_List_node<_T>* _p =_new_node();
 			try {
 				::construct(&(_p->_data), _T());
 			}
@@ -351,7 +351,7 @@ namespace naive {
 				transfer(pos, other.begin(), other.end());
 		}
 
-		void splice(const_iterator pos, list& other, const_iterator it) {
+		void splice(const_iterator pos, list& other, iterator it) {
 			iterator _it = it;
 			++_it;
 			if (pos == it || pos == _it)
@@ -360,7 +360,7 @@ namespace naive {
 			transfer(pos, it, _it);
 		}
 
-		void splice(const_iterator pos, list&& other, const_iterator it) {
+		void splice(const_iterator pos, list&& other, iterator it) {
 			iterator _it = it;
 			++_it;
 			if (pos == it || pos == _it)
