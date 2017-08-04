@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="naive_stl"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/liushuai/Workspace/naive_stl/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/liushuai/Workspace/naive_stl/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/liushuai/Workspace/naive_stl/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="naive_stl">
+				<Option output="/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/naive_stl" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 naive_stl"/>
+					<CompileFile command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="naive_stl/fast">
+				<Option output="/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/naive_stl" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 naive_stl/fast"/>
+					<CompileFile command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j4 -f &quot;/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/algorithm.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/array.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/deque.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/iterator.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/list.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/main.cpp">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/memory.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/stl_algo.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/stl_alloc.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/stl_array.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/stl_config.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/stl_construct.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/stl_def.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/stl_deque.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/stl_iterator.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/stl_list.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/stl_type_traits.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/stl_uninitialized.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/stl_vector.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/type_traits.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/vector.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
