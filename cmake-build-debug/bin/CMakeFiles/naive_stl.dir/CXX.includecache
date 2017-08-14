@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,9 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/liushuai/Workspace/naive_stl/src/deque.h
-stl_deque.h
-/Users/liushuai/Workspace/naive_stl/src/stl_deque.h
+/Users/liushuai/Workspace/naive_stl/src/File.cpp.cpp
+io/File.h
+/Users/liushuai/Workspace/naive_stl/src/io/File.h
+
+/Users/liushuai/Workspace/naive_stl/src/io/File.h
 
 /Users/liushuai/Workspace/naive_stl/src/iterator.h
 stl_iterator.h
@@ -16,17 +18,13 @@ stl_iterator.h
 iterator
 -
 
-/Users/liushuai/Workspace/naive_stl/src/list.h
-stl_list.h
-/Users/liushuai/Workspace/naive_stl/src/stl_list.h
-
 /Users/liushuai/Workspace/naive_stl/src/main.cpp
 iostream
 -
-deque.h
-/Users/liushuai/Workspace/naive_stl/src/deque.h
-list.h
-/Users/liushuai/Workspace/naive_stl/src/list.h
+util/Deque
+/Users/liushuai/Workspace/naive_stl/src/util/Deque
+util/List.h
+/Users/liushuai/Workspace/naive_stl/src/util/List.h
 
 /Users/liushuai/Workspace/naive_stl/src/memory.h
 stl_alloc.h
@@ -107,4 +105,12 @@ stl_algo.h
 /Users/liushuai/Workspace/naive_stl/src/stl_algo.h
 stl_type_traits.h
 /Users/liushuai/Workspace/naive_stl/src/stl_type_traits.h
+
+/Users/liushuai/Workspace/naive_stl/src/util/Deque
+../stl_deque.h
+/Users/liushuai/Workspace/naive_stl/src/stl_deque.h
+
+/Users/liushuai/Workspace/naive_stl/src/util/List.h
+../stl_list.h
+/Users/liushuai/Workspace/naive_stl/src/stl_list.h
 

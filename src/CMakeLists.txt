@@ -1,9 +1,8 @@
 set(SOURCE_FILES
         algorithm.h
-        array.h
-        deque.h
+        util/Array.h
         iterator.h
-        list.h
+        util/List.h
         main.cpp
         memory.h
         stl_algo.h
@@ -19,6 +18,7 @@ set(SOURCE_FILES
         stl_uninitialized.h
         stl_vector.h
         type_traits.h
-        vector.h)
+        util/Vector.h io/File.h map.h
+        util/Set.h util/Stack.h util/String.h File.cpp.cpp util/Deque.h)
 
 add_executable(naive_stl ${SOURCE_FILES})

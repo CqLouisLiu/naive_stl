@@ -240,7 +240,7 @@ namespace naive {
 		_Deque_base(const allocator_type& _alloc):_MyBase(_alloc),_M_start(),_M_finish(){}
 
 		_Deque_base(const allocator_type& _alloc, std::size_t _num_elems) :_MyBase(_alloc), _M_start(), _M_finish() {
-			_M_init_map(_num_elems);//init the map in the base class of deque;
+			_M_init_map(_num_elems);//init the map in the base class of Deque.h;
 		}
 
 		~_Deque_base(){
@@ -329,7 +329,7 @@ namespace naive {
 
 	//Double-ended queue;
 	template <typename T, typename Alloc = naive::allocator<T>, std::size_t _BUFF_SIZE = 512 >
-	class deque :public _Deque_base<T,Alloc, _BUFF_SIZE> {
+	class Deque :public _Deque_base<T,Alloc, _BUFF_SIZE> {
 	private:
 		typedef _Deque_base<T, Alloc,_BUFF_SIZE> _Base;
 	public:
@@ -371,10 +371,10 @@ namespace naive {
 		using _Base::_M_finish;
 
 	public:
-		explicit deque(const allocator_type& alloc = allocator_type())
+		explicit Deque(const allocator_type& alloc = allocator_type())
 				: _Base(alloc, 0) {}
 
-		deque(size_type n, const value_type& value, const allocator_type alloc = allocator_type()) :_Base(alloc, n) {
+		Deque(size_type n, const value_type& value, const allocator_type alloc = allocator_type()) :_Base(alloc, n) {
 			//naive::un
 			_M_fill_initialize(value);
 		}
@@ -404,21 +404,34 @@ namespace naive {
 		}
 
 		size_type size() const noexcept {
-			return _M_finish - _M_start;
+			return static_cast<size_type >(_M_finish - _M_start);
 		}
 
 		size_type max_size() const noexcept {
 			return static_cast<size_type>(-1);
 		}
 
+		void push_back(const value_type& value){
+			if(_M_finish._M_cur!=_M_finish._M_last){
+				::construct(_M_finish._M_cur,value);
+                ++_M_finish._M_cur;
+			}
+			else{
+
+			}
+		}
+
+	private:
+		void _push_back_aux();
+
 	};
 
 	template<typename T, typename Alloc, std::size_t _BUFF_SIZE>
-	inline void deque<T, Alloc, _BUFF_SIZE>::_M_fill_initialize(const value_type & value){
+	inline void Deque<T, Alloc, _BUFF_SIZE>::_M_fill_initialize(const value_type & value){
 		_Map_pointer _cur = nullptr;
 
 		try {
-			// init nodes, the globel function just need iterator type, so *_curr is ok;
+			// init nodes, the golbel function just need iterator type, so *_curr is ok;
 			for (_cur = _M_start._M_node; _cur < _M_finish._M_node; ++_cur) {
 				naive::uninitialized_fill(*_cur,*_cur+ _M_buffer_size(),value);
 			}
@@ -429,6 +442,7 @@ namespace naive {
 		}
 
 	}
+
 }
 
 #endif

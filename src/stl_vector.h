@@ -50,7 +50,7 @@ namespace naive {
 	};
 
 	template<typename _T, typename _Alloc = naive::allocator<_T>>
-	class vector :protected _Vector_base<_T, _Alloc> {
+	class Vector :protected _Vector_base<_T, _Alloc> {
 
 	private:
 		typedef _Vector_base<_T, _Alloc> _MyBase;
@@ -58,7 +58,7 @@ namespace naive {
 		typedef _T value_type;
 		typedef value_type* pointer;
 		typedef const value_type* const_pointer;
-		typedef value_type* iterator;//vector using a continous memory,so the pointer can work well;
+		typedef value_type* iterator;//Vector using a continous memory,so the pointer can work well;
 		typedef const value_type* const_iterator;
 		typedef naive::random_access_iterator_tag iterator_category;
 		typedef value_type& reference;
@@ -100,19 +100,19 @@ namespace naive {
 	public:
 
 
-		//The construtors of vector; 
-		explicit vector(const allocator_type& __a = allocator_type()) noexcept
+		//The construtors of Vector;
+		explicit Vector(const allocator_type& __a = allocator_type()) noexcept
 			: _MyBase(__a) {}
 
-		explicit vector(size_type n) noexcept : _MyBase(n, allocator_type()) {
+		explicit Vector(size_type n) noexcept : _MyBase(n, allocator_type()) {
 			_finish = naive::uninitialized_fill_n(_start, n, value_type());
 		}
 
-		vector(size_type n, const _T& value) noexcept : _MyBase(n, allocator_type()) {
+		Vector(size_type n, const _T& value) noexcept : _MyBase(n, allocator_type()) {
 			_finish = naive::uninitialized_fill_n(_start, n, value);
 		}
 
-		vector(std::initializer_list<_T> init,
+		Vector(std::initializer_list<_T> init,
 			const allocator_type& alloc = allocator_type()) :_MyBase(init.size(), alloc) {
 			_finish = naive::uninitialized_copy(init.begin(), init.end(), _start);
 		}
@@ -128,7 +128,7 @@ namespace naive {
 		}
 
 		template <typename InputIt>
-		vector(InputIt first, InputIt last, const allocator_type& __a = allocator_type()) :_MyBase(__a) {
+		Vector(InputIt first, InputIt last, const allocator_type& __a = allocator_type()) :_MyBase(__a) {
 			//typedef typename naive::is_integral_type<std::is_integral_type<InputIt>::value>::is_integral_type is_integral_type;
 			//接下来根据是不是int具体处理;
 
@@ -138,14 +138,14 @@ namespace naive {
 		* Becasue we set allcate memory functions in _Vector_base, so copy constructor should as following;
 		* 1)get base alloctor from rhs;
 		* 2)get size from rhs;
-		* 3)use alloctor and size to init current vector;
+		* 3)use alloctor and size to init current Vector;
 		*/
-		vector(vector& rhs) noexcept:_MyBase(rhs.size(), rhs.get_allocator()) {
+		Vector(Vector& rhs) noexcept:_MyBase(rhs.size(), rhs.get_allocator()) {
 			_finish = naive::uninitialized_copy(rhs.begin(), rhs.end(), _start);
 		}
 
 		//move-constructor;
-		vector(vector&& rhs) noexcept : _MyBase(rhs.get_allocator()) {
+		Vector(Vector&& rhs) noexcept : _MyBase(rhs.get_allocator()) {
 
 			std::swap(_start, rhs._start);
 			std::swap(_finish, rhs._finish);
@@ -155,12 +155,12 @@ namespace naive {
 		}
 
 		//copy-swap, it determine by the object if it has move-constructor;
-		vector& operator= (const vector rhs) noexcept {
+		Vector& operator= (const Vector rhs) noexcept {
 			std::swap(*this, rhs);
 			return *this;
 		}
 
-		vector& operator= (const vector&& rhs) noexcept {
+		Vector& operator= (const Vector&& rhs) noexcept {
 			std::swap(_start, rhs._start);
 			std::swap(_finish, rhs._finish);
 			std::swap(_end_of_storage, rhs._end_of_storage);
@@ -169,7 +169,7 @@ namespace naive {
 			return *this;
 		}
 		
-		~vector() {
+		~Vector() {
 			::destroy(_start, _finish);
 		}
 
@@ -227,7 +227,7 @@ namespace naive {
 		reference& at(size_type pos) {
 
 			if (pos >= size()) {
-				throw std::out_of_range("out of range at function vector<T,Alloc>::at(size_type pos)");
+				throw std::out_of_range("out of range at function Vector<T,Alloc>::at(size_type pos)");
 			}
 			else
 				return *(_start + pos);
@@ -324,7 +324,7 @@ namespace naive {
 	};
 
 	template<typename _T, typename _Alloc>
-	inline void vector<_T, _Alloc>::_insert_aux(iterator _position, const _T & _value) {
+	inline void Vector<_T, _Alloc>::_insert_aux(iterator _position, const _T & _value) {
 
 		
 		if (_finish == _end_of_storage) {//No enough allocated memory.
@@ -371,7 +371,7 @@ namespace naive {
 	}
 
 	template<typename _T, typename _Alloc>
-	inline void vector<_T, _Alloc>::insert(iterator pos, size_type count, const _T & value) {
+	inline void Vector<_T, _Alloc>::insert(iterator pos, size_type count, const _T & value) {
 
 		if (count != 0) {
 
@@ -421,7 +421,7 @@ namespace naive {
 
 	template<typename _T, typename _Alloc>
 	template<class InputIt>
-	inline void vector<_T, _Alloc>::insert(iterator pos, InputIt first, InputIt last){
+	inline void Vector<_T, _Alloc>::insert(iterator pos, InputIt first, InputIt last){
 
 	}
 

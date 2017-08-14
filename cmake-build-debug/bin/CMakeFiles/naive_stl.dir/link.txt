@@ -1,1 +1,1 @@
-/Library/Developer/CommandLineTools/usr/bin/c++   -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/naive_stl.dir/main.cpp.o  -o naive_stl 
+/Library/Developer/CommandLineTools/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/naive_stl.dir/main.cpp.o CMakeFiles/naive_stl.dir/File.cpp.cpp.o  -o naive_stl 

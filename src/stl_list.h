@@ -7,7 +7,7 @@
 
 namespace naive {
 
-	//The node of list;
+	//The node of List;
 	template<typename _T>
 	struct _List_node {
 
@@ -98,7 +98,7 @@ namespace naive {
 		}
 
 	protected:
-		//This idea is from sgi_stl ,this node is both empty head and tail node becasue this is a circle double-linked list;
+		//This idea is from sgi_stl ,this node is both empty head and tail node becasue this is a circle double-linked List;
 		_List_node<_T>* _M_node;
 
 		_List_allocator _list_node_allocator;
@@ -124,13 +124,13 @@ namespace naive {
 			_release_node(_M_node);
 		}
 
-		void clear();//clear all the list;
+		void clear();//clear all the List;
 
 	};
 
 	template<class _T, typename _Alloc>
 	inline void _List_base<_T, _Alloc>::clear() {
-		_List_node<_T>* _curr = _M_node->_next;//beginning of the list;
+		_List_node<_T>* _curr = _M_node->_next;//beginning of the List;
 		while (_curr != _M_node) {
 			_List_node<_T>* _temp = _curr;
 			_curr = _curr->_next;
@@ -144,7 +144,7 @@ namespace naive {
 	}
 
 	template<typename _T, typename _Alloc = naive::allocator<_T>>
-	class list :protected _List_base<_T, _Alloc> {
+	class List :protected _List_base<_T, _Alloc> {
 
 	private:
 		typedef _List_base<_T, _Alloc> _Base;
@@ -203,11 +203,11 @@ namespace naive {
 		void transfer(const_iterator pos, iterator first, iterator last);
 
 	public:
-		explicit list(const allocator_type& _alloc = allocator_type()) :_Base(_alloc) {}
-		explicit list(size_type n) :_Base(allocator_type()) {
+		explicit List(const allocator_type& _alloc = allocator_type()) :_Base(_alloc) {}
+		explicit List(size_type n) :_Base(allocator_type()) {
 			insert(begin(), n, _T());
 		}
-		list(std::initializer_list<_T> init, const allocator_type& _alloc = allocator_type()) :_Base(_alloc) {
+		List(std::initializer_list<_T> init, const allocator_type& _alloc = allocator_type()) :_Base(_alloc) {
 			insert(begin(),init.begin(),init.begin()+init.size());
 		}
 
@@ -334,7 +334,7 @@ namespace naive {
 
 		void remove(const _T& value);
 
-		void splice(iterator pos, list& other) {
+		void splice(iterator pos, List& other) {
 			if (get_allocator() != other.get_allocator())
 				return;
 
@@ -343,7 +343,7 @@ namespace naive {
 
 		}
 
-		void splice(const_iterator pos, list&& other) {
+		void splice(const_iterator pos, List&& other) {
 			if (get_allocator() != other.get_allocator())
 				return;
 
@@ -351,7 +351,7 @@ namespace naive {
 				transfer(pos, other.begin(), other.end());
 		}
 
-		void splice(const_iterator pos, list& other, iterator it) {
+		void splice(const_iterator pos, List& other, iterator it) {
 			iterator _it = it;
 			++_it;
 			if (pos == it || pos == _it)
@@ -360,7 +360,7 @@ namespace naive {
 			transfer(pos, it, _it);
 		}
 
-		void splice(const_iterator pos, list&& other, iterator it) {
+		void splice(const_iterator pos, List&& other, iterator it) {
 			iterator _it = it;
 			++_it;
 			if (pos == it || pos == _it)
@@ -369,7 +369,7 @@ namespace naive {
 			transfer(pos, it, _it);
 		}
 
-		void splice(const_iterator pos, list& other,
+		void splice(const_iterator pos, List& other,
 			iterator first, iterator last) {
 			if (get_allocator() != other.get_allocator())
 				return;
@@ -379,7 +379,7 @@ namespace naive {
 
 		}
 
-		void splice(const_iterator pos, list&& other,
+		void splice(const_iterator pos, List&& other,
 			iterator first, iterator last) {
 			if (get_allocator() != other.get_allocator())
 				return;
@@ -391,7 +391,7 @@ namespace naive {
 
 
 	template<typename _T, typename _Alloc>
-	inline void list<_T, _Alloc>::transfer(const_iterator pos, iterator first, iterator last) {
+	inline void List<_T, _Alloc>::transfer(const_iterator pos, iterator first, iterator last) {
 		if (first == last)
 			return;
 		_Node* temp = (pos._M_node)->_prev;
@@ -410,7 +410,7 @@ namespace naive {
 
 	template<typename _T, typename _Alloc>
 
-	inline void list<_T, _Alloc>::insert(iterator position, size_type count, const _T & x) {
+	inline void List<_T, _Alloc>::insert(iterator position, size_type count, const _T & x) {
 		//if(conut<0)
 		while (count > 0) {
 			insert(position, x);
@@ -420,7 +420,7 @@ namespace naive {
 
 	template<typename _T, typename _Alloc>
 	template<typename InputIt>
-	inline void list<_T, _Alloc>::insert(iterator pos, InputIt first, InputIt last) {
+	inline void List<_T, _Alloc>::insert(iterator pos, InputIt first, InputIt last) {
 		while (first != last) {
 			insert(pos, *first);
 			++first;
@@ -428,7 +428,7 @@ namespace naive {
 	}
 
 	template<typename _T, typename _Alloc>
-	inline void naive::list<_T, _Alloc>::unique() {
+	inline void naive::List<_T, _Alloc>::unique() {
 		iterator it = begin();
 		iterator last = end();
 		if (empty())
@@ -447,7 +447,7 @@ namespace naive {
 	}
 
 	template<typename _T, typename _Alloc>
-	inline void naive::list<_T, _Alloc>::remove(const _T & value) {
+	inline void naive::List<_T, _Alloc>::remove(const _T & value) {
 		iterator it = begin();
 		while (it != end()) {
 			if (*it == value) {

@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /Users/liushuai/Workspace/naive_stl/cmake-build-debug/CMakeFiles /Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/CMakeFiles/progress.marks
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/all
+	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /Users/liushuai/Workspace/naive_stl/cmake-build-debug/CMakeFiles /Users/liushuai/Workspace/naive_stl/cmake-build-debug/src/net/CMakeFiles/progress.marks
+	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/net/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/liushuai/Workspace/naive_stl/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/clean
+	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/net/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,87 +97,18 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/preinstall
+	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/net/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/preinstall
+	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/net/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
 	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-# Convenience name for target.
-bin/CMakeFiles/naive_stl.dir/rule:
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/CMakeFiles/naive_stl.dir/rule
-.PHONY : bin/CMakeFiles/naive_stl.dir/rule
-
-# Convenience name for target.
-naive_stl: bin/CMakeFiles/naive_stl.dir/rule
-
-.PHONY : naive_stl
-
-# fast build rule for target.
-naive_stl/fast:
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/build
-.PHONY : naive_stl/fast
-
-File.cpp.o: File.cpp.cpp.o
-
-.PHONY : File.cpp.o
-
-# target to build an object file
-File.cpp.cpp.o:
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o
-.PHONY : File.cpp.cpp.o
-
-File.cpp.i: File.cpp.cpp.i
-
-.PHONY : File.cpp.i
-
-# target to preprocess a source file
-File.cpp.cpp.i:
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.i
-.PHONY : File.cpp.cpp.i
-
-File.cpp.s: File.cpp.cpp.s
-
-.PHONY : File.cpp.s
-
-# target to generate assembly for a file
-File.cpp.cpp.s:
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.s
-.PHONY : File.cpp.cpp.s
-
-main.o: main.cpp.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/main.cpp.s
-.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -187,13 +118,6 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... naive_stl"
-	@echo "... File.cpp.o"
-	@echo "... File.cpp.i"
-	@echo "... File.cpp.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 .PHONY : help
 
 

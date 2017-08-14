@@ -6,7 +6,7 @@
 namespace naive {
 
 	template<typename T,std::size_t N>
-	struct array  {
+	struct Array  {
 		
 		typedef T value_type;
 		typedef T& reference;

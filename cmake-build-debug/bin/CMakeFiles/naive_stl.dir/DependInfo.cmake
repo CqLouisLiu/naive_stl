@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/liushuai/Workspace/naive_stl/src/File.cpp.cpp" "/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o"
   "/Users/liushuai/Workspace/naive_stl/src/main.cpp" "/Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
