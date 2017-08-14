@@ -6,43 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/Users/liushuai/Workspace/naive_stl/src/File.cpp.cpp
-io/File.h
-/Users/liushuai/Workspace/naive_stl/src/io/File.h
-
-/Users/liushuai/Workspace/naive_stl/src/io/File.h
-
-/Users/liushuai/Workspace/naive_stl/src/iterator.h
+/cygdrive/f/workspaces/naive_stl/src/iterator.h
 stl_iterator.h
-/Users/liushuai/Workspace/naive_stl/src/stl_iterator.h
+/cygdrive/f/workspaces/naive_stl/src/stl_iterator.h
 iterator
 -
 
-/Users/liushuai/Workspace/naive_stl/src/main.cpp
+/cygdrive/f/workspaces/naive_stl/src/main.cpp
 iostream
 -
-util/Deque
-/Users/liushuai/Workspace/naive_stl/src/util/Deque
+util/Deque.h
+/cygdrive/f/workspaces/naive_stl/src/util/Deque.h
 util/List.h
-/Users/liushuai/Workspace/naive_stl/src/util/List.h
+/cygdrive/f/workspaces/naive_stl/src/util/List.h
 
-/Users/liushuai/Workspace/naive_stl/src/memory.h
-stl_alloc.h
-/Users/liushuai/Workspace/naive_stl/src/stl_alloc.h
-stl_uninitialized.h
-/Users/liushuai/Workspace/naive_stl/src/stl_uninitialized.h
+/cygdrive/f/workspaces/naive_stl/src/stl_algo.h
 stl_config.h
-/Users/liushuai/Workspace/naive_stl/src/stl_config.h
-memory
--
+/cygdrive/f/workspaces/naive_stl/src/stl_config.h
 
-/Users/liushuai/Workspace/naive_stl/src/stl_algo.h
-stl_def.h
-/Users/liushuai/Workspace/naive_stl/src/stl_def.h
-stl_config.h
-/Users/liushuai/Workspace/naive_stl/src/stl_config.h
-
-/Users/liushuai/Workspace/naive_stl/src/stl_alloc.h
+/cygdrive/f/workspaces/naive_stl/src/stl_alloc.h
 cstddef
 -
 climits
@@ -50,67 +32,57 @@ climits
 cstdlib
 -
 stl_construct.h
-/Users/liushuai/Workspace/naive_stl/src/stl_construct.h
+/cygdrive/f/workspaces/naive_stl/src/stl_construct.h
 
-/Users/liushuai/Workspace/naive_stl/src/stl_config.h
+/cygdrive/f/workspaces/naive_stl/src/stl_config.h
 cassert
 -
+cstddef
+-
 
-/Users/liushuai/Workspace/naive_stl/src/stl_construct.h
+/cygdrive/f/workspaces/naive_stl/src/stl_construct.h
 new
 -
 stl_iterator.h
-/Users/liushuai/Workspace/naive_stl/src/stl_iterator.h
+/cygdrive/f/workspaces/naive_stl/src/stl_iterator.h
 stl_type_traits.h
-/Users/liushuai/Workspace/naive_stl/src/stl_type_traits.h
+/cygdrive/f/workspaces/naive_stl/src/stl_type_traits.h
 iostream
 -
 string
 -
 
-/Users/liushuai/Workspace/naive_stl/src/stl_def.h
-
-/Users/liushuai/Workspace/naive_stl/src/stl_deque.h
-stl_alloc.h
-/Users/liushuai/Workspace/naive_stl/src/stl_alloc.h
-stl_uninitialized.h
-/Users/liushuai/Workspace/naive_stl/src/stl_uninitialized.h
-iostream
--
-
-/Users/liushuai/Workspace/naive_stl/src/stl_iterator.h
+/cygdrive/f/workspaces/naive_stl/src/stl_iterator.h
 cstddef
 -
 stl_type_traits.h
-/Users/liushuai/Workspace/naive_stl/src/stl_type_traits.h
+/cygdrive/f/workspaces/naive_stl/src/stl_type_traits.h
 
-/Users/liushuai/Workspace/naive_stl/src/stl_list.h
-iterator.h
-/Users/liushuai/Workspace/naive_stl/src/iterator.h
-memory.h
-/Users/liushuai/Workspace/naive_stl/src/memory.h
-initializer_list
--
-
-/Users/liushuai/Workspace/naive_stl/src/stl_type_traits.h
+/cygdrive/f/workspaces/naive_stl/src/stl_type_traits.h
 type_traits
 -
 
-/Users/liushuai/Workspace/naive_stl/src/stl_uninitialized.h
+/cygdrive/f/workspaces/naive_stl/src/stl_uninitialized.h
 stl_iterator.h
-/Users/liushuai/Workspace/naive_stl/src/stl_iterator.h
+/cygdrive/f/workspaces/naive_stl/src/stl_iterator.h
 stl_construct.h
-/Users/liushuai/Workspace/naive_stl/src/stl_construct.h
+/cygdrive/f/workspaces/naive_stl/src/stl_construct.h
 stl_algo.h
-/Users/liushuai/Workspace/naive_stl/src/stl_algo.h
+/cygdrive/f/workspaces/naive_stl/src/stl_algo.h
 stl_type_traits.h
-/Users/liushuai/Workspace/naive_stl/src/stl_type_traits.h
+/cygdrive/f/workspaces/naive_stl/src/stl_type_traits.h
 
-/Users/liushuai/Workspace/naive_stl/src/util/Deque
-../stl_deque.h
-/Users/liushuai/Workspace/naive_stl/src/stl_deque.h
+/cygdrive/f/workspaces/naive_stl/src/util/Deque.h
+../stl_alloc.h
+/cygdrive/f/workspaces/naive_stl/src/stl_alloc.h
+../stl_uninitialized.h
+/cygdrive/f/workspaces/naive_stl/src/stl_uninitialized.h
 
-/Users/liushuai/Workspace/naive_stl/src/util/List.h
-../stl_list.h
-/Users/liushuai/Workspace/naive_stl/src/stl_list.h
+/cygdrive/f/workspaces/naive_stl/src/util/List.h
+../iterator.h
+/cygdrive/f/workspaces/naive_stl/src/iterator.h
+memory.h
+/cygdrive/f/workspaces/naive_stl/src/util/memory.h
+initializer_list
+-
 

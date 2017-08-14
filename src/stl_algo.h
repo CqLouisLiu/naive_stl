@@ -1,6 +1,6 @@
 #ifndef _NAIVE_STL_ALGO_H
 #define _NAIVE_STL_ALGO_H
-#include "stl_def.h"
+
 #include "stl_config.h"
 
 namespace naive {
@@ -13,7 +13,7 @@ namespace naive {
 	*@param count	-	number of bytes to copy.
 	*@return dest.
 	*/
-	void* memmove(void* dest, const void* src, naive::size_t count) {
+	inline void* memmove(void* dest, const void* src, std::size_t count) {
 
 		//assert(dest==nullptr||src==nullptr);
 		if (dest == nullptr || src == nullptr)
@@ -35,7 +35,7 @@ namespace naive {
 			while (count--)
 				*_dest++ = *_src++;
 		}
-		
+
 
 		return dest;
 
@@ -52,7 +52,7 @@ namespace naive {
 	*@param count	-	number of bytes to copy.
 	*@return dest.
 	*/
-	void* memcpy(void* dest, const void* src, naive::size_t count) {
+	inline void* memcpy(void* dest, const void* src, std::size_t count) {
 		if (dest == nullptr || src == nullptr)
 			return nullptr;
 
@@ -116,7 +116,7 @@ namespace naive {
 	//Copies the elements from the range, defined by [first, last), to another range ending at d_last;
 	//The elements are copied in reverse order (the last element is copied first), but their relative order is preserved.
 	template< class BidirIt1, class BidirIt2 >
-	BidirIt2 copy_backward(BidirIt1 first, BidirIt1 last, BidirIt2 d_last){
+	BidirIt2 copy_backward(BidirIt1 first, BidirIt1 last, BidirIt2 d_last) {
 		while (first != last) {
 			*(--d_last) = *(--last);
 		}
@@ -124,7 +124,7 @@ namespace naive {
 	}
 
 	template<class T>
-	const T& max(const T& a, const T& b){
+	const T& max(const T& a, const T& b) {
 		return (a < b) ? b : a;
 	}
 }

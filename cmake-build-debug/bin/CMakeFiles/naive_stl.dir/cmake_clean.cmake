@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/naive_stl.dir/main.cpp.o"
-  "CMakeFiles/naive_stl.dir/File.cpp.cpp.o"
   "naive_stl.pdb"
-  "naive_stl"
+  "naive_stl.exe"
+  "libnaive_stl.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/bin/cmake
+CMAKE_COMMAND = /cygdrive/c/Users/Shuai/.CLion2017.2/system/cygwin_cmake/bin/cmake.exe
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
+RM = /cygdrive/c/Users/Shuai/.CLion2017.2/system/cygwin_cmake/bin/cmake.exe -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/liushuai/Workspace/naive_stl
+CMAKE_SOURCE_DIR = /cygdrive/f/workspaces/naive_stl
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/liushuai/Workspace/naive_stl/cmake-build-debug
+CMAKE_BINARY_DIR = /cygdrive/f/workspaces/naive_stl/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include bin/CMakeFiles/naive_stl.dir/depend.make
@@ -59,16 +59,16 @@ include bin/CMakeFiles/naive_stl.dir/flags.make
 
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: bin/CMakeFiles/naive_stl.dir/flags.make
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liushuai/Workspace/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object bin/CMakeFiles/naive_stl.dir/main.cpp.o"
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin && /Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/naive_stl.dir/main.cpp.o -c /Users/liushuai/Workspace/naive_stl/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object bin/CMakeFiles/naive_stl.dir/main.cpp.o"
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && /usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/naive_stl.dir/main.cpp.o -c /cygdrive/f/workspaces/naive_stl/src/main.cpp
 
 bin/CMakeFiles/naive_stl.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/naive_stl.dir/main.cpp.i"
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/liushuai/Workspace/naive_stl/src/main.cpp > CMakeFiles/naive_stl.dir/main.cpp.i
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && /usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/f/workspaces/naive_stl/src/main.cpp > CMakeFiles/naive_stl.dir/main.cpp.i
 
 bin/CMakeFiles/naive_stl.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/naive_stl.dir/main.cpp.s"
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/liushuai/Workspace/naive_stl/src/main.cpp -o CMakeFiles/naive_stl.dir/main.cpp.s
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && /usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/f/workspaces/naive_stl/src/main.cpp -o CMakeFiles/naive_stl.dir/main.cpp.s
 
 bin/CMakeFiles/naive_stl.dir/main.cpp.o.requires:
 
@@ -81,60 +81,33 @@ bin/CMakeFiles/naive_stl.dir/main.cpp.o.provides: bin/CMakeFiles/naive_stl.dir/m
 bin/CMakeFiles/naive_stl.dir/main.cpp.o.provides.build: bin/CMakeFiles/naive_stl.dir/main.cpp.o
 
 
-bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o: bin/CMakeFiles/naive_stl.dir/flags.make
-bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o: ../src/File.cpp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liushuai/Workspace/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o"
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin && /Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/naive_stl.dir/File.cpp.cpp.o -c /Users/liushuai/Workspace/naive_stl/src/File.cpp.cpp
-
-bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/naive_stl.dir/File.cpp.cpp.i"
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/liushuai/Workspace/naive_stl/src/File.cpp.cpp > CMakeFiles/naive_stl.dir/File.cpp.cpp.i
-
-bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/naive_stl.dir/File.cpp.cpp.s"
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/liushuai/Workspace/naive_stl/src/File.cpp.cpp -o CMakeFiles/naive_stl.dir/File.cpp.cpp.s
-
-bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o.requires:
-
-.PHONY : bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o.requires
-
-bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o.provides: bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o.requires
-	$(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o.provides.build
-.PHONY : bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o.provides
-
-bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o.provides.build: bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o
-
-
 # Object files for target naive_stl
 naive_stl_OBJECTS = \
-"CMakeFiles/naive_stl.dir/main.cpp.o" \
-"CMakeFiles/naive_stl.dir/File.cpp.cpp.o"
+"CMakeFiles/naive_stl.dir/main.cpp.o"
 
 # External object files for target naive_stl
 naive_stl_EXTERNAL_OBJECTS =
 
-bin/naive_stl: bin/CMakeFiles/naive_stl.dir/main.cpp.o
-bin/naive_stl: bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o
-bin/naive_stl: bin/CMakeFiles/naive_stl.dir/build.make
-bin/naive_stl: bin/CMakeFiles/naive_stl.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/liushuai/Workspace/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable naive_stl"
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/naive_stl.dir/link.txt --verbose=$(VERBOSE)
+bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/main.cpp.o
+bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/build.make
+bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable naive_stl.exe"
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/naive_stl.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-bin/CMakeFiles/naive_stl.dir/build: bin/naive_stl
+bin/CMakeFiles/naive_stl.dir/build: bin/naive_stl.exe
 
 .PHONY : bin/CMakeFiles/naive_stl.dir/build
 
 bin/CMakeFiles/naive_stl.dir/requires: bin/CMakeFiles/naive_stl.dir/main.cpp.o.requires
-bin/CMakeFiles/naive_stl.dir/requires: bin/CMakeFiles/naive_stl.dir/File.cpp.cpp.o.requires
 
 .PHONY : bin/CMakeFiles/naive_stl.dir/requires
 
 bin/CMakeFiles/naive_stl.dir/clean:
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin && $(CMAKE_COMMAND) -P CMakeFiles/naive_stl.dir/cmake_clean.cmake
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && $(CMAKE_COMMAND) -P CMakeFiles/naive_stl.dir/cmake_clean.cmake
 .PHONY : bin/CMakeFiles/naive_stl.dir/clean
 
 bin/CMakeFiles/naive_stl.dir/depend:
-	cd /Users/liushuai/Workspace/naive_stl/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/liushuai/Workspace/naive_stl /Users/liushuai/Workspace/naive_stl/src /Users/liushuai/Workspace/naive_stl/cmake-build-debug /Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin /Users/liushuai/Workspace/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/f/workspaces/naive_stl /cygdrive/f/workspaces/naive_stl/src /cygdrive/f/workspaces/naive_stl/cmake-build-debug /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : bin/CMakeFiles/naive_stl.dir/depend
 
