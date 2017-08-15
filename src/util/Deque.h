@@ -1,3 +1,7 @@
+//
+// Created by 刘帅 on 2017/8/12.
+//
+
 #ifndef NAIVE_STL_DEQUE_H
 #define NAIVE_STL_DEQUE_H
 
@@ -31,22 +35,22 @@ namespace naive {
 
 		typedef _Deque_iterator _Self;
 
-		_T* _M_cur;//point to the current elememt in a buffer;
+		_T* _M_cur;//point to the current element in a buffer;
 		_T* _M_first;//point to the first element in a buffer;
 		_T* _M_last;//point to the position after the last elements in a buffer;
 
-		/*Note: the map is a continuous memory with type T**, so every elemnt so called node in the map is T*
+		/*Note: the map is a continuous memory with type T**, so every element so called node in the map is T*
 		* type so that the node can point to a buffer; There use T** to define _M_node because it can use
 		* +/- to select in the map and *_M_node can get a address of a buffer that current iterator point;
 		*/
 		_Map_pointer _M_node;
 
-		//For a instance, if T=int, the default buffer size=(512/4)=128;
+		//For a instance, if T=int, the default buffer size=(512/4)=128 in 32bit machine;
 		static size_type _M_buffer_size() {
 			return _deque_buf_size(_M_BUFF_SIZE, sizeof(_T));
 		}
 
-		//Constructor;
+		//Constructors;
 		_Deque_iterator() :_M_cur(nullptr), _M_first(nullptr), _M_last(nullptr), _M_node(nullptr) {}
 
 		_Deque_iterator(_T* _cur, _Map_pointer _node) :_M_cur(_cur), _M_first(*_node), _M_last(*_node + _M_buffer_size()), _M_node(_node) {}
@@ -59,7 +63,10 @@ namespace naive {
 			_M_last = _M_first + static_cast<difference_type>(_M_buffer_size());
 		}
 
-
+		/*
+		 * Note: the iterator of Deque need to simulate all the behaviours of primitive pointer;
+		 *
+		 */
 		reference operator*() const {
 			return *_M_cur;
 		}
@@ -68,15 +75,17 @@ namespace naive {
 			return _M_cur;
 		}
 
+		//expression ++it;
 		_Self& operator++() {
 			++_M_cur;
-			if (_M_cur == _M_last) {
-				_M_set_node(_M_node + 1);//the next node;
+			if (_M_cur == _M_last) {// if equal to the position after the last one, then go to the next node;
+				_M_set_node(_M_node + 1);
 				_M_cur = _M_first;
 			}
 			return *this;
 		}
 
+		//expression it++;
 		_Self operator++(int) {
 
 			_Self _Tmp = *this;
@@ -84,6 +93,7 @@ namespace naive {
 			return _Tmp;
 		}
 
+		//expression --it;
 		_Self& operator--() {
 			if (_M_cur == _M_first) {
 				_M_set_node(_M_node - 1);
@@ -93,6 +103,7 @@ namespace naive {
 			return *this;
 		}
 
+		//expression it--;
 		_Self operator--(int) {
 			_Self _Tmp = *this;
 			--(*this);
@@ -102,11 +113,10 @@ namespace naive {
 		// expression it += n;
 		_Self& operator+=(difference_type _n) {
 
-			//(_M_cur-_M_first) means has used memory in current buffer;
-			//Because _n>0 or _n<o both is  ok;
+			//(_M_cur-_M_first) means the memory has been used in current buffer because _n>0 or _n<o both is possible;
 			difference_type _Offset = _n + (_M_cur - _M_first);
 			if (_Offset >= 0 && _Offset < static_cast<difference_type>(_M_buffer_size())) {
-				_M_cur += _n;//_Offset in [_M_first,_M_last);
+				_M_cur += _n;//_Offset in range [_M_first,_M_last);
 			}
 			else {
 
@@ -145,7 +155,8 @@ namespace naive {
 
 		// expression it1-it2;
 		difference_type operator-(const _Self& _it) const {
-			return static_cast<difference_type>(_M_buffer_size())*(_M_node - _it._M_node - 1) + (_M_cur - _M_first) + (_it._M_last - _it._M_cur);
+			return static_cast<difference_type>(_M_buffer_size())*(_M_node - _it._M_node - 1) +
+					(_M_cur - _M_first) + (_it._M_last - _it._M_cur);
 		}
 
 		reference operator[](difference_type _n) const {
@@ -193,8 +204,8 @@ namespace naive {
 			return _M_node_allocator;
 		}
 
-		explicit _Deque_alloc_base(const allocator_type& _a) :_M_node_allocator(_a), _M_map_allocator(_a),
-															  _M_map(nullptr), _M_map_size(0) {
+		explicit _Deque_alloc_base(const allocator_type& _a) :_M_node_allocator(_a),
+													 _M_map_allocator(_a),_M_map(nullptr), _M_map_size(0) {
 		}
 
 	protected:
@@ -237,14 +248,10 @@ namespace naive {
 		typedef _Deque_iterator<_T, _T&, _T*> iterator;
 		typedef _Deque_iterator<_T, const _T&, const _T*> const_iterator;
 
-		allocator_type get_allocator() const {
-			return _MyBase::get_allocator();
-		}
-
 		explicit _Deque_base(const allocator_type& _alloc) :_MyBase(_alloc), _M_start(), _M_finish() {}
 
-		_Deque_base(const allocator_type& _alloc, std::size_t _num_elems) :_MyBase(_alloc), _M_start(), _M_finish() {
-			_M_init_map(_num_elems);//init the map in the base class of Deque.h;
+		_Deque_base(const allocator_type& _alloc, std::size_t _num_of_elements) :_MyBase(_alloc), _M_start(), _M_finish() {
+			_M_init_map(_num_of_elements);//init the map in the base class of Deque.h;
 		}
 
 		_Deque_base(const _Deque_base&) = delete;
@@ -269,7 +276,7 @@ namespace naive {
 		using _MyBase::_M_deallocate_map;
 
 
-		void _M_init_map(std::size_t _num_elems);
+		void _M_init_map(std::size_t _num_of_elements);
 		void _M_create_nodes(_T** _t_start, _T** _t_finish);
 		void _M_destroy_nodes(_T** _t_start, _T** _t_curr);
 
@@ -279,21 +286,22 @@ namespace naive {
 	};
 
 	template<class _T, class _Alloc, std::size_t _BUFF_SIZE>
-	inline void _Deque_base<_T, _Alloc, _BUFF_SIZE>::_M_init_map(std::size_t _num_elems) {
+	inline void _Deque_base<_T, _Alloc, _BUFF_SIZE>::_M_init_map(std::size_t _num_of_elements) {
 
 		// According to the number of elements passed by constructor to create the number of node in the map;
-		std::size_t _Num_nodes = (_num_elems / _deque_buf_size(_BUFF_SIZE, sizeof(_T))) + 1;
+		// The minimum number of node is 1;
+		std::size_t _Num_nodes = (_num_of_elements / _deque_buf_size(_BUFF_SIZE, sizeof(_T))) + 1;
 
-		//if num_node< 8 then the default size of map is 8;
-		//otherwise, the size of map is the number of node plus 2;
+		// If num_node< 8 then the default size of map is 8;
+		// Otherwise, the size of map is the number of node plus 2;
 		_M_map_size = naive::max(MINIMUM_SIZE_OF_MAP, _Num_nodes + 2);
 
-		// allocate the memory of map;
+		// Allocate the memory of map;
 		_M_map = _M_allocate_map(_M_map_size);
 
-		//Set the _N_start and _N_finish to the middle of map;
-		//Don't use expreesion (_M_map + _M_map_size / 2),because we need keep the
-		//same free nodes in both previous and backward position of _t_start and _t_finish;
+		// Set the _N_start and _N_finish to the middle of map;
+		// Don't use expression (_M_map + _M_map_size / 2),because we need keep the
+		// same free nodes in both previous and backward position of _t_start and _t_finish;
 		_T** _t_start = _M_map + (_M_map_size - _Num_nodes) / 2;
 		_T** _t_finish = _t_start + _Num_nodes;
 
@@ -303,13 +311,16 @@ namespace naive {
 		catch (...) {
 			//commit or rollback;
 			_M_deallocate_map(_M_map, _M_map_size);
+			_M_map=nullptr;
+			_M_map_size=0;
 		}
 
 		//set iterator _M_start and _M_finish;
 		_M_start._M_set_node(_t_start);
 		_M_finish._M_set_node(_t_finish - 1);
+
 		_M_start._M_cur = _M_start._M_first;
-		_M_finish._M_cur = _M_finish._M_first + _num_elems%_deque_buf_size(_BUFF_SIZE, sizeof(_T));
+		_M_finish._M_cur = _M_finish._M_first + _num_of_elements % _deque_buf_size(_BUFF_SIZE, sizeof(_T));
 	}
 
 	template<class _T, class _Alloc, std::size_t _BUFF_SIZE>
@@ -334,13 +345,12 @@ namespace naive {
 
 		_T** _t_begin= _t_start;
 
-		for (; _t_begin < _t_curr; ++_t_begin)
+		for (; _t_begin < _t_curr; ++_t_begin) {
 			_M_deallocate_node(*_t_begin);
+		}
 	}
 
-
-
-	//Double-ended queue;
+	//class Double-ended queue;
 	template <typename T, typename Alloc = naive::allocator<T>, std::size_t _BUFF_SIZE = 512 >
 	class Deque :public _Deque_base<T, Alloc, _BUFF_SIZE> {
 	private:
@@ -363,13 +373,13 @@ namespace naive {
 		}
 
 	protected:
-		typedef pointer* _Map_pointer;
+		typedef value_type** _Map_pointer;
 		static std::size_t _M_buffer_size() {
 			return _deque_buf_size(_BUFF_SIZE, sizeof(T));
 		}
 		void _M_fill_initialize(const value_type& value);
 
-	protected:
+	public:
 		using _Base::_M_init_map;
 		using _Base::_M_create_nodes;
 		using _Base::_M_destroy_nodes;
@@ -425,8 +435,12 @@ namespace naive {
 		}
 
 		void push_back(const value_type& value) {
+			/*
+			* Note: while the push_back operation finished, the _M_cur point
+			* to the position after the new element;
+			*/
 			if (_M_finish._M_cur != _M_finish._M_last - 1) {
-				::construct(_M_finish._M_cur, value);
+				::construct(_M_finish._M_cur, value);// the iterator point a free position in buffer;
 				++_M_finish._M_cur;
 			}
 			else {//_M_finish._M_cur == _M_finish._M_last -1;
@@ -434,8 +448,25 @@ namespace naive {
 			}
 		}
 
+		void pop_back(){
+
+			// There at least have one element in the buffer;
+			if(_M_finish._M_cur!=_M_finish._M_first){
+				// The inner buffer iterator _M_cur point to a free position in buffer;
+				// So need to decrease the _M_cur firstly;
+				--_M_finish._M_cur;
+				::destroy(_M_finish._M_cur);
+			}else{
+				_pop_back_aux();//No elements in the buffer;
+			}
+		}
+
 		void push_front(const value_type& value){
 
+			/*
+			* Note: while the push_front operation finished, the _M_cur point
+			* to the new element in the buffer;
+			*/
 			if(_M_start._M_cur!=_M_start._M_first){
 				::construct(_M_start._M_cur-1,value);
 				--_M_start._M_cur;
@@ -444,10 +475,26 @@ namespace naive {
 			}
 		}
 
+		void pop_front(){
+
+			if(_M_start._M_cur!=_M_start._M_last-1){
+				::destroy(_M_start._M_cur);
+				++_M_start._M_cur;
+			} else{// there has only a element in the buffer;
+				_pop_front_aux();
+			}
+		}
+
+		void clear();
+
 	protected:
 		void _push_back_aux(const value_type& _value);
 
+		void _pop_back_aux();
+
 		void _push_front_aux(const value_type& _value);
+
+		void _pop_front_aux();
 
 		void _M_reallocate_map(std::size_t _nodes_to_add,bool _add_at_front);
 
@@ -474,7 +521,7 @@ namespace naive {
 		_Map_pointer _cur = _M_start._M_node;
 
 		try {
-			// init nodes, the golbel function just need iterator type, so *_curr is ok;
+			// init nodes, the global function just need iterator type, so *_curr is ok;
 			for (; _cur < _M_finish._M_node; ++_cur) {
 				naive::uninitialized_fill(*_cur, *_cur + _M_buffer_size(), value);
 			}
@@ -489,21 +536,23 @@ namespace naive {
 	template<typename T, typename Alloc, std::size_t _BUFF_SIZE>
 	inline void Deque<T, Alloc, _BUFF_SIZE>::_M_reallocate_map(std::size_t _nodes_to_add, bool _add_at_front){
 
-		std::size_t _old_num_of_node=_M_finish._M_node-_M_start._M_node+1;
-		std::size_t _new_num_of_node=_old_num_of_node+_nodes_to_add;
+		std::size_t _used_num_of_node=_M_finish._M_node-_M_start._M_node+1;//the number of used nodes in the map;
+		std::size_t _new_num_of_node=_used_num_of_node+_nodes_to_add;
 
 		_Map_pointer _new_t_start=nullptr;
 
 		if(_M_map_size>2*_new_num_of_node){
 
-			_new_t_start=_M_map+(_M_map_size=_new_num_of_node)/2+(_add_at_front? _nodes_to_add:0);
+			_new_t_start=(_M_map+(_M_map_size - _new_num_of_node)/2)+(_add_at_front? _nodes_to_add:0);
 
 			if(_new_t_start<_M_start._M_node) {
 				naive::copy(_M_start._M_node, _M_finish._M_node + 1, _new_t_start);
 			}else {
-				naive::copy_backward(_M_start._M_node, _M_finish._M_node + 1, _new_t_start + _old_num_of_node);
+				naive::copy_backward(_M_start._M_node, _M_finish._M_node + 1, _new_t_start + _used_num_of_node);
 			}
 		}else{
+
+			//allocate a new memory for map;
 			std::size_t _new_t_map_size=_M_map_size+::naive::max(_M_map_size,_nodes_to_add)+2;
 			_Map_pointer _new_t_map=_M_allocate_map(_new_t_map_size);
 
@@ -517,7 +566,7 @@ namespace naive {
 		}
 
 		_M_start._M_set_node(_new_t_start);
-		_M_finish._M_set_node(_new_t_start+_old_num_of_node-1);
+		_M_finish._M_set_node(_new_t_start+_used_num_of_node-1);
 
 	}
 
@@ -543,6 +592,15 @@ namespace naive {
 	}
 
 	template<typename T, typename Alloc, std::size_t _BUFF_SIZE>
+	inline void Deque<T, Alloc, _BUFF_SIZE>::_pop_back_aux(){
+		//
+		_M_deallocate_node(_M_finish._M_first);
+		_M_finish._M_set_node(_M_finish._M_node-1);
+		_M_finish._M_cur=_M_finish._M_last-1;
+		::destroy(_M_finish._M_cur);//destroy a element in the buffer point by the previous node;
+	}
+
+	template<typename T, typename Alloc, std::size_t _BUFF_SIZE>
 	inline void Deque<T, Alloc, _BUFF_SIZE>::_push_front_aux(const value_type & _value){
 
 		value_type _t_value=_value;
@@ -558,7 +616,54 @@ namespace naive {
 			++_M_start;
 			_M_deallocate_node(*(_M_start._M_node-1));
 		}
-	};
+	}
+
+	template<typename T, typename Alloc, std::size_t _BUFF_SIZE>
+	inline void Deque<T, Alloc, _BUFF_SIZE>::_pop_front_aux(){
+
+		::destroy(_M_start._M_cur);
+
+		_M_deallocate_node(_M_start._M_first);
+		_M_start._M_set_node(_M_start._M_node+1);
+		_M_start._M_cur=_M_start._M_first;
+	}
+
+	template<typename T, typename Alloc, std::size_t _BUFF_SIZE>
+	inline void Deque<T, Alloc, _BUFF_SIZE>::clear(){
+
+		difference_type _t_num_nodes=_M_finish._M_node-_M_start._M_node+1;
+
+		/*
+		 * Note: In the buffers point by _M_start and _M_finish may has free some positions;
+		 * The buffers in the range (_M_start,_M_finish) there has the same number of elements with
+		 * buffer size(512/sizeof(T));
+		 *
+		 */
+		if(_t_num_nodes>=3) {
+
+			for (_Map_pointer _t_node=_M_start._M_node+1; _t_node < _M_finish._M_node; ++_t_node) {
+				::destroy(*_t_node, *_t_node + _M_buffer_size());
+				_M_deallocate_node(*_t_node);
+			}
+
+		}else{
+
+			if(_t_num_nodes==2){
+
+				::destroy(_M_start._M_cur,_M_start._M_last);
+				::destroy(_M_finish._M_first,_M_finish._M_cur);
+				_M_deallocate_node(_M_finish._M_first);
+			}
+
+			if(_t_num_nodes==1){
+
+				::destroy(_M_start._M_cur,_M_finish._M_cur);
+			}
+		}
+
+		//_M_finish._M_set_node(_M_start._M_node);
+		_M_finish=_M_start;
+	}
 
 }
 

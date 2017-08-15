@@ -6,20 +6,26 @@ using namespace std;
 
 int main(){
 	
-	naive::Deque<int> idq(20,200);
-	cout<<"size of Deque="<<idq.size()<<endl;
-    idq.push_back(100);
-
-	auto it1=idq.begin();
-
-	cout<<"it1="<<*it1<<endl;
+	naive::Deque<int> idq;
 	//cout<<"size of Deque="<<idq.size()<<endl;
 
-	idq.push_front(101);
-	auto it2=idq.begin();
+	for(int i=0;i<20;++i)
+		idq.push_back(0);
 
-	cout<<"it2="<<*it2<<endl;
+	for(int i=0;i<20;++i)
+		idq.push_front(1);
+
+	for(auto it=idq.begin();it<idq.end();++it){
+		cout<<*it<<" ";
+	}
+	cout<<endl;
+
+
 	cout<<"size of Deque="<<idq.size()<<endl;
+
+	idq.clear();
+	cout<<"size of Deque="<<idq.size()<<endl;
+
 
 	return 0;
 }
