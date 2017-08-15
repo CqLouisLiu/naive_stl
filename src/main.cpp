@@ -20,7 +20,11 @@ int main(){
 	}
 	cout<<endl;
 
+	idq.push_front(11);
+	idq.push_back(99);
 
+	cout<<"back="<<idq.back()<<endl;
+	cout<<"front="<<idq.front()<<endl;
 	cout<<"size of Deque="<<idq.size()<<endl;
 
 	idq.clear();

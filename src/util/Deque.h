@@ -373,7 +373,7 @@ namespace naive {
 		}
 
 	protected:
-		typedef value_type** _Map_pointer;
+		typedef pointer* _Map_pointer;
 		static std::size_t _M_buffer_size() {
 			return _deque_buf_size(_BUFF_SIZE, sizeof(T));
 		}
@@ -434,6 +434,34 @@ namespace naive {
 			return static_cast<size_type>(-1);
 		}
 
+		reference operator[](std::size_t n){
+			return _M_start[static_cast<difference_type>(n)];
+		}
+
+		const_reference operator[](std::size_t n) const{
+			return _M_start[static_cast<difference_type>(n)];
+		}
+
+		reference front(){
+			return *_M_start;
+		}
+
+		const_reference front() const{
+			return *_M_start;
+		}
+
+		reference back(){
+			return *(_M_finish._M_cur-1);
+		}
+
+		const_reference back() const{
+			return *(_M_finish._M_cur-1);
+		}
+
+		bool empty() const{
+			return _M_finish==_M_start;
+		}
+
 		void push_back(const value_type& value) {
 			/*
 			* Note: while the push_back operation finished, the _M_cur point
@@ -486,6 +514,12 @@ namespace naive {
 		}
 
 		void clear();
+
+		void erase(iterator pos);
+
+		iterator erase(iterator first,iterator last);
+
+		iterator insert(iterator pos, const value_type& value);
 
 	protected:
 		void _push_back_aux(const value_type& _value);
@@ -664,7 +698,7 @@ namespace naive {
 		//_M_finish._M_set_node(_M_start._M_node);
 		_M_finish=_M_start;
 	}
-
+	
 }
 
 #endif //NAIVE_STL_DEQUE_H
