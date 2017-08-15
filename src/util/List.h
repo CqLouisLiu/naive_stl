@@ -41,7 +41,7 @@ namespace naive {
 		//Copy-constructor;
 		_List_iterator(const iterator& it) :_M_node(it._M_node) {}
 
-		//Some overload funtions make this class behaviour like really iterator;
+		//Some overload functions make this class behaviour like really iterator;
 		bool operator==(const Self& lt) const {
 			return _M_node == lt._M_node;
 		}

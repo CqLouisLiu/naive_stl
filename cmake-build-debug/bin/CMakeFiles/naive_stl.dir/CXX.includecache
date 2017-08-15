@@ -77,6 +77,8 @@ stl_type_traits.h
 /cygdrive/f/workspaces/naive_stl/src/stl_alloc.h
 ../stl_uninitialized.h
 /cygdrive/f/workspaces/naive_stl/src/stl_uninitialized.h
+../stl_alloc.h
+/cygdrive/f/workspaces/naive_stl/src/stl_alloc.h
 
 /cygdrive/f/workspaces/naive_stl/src/util/List.h
 ../iterator.h
