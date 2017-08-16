@@ -5,7 +5,7 @@
 #include <climits>
 #include <cstdlib>
 #include "stl_construct.h"
-using std::size_t;
+
 /*
 * @Author: Shuai Liu
 * @Email: cqutliushuai@gmail.com
@@ -23,7 +23,7 @@ namespace naive
 		typedef const _T *const_pointer;
 		typedef _T &reference;
 		typedef const _T &const_reference;
-		typedef size_t size_type;
+		typedef std::size_t size_type;
 		typedef ptrdiff_t difference_type;
 		//typedef 
 		typedef std::true_type propagate_on_container_move_assignment;
@@ -32,7 +32,7 @@ namespace naive
 	public:
 		/*
 		* The inside template rebind is used when value_type/T need to
-		* transform to another defined inside a container, for example, std::List<int,naive::Allocate<int>> should		* transform int to List<int>::node defined in class List, and we can use Allocate<int>::rebind<node> inside
+		* transform to another defined inside a _container, for example, std::List<int,naive::Allocate<int>> should		* transform int to List<int>::node defined in class List, and we can use Allocate<int>::rebind<node> inside
 		* the List;
 		*
 		*/
@@ -47,19 +47,22 @@ namespace naive
 		}
 
 		//Default copying constructor;
-		allocator(const allocator<_T> &) noexcept{
+		allocator(const allocator& _alloc) noexcept{
 			//Nothing to do;
 		}
 
+		allocator(const allocator<_T>&& _alloc)= delete;
+
 		// Convert to related Allocator;
 		template <typename U>
-		allocator(const allocator<U> &){
+		allocator(const allocator<U>& _alloc){
 			//Nothing to do, because Allocator has any member fileds.
 		}
 
-		~allocator() {}
+		allocator& operator=(const allocator&) = delete;
+		allocator& operator=(const allocator&&)= delete;
 
-		allocator<_T> &operator=(const allocator &) = delete;
+		~allocator() {}
 
 		// Allocate arrary of _n*sizeof(T) size;
 		pointer allocate(size_type _n, const void *hint = nullptr){
@@ -73,7 +76,6 @@ namespace naive
 			if (temp == nullptr){
 
 				throw std::out_of_range("Out of memory..");
-				exit(1);
 			}
 
 			return temp;
@@ -131,12 +133,12 @@ namespace naive
 	//According to C++ standard, there are two non-menber functions for comparing two
 	//Allocator instances;
 	template <typename _T>
-	inline bool operator==(const allocator<_T> &, const allocator<_T> &){
+	inline bool operator==(const allocator<_T>& _alloc1, const allocator<_T>& _alloc2){
 		return true;
 	}
 
 	template <typename _T>
-	inline bool operator!=(const allocator<_T> &, const allocator<_T> &){
+	inline bool operator!=(const allocator<_T>& _alloc1, const allocator<_T>& _alloc2){
 		return false;
 	}
 

@@ -6,7 +6,7 @@
 
 namespace naive {
 
-	/*Suppose not use static interfaces to implemnt.
+	/*Suppose not use static interfaces to implement.
 	*All memory operations are in _Vector_base;
 	*/
 	template<typename _T, typename _Alloc>
@@ -15,11 +15,12 @@ namespace naive {
 	public:
 
 		typedef _Alloc allocator_type;//naive::allocator<_T>;
+
 		allocator_type get_allocator() const {
 			return _data_allocator;
 		}
 
-		_Vector_base(const allocator_type& _alloc) :_start(nullptr), _finish(nullptr),
+		explicit _Vector_base(const allocator_type& _alloc) :_start(nullptr), _finish(nullptr),
 													_end_of_storage(nullptr) {}
 
 		_Vector_base(size_t n, const allocator_type& _alloc) :_data_allocator(_alloc), _start(nullptr), _finish(nullptr),
@@ -29,7 +30,9 @@ namespace naive {
 			_end_of_storage = _start + n;
 		}
 
-		~_Vector_base() noexcept {
+
+		~_Vector_base() {
+			::destroy(_start, _finish);
 			_data_allocator.deallocate(_start, static_cast<size_t>(_end_of_storage - _start));
 		}
 
@@ -63,14 +66,11 @@ namespace naive {
 		typedef naive::random_access_iterator_tag iterator_category;
 		typedef value_type& reference;
 		typedef const value_type& const_reference;
-		typedef size_t size_type;
+		typedef std::size_t size_type;
 		typedef ptrdiff_t difference_type;
 
 		typedef typename _MyBase::allocator_type allocator_type;
 
-		allocator_type get_allocator() const {
-			return _MyBase::get_allocator();
-		}
 
 	protected:
 		using _MyBase::_start;
@@ -99,16 +99,15 @@ namespace naive {
 
 	public:
 
-
 		//The construtors of Vector;
-		explicit Vector(const allocator_type& __a = allocator_type()) noexcept
+		explicit Vector(const allocator_type& __a = allocator_type())
 				: _MyBase(__a) {}
 
-		explicit Vector(size_type n) noexcept : _MyBase(n, allocator_type()) {
+		explicit Vector(size_type n)  : _MyBase(n, allocator_type()) {
 			_finish = naive::uninitialized_fill_n(_start, n, value_type());
 		}
 
-		Vector(size_type n, const _T& value) noexcept : _MyBase(n, allocator_type()) {
+		Vector(size_type n, const _T& value)  : _MyBase(n, allocator_type()) {
 			_finish = naive::uninitialized_fill_n(_start, n, value);
 		}
 
@@ -117,22 +116,6 @@ namespace naive {
 			_finish = naive::uninitialized_copy(init.begin(), init.end(), _start);
 		}
 
-		template<typename InputIt>
-		void __initialize_aux(InputIt first, InputIt last, naive::false_type) {
-
-		}
-
-		template<typename InputIt>
-		void __initialize_aux(InputIt first, InputIt last, naive::true_type) {
-
-		}
-
-		template <typename InputIt>
-		Vector(InputIt first, InputIt last, const allocator_type& __a = allocator_type()) :_MyBase(__a) {
-			//typedef typename naive::is_integral_type<std::is_integral_type<InputIt>::value>::is_integral_type is_integral_type;
-			//接下来根据是不是int具体处理;
-
-		}
 
 		/*
 		* Becasue we set allcate memory functions in _Vector_base, so copy constructor should as following;
@@ -140,7 +123,7 @@ namespace naive {
 		* 2)get size from rhs;
 		* 3)use alloctor and size to init current Vector;
 		*/
-		Vector(Vector& rhs) noexcept:_MyBase(rhs.size(), rhs.get_allocator()) {
+		Vector(Vector& rhs) :_MyBase(rhs.size(), rhs.get_allocator()) {
 			_finish = naive::uninitialized_copy(rhs.begin(), rhs.end(), _start);
 		}
 
@@ -155,12 +138,12 @@ namespace naive {
 		}
 
 		//copy-swap, it determine by the object if it has move-constructor;
-		Vector& operator= (const Vector rhs) noexcept {
+		Vector& operator= (const Vector rhs) {
 			std::swap(*this, rhs);
 			return *this;
 		}
 
-		Vector& operator= (const Vector&& rhs) noexcept {
+		Vector& operator= (Vector&& rhs) noexcept {
 			std::swap(_start, rhs._start);
 			std::swap(_finish, rhs._finish);
 			std::swap(_end_of_storage, rhs._end_of_storage);
@@ -169,9 +152,7 @@ namespace naive {
 			return *this;
 		}
 
-		~Vector() {
-			::destroy(_start, _finish);
-		}
+		//~Vector(){}
 
 		iterator begin() noexcept {
 			return _start;
@@ -318,6 +299,17 @@ namespace naive {
 
 		void clear() {
 			erase(begin(), end());
+		}
+
+	protected:
+		template<typename InputIt>
+		void __initialize_aux(InputIt first, InputIt last, naive::false_type) {
+
+		}
+
+		template<typename InputIt>
+		void __initialize_aux(InputIt first, InputIt last, naive::true_type) {
+
 		}
 
 

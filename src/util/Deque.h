@@ -394,8 +394,11 @@ namespace naive {
 		using _Base::_M_finish;
 
 	public:
+
 		explicit Deque(const allocator_type& alloc = allocator_type())
 				: _Base(alloc, 0) {}
+
+		//Deque(const allocator_type& alloc = allocator_type(),const Deque& _dqe): _Base(alloc){}
 
 		Deque(size_type n, const value_type& value, const allocator_type alloc = allocator_type()) :_Base(alloc, n) {
 			//naive::un
@@ -698,7 +701,7 @@ namespace naive {
 		//_M_finish._M_set_node(_M_start._M_node);
 		_M_finish=_M_start;
 	}
-	
+
 }
 
 #endif //NAIVE_STL_DEQUE_H

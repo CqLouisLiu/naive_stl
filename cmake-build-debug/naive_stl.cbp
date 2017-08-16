@@ -92,9 +92,6 @@
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/main.cpp">
 			<Option target="naive_stl"/>
 		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/map.h">
-			<Option target="naive_stl"/>
-		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/memory.h">
 			<Option target="naive_stl"/>
 		</Unit>
@@ -132,6 +129,12 @@
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/List.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Map.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Queue.h">
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Set.h">
