@@ -152,6 +152,33 @@ main.cpp.s:
 	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+net/File.o: net/File.cpp.o
+
+.PHONY : net/File.o
+
+# target to build an object file
+net/File.cpp.o:
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/net/File.cpp.o
+.PHONY : net/File.cpp.o
+
+net/File.i: net/File.cpp.i
+
+.PHONY : net/File.i
+
+# target to preprocess a source file
+net/File.cpp.i:
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/net/File.cpp.i
+.PHONY : net/File.cpp.i
+
+net/File.s: net/File.cpp.s
+
+.PHONY : net/File.s
+
+# target to generate assembly for a file
+net/File.cpp.s:
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/net/File.cpp.s
+.PHONY : net/File.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -164,6 +191,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... net/File.o"
+	@echo "... net/File.i"
+	@echo "... net/File.s"
 .PHONY : help
 
 

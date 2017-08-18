@@ -33,7 +33,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.8.2/CMakeRCCompiler.cmake"
   "CMakeFiles/3.8.2/CMakeSystem.cmake"
   "../src/CMakeLists.txt"
-  "../src/net/CMakeLists.txt"
   "../src/util/CMakeLists.txt"
   )
 
@@ -47,7 +46,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "bin/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "src/net/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/util/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

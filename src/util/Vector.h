@@ -1,3 +1,7 @@
+//
+// Created by Shuai on 2017/5/20.
+//
+
 #ifndef _NAIVE_VECTOR_H
 #define _NAIVE_VECTOR_H
 
@@ -6,9 +10,18 @@
 
 namespace naive {
 
-	/*Suppose not use static interfaces to implement.
-	*All memory operations are in _Vector_base;
-	*/
+	/* Suppose not use static interfaces to implement.
+	 * All memory operations are in _Vector_base because:
+	 * 1. If a exception is thrown by naive::allocate, the exception will
+	 *    jump back to the user code, we need no to use try/catch in the Vector constructors;
+	 * 2. If a exception is thrown in Vector because of can't construct Vector in user code,
+	 *    the destructor of _Vector_base will be executed;
+	 *
+	 * All of those ideas are according to:
+	 * An object that is partially constructed or partially destroyed will have destructors executed for all its fully
+	 * constructed sub-objects,that is, for sub-objects for which the constructor has been completed execution and the
+	 * destructor has not yet begun execution
+	 */
 	template<typename _T, typename _Alloc>
 	class _Vector_base {
 

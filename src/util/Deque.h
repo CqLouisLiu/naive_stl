@@ -479,6 +479,10 @@ namespace naive {
 			}
 		}
 
+		void push_back(value_type&& value){
+			push_back(std::move(value));
+		}
+
 		void pop_back(){
 
 			// There at least have one element in the buffer;
@@ -504,6 +508,10 @@ namespace naive {
 			}else{
 				_push_front_aux(value);
 			}
+		}
+
+		void push_front(value_type&& value) {
+				push_front(std::move(value));
 		}
 
 		void pop_front(){
