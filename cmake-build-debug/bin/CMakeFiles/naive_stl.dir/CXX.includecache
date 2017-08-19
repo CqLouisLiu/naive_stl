@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/cygdrive/f/workspaces/naive_stl/src/io/File.cpp
+File.h
+/cygdrive/f/workspaces/naive_stl/src/io/File.h
+
+/cygdrive/f/workspaces/naive_stl/src/io/File.h
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+
 /cygdrive/f/workspaces/naive_stl/src/main.cpp
 iostream
 -
@@ -13,6 +25,8 @@ util/Stack.h
 /cygdrive/f/workspaces/naive_stl/src/util/Stack.h
 util/Queue.h
 /cygdrive/f/workspaces/naive_stl/src/util/Queue.h
+util/Deque.h
+/cygdrive/f/workspaces/naive_stl/src/util/Deque.h
 
 /cygdrive/f/workspaces/naive_stl/src/stl_algo.h
 stl_config.h

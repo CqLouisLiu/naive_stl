@@ -1,6 +1,7 @@
 #include <iostream>
 #include "util/Stack.h"
 #include "util/Queue.h"
+#include "util/Deque.h"
 //#include <util/Queue.h>
 
 
@@ -23,6 +24,14 @@ int main(){
 	std::cout << s.size() << " elements on stack\n";
 	std::cout << "Top element: " << s.front() << "\n";
 
+
+	naive::Deque<int> idq(20,1);
+
+	naive::Deque<int>::iterator it=idq.begin();
+
+	it++;
+
+	cout<<*it<<endl;
 
 	return 0;
 }

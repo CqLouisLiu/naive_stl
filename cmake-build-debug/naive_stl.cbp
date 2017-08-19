@@ -5,7 +5,7 @@
 		<Option title="naive_stl"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\src\util\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\src\net\;CMake Files\src\util\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/cygdrive/f/workspaces/naive_stl/cmake-build-debug"/>
@@ -83,6 +83,12 @@
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/algorithm.h">
 			<Option target="naive_stl"/>
 		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/io/File.cpp">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/io/File.h">
+			<Option target="naive_stl"/>
+		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/iterator.h">
 			<Option target="naive_stl"/>
 		</Unit>
@@ -90,12 +96,6 @@
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/memory.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/net/File.cpp">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/net/File.h">
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/stl_algo.h">
@@ -160,6 +160,9 @@
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/net/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\net\"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\util\"/>

@@ -33,7 +33,7 @@ namespace naive {
 		typedef _Deque_iterator<_T, const _T&, const _T*> const_iterator;
 		typedef _T** _Map_pointer;
 
-		typedef _Deque_iterator _Self;
+		typedef _Deque_iterator<_T,_Ref,_Ptr> _Self;
 
 		_T* _M_cur;//point to the current element in a buffer;
 		_T* _M_first;//point to the first element in a buffer;
@@ -55,7 +55,18 @@ namespace naive {
 
 		_Deque_iterator(_T* _cur, _Map_pointer _node) :_M_cur(_cur), _M_first(*_node), _M_last(*_node + _M_buffer_size()), _M_node(_node) {}
 
-		_Deque_iterator(const iterator& _it) :_M_cur(_it._M_cur), _M_first(_it._M_first), _M_last(_it._M_last), _M_node(_it._M_node) {}
+		 _Deque_iterator(const _Deque_iterator<_T, _T&, _T*>& _it) :_M_cur(_it._M_cur), _M_first(_it._M_first), _M_last(_it._M_last), _M_node(_it._M_node) {}
+
+
+		/*
+		_Deque_iterator& operator=(const _Deque_iterator& _it){
+			_M_cur=_it._M_cur;
+			_M_first=_it._M_first;
+			_M_last=_it._M_last;
+			_M_node=_it._M_node;
+
+			return *this;
+		}*/
 
 		void _M_set_node(_Map_pointer _new_node) {
 			_M_node = _new_node;
@@ -204,8 +215,8 @@ namespace naive {
 			return _M_node_allocator;
 		}
 
-		explicit _Deque_alloc_base(const allocator_type& _a) :_M_node_allocator(_a),
-													 _M_map_allocator(_a),_M_map(nullptr), _M_map_size(0) {
+		explicit _Deque_alloc_base(const allocator_type& _a) :
+				_M_node_allocator(_a), _M_map_allocator(_a),_M_map(nullptr), _M_map_size(0) {
 		}
 
 	protected:
@@ -254,13 +265,7 @@ namespace naive {
 			_M_init_map(_num_of_elements);//init the map in the base class of Deque.h;
 		}
 
-		_Deque_base(const _Deque_base&) = delete;
-
-		_Deque_base(const _Deque_base&&) = delete;
-
-		_Deque_base& operator=(const _Deque_base&) = delete;
-
-		_Deque_base& operator=(const _Deque_base&&) = delete;
+		//_Deque_base()
 
 		~_Deque_base() {
 			_M_destroy_nodes(_M_start._M_node, _M_finish._M_node + 1);
@@ -365,12 +370,8 @@ namespace naive {
 		typedef std::ptrdiff_t difference_type;
 		typedef typename _Base::iterator       iterator;
 		typedef typename _Base::const_iterator const_iterator;
-
 		typedef typename _Base::allocator_type allocator_type;
 
-		allocator_type get_allocator() const {
-			return _Base::get_allocator();
-		}
 
 	protected:
 		typedef pointer* _Map_pointer;
@@ -380,6 +381,7 @@ namespace naive {
 		void _M_fill_initialize(const value_type& value);
 
 	public:
+		using _Base::get_allocator;
 		using _Base::_M_init_map;
 		using _Base::_M_create_nodes;
 		using _Base::_M_destroy_nodes;
@@ -414,7 +416,7 @@ namespace naive {
 		}
 
 		const_iterator cbegin() const {
-			return _M_start;
+			return const_iterator(_M_start);
 		}
 
 		iterator end() {

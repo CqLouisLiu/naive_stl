@@ -2,7 +2,7 @@
 #define _NAIVE_LIST_H
 
 #include "../iterator.h"
-#include "memory.h"
+#include "../memory.h"
 #include <initializer_list>
 
 namespace naive {
@@ -31,7 +31,7 @@ namespace naive {
 		typedef ptrdiff_t difference_type;
 		typedef naive::bidirectional_iterator_tag iterator_category;
 
-		typedef _List_iterator<_T, _Ref, _Ptr>             Self;
+		typedef _List_iterator<_T, _Ref, _Ptr>             _Self;
 
 		_List_node<_T>* _M_node;//For pointing current node;
 
@@ -42,11 +42,11 @@ namespace naive {
 		_List_iterator(const iterator& it) :_M_node(it._M_node) {}
 
 		//Some overload functions make this class behaviour like really iterator;
-		bool operator==(const Self& lt) const {
+		bool operator==(const _Self& lt) const {
 			return _M_node == lt._M_node;
 		}
 
-		bool operator!=(const Self& lt) const {
+		bool operator!=(const _Self& lt) const {
 			return _M_node != lt._M_node;
 		}
 
@@ -57,27 +57,27 @@ namespace naive {
 		//pointer operator->() const {}
 
 		//++it;
-		Self& operator++() {
+		_Self& operator++() {
 			_M_node = _M_node->_next;
 			return *this;
 		}
 
 		//it++;
-		Self operator++(int) {
-			Self _old = *this;
+		_Self operator++(int) {
+			_Self _old = *this;
 			++(*this);
 			return _old;
 		}
 
 		//--it;
-		Self& operator--() {
+		_Self& operator--() {
 			_M_node = _M_node->_prev;
 			return *this;
 		}
 
 		//it--;
-		Self operator--(int) {
-			Self _old = *this;
+		_Self operator--(int) {
+			_Self _old = *this;
 			--(*this);
 			return _old;
 		}

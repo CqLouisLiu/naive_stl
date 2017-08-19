@@ -81,40 +81,40 @@ bin/CMakeFiles/naive_stl.dir/main.cpp.o.provides: bin/CMakeFiles/naive_stl.dir/m
 bin/CMakeFiles/naive_stl.dir/main.cpp.o.provides.build: bin/CMakeFiles/naive_stl.dir/main.cpp.o
 
 
-bin/CMakeFiles/naive_stl.dir/net/File.cpp.o: bin/CMakeFiles/naive_stl.dir/flags.make
-bin/CMakeFiles/naive_stl.dir/net/File.cpp.o: ../src/net/File.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object bin/CMakeFiles/naive_stl.dir/net/File.cpp.o"
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && /usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/naive_stl.dir/net/File.cpp.o -c /cygdrive/f/workspaces/naive_stl/src/net/File.cpp
+bin/CMakeFiles/naive_stl.dir/io/File.cpp.o: bin/CMakeFiles/naive_stl.dir/flags.make
+bin/CMakeFiles/naive_stl.dir/io/File.cpp.o: ../src/io/File.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object bin/CMakeFiles/naive_stl.dir/io/File.cpp.o"
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && /usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/naive_stl.dir/io/File.cpp.o -c /cygdrive/f/workspaces/naive_stl/src/io/File.cpp
 
-bin/CMakeFiles/naive_stl.dir/net/File.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/naive_stl.dir/net/File.cpp.i"
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && /usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/f/workspaces/naive_stl/src/net/File.cpp > CMakeFiles/naive_stl.dir/net/File.cpp.i
+bin/CMakeFiles/naive_stl.dir/io/File.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/naive_stl.dir/io/File.cpp.i"
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && /usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/f/workspaces/naive_stl/src/io/File.cpp > CMakeFiles/naive_stl.dir/io/File.cpp.i
 
-bin/CMakeFiles/naive_stl.dir/net/File.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/naive_stl.dir/net/File.cpp.s"
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && /usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/f/workspaces/naive_stl/src/net/File.cpp -o CMakeFiles/naive_stl.dir/net/File.cpp.s
+bin/CMakeFiles/naive_stl.dir/io/File.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/naive_stl.dir/io/File.cpp.s"
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && /usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/f/workspaces/naive_stl/src/io/File.cpp -o CMakeFiles/naive_stl.dir/io/File.cpp.s
 
-bin/CMakeFiles/naive_stl.dir/net/File.cpp.o.requires:
+bin/CMakeFiles/naive_stl.dir/io/File.cpp.o.requires:
 
-.PHONY : bin/CMakeFiles/naive_stl.dir/net/File.cpp.o.requires
+.PHONY : bin/CMakeFiles/naive_stl.dir/io/File.cpp.o.requires
 
-bin/CMakeFiles/naive_stl.dir/net/File.cpp.o.provides: bin/CMakeFiles/naive_stl.dir/net/File.cpp.o.requires
-	$(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/net/File.cpp.o.provides.build
-.PHONY : bin/CMakeFiles/naive_stl.dir/net/File.cpp.o.provides
+bin/CMakeFiles/naive_stl.dir/io/File.cpp.o.provides: bin/CMakeFiles/naive_stl.dir/io/File.cpp.o.requires
+	$(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/io/File.cpp.o.provides.build
+.PHONY : bin/CMakeFiles/naive_stl.dir/io/File.cpp.o.provides
 
-bin/CMakeFiles/naive_stl.dir/net/File.cpp.o.provides.build: bin/CMakeFiles/naive_stl.dir/net/File.cpp.o
+bin/CMakeFiles/naive_stl.dir/io/File.cpp.o.provides.build: bin/CMakeFiles/naive_stl.dir/io/File.cpp.o
 
 
 # Object files for target naive_stl
 naive_stl_OBJECTS = \
 "CMakeFiles/naive_stl.dir/main.cpp.o" \
-"CMakeFiles/naive_stl.dir/net/File.cpp.o"
+"CMakeFiles/naive_stl.dir/io/File.cpp.o"
 
 # External object files for target naive_stl
 naive_stl_EXTERNAL_OBJECTS =
 
 bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/main.cpp.o
-bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/net/File.cpp.o
+bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/io/File.cpp.o
 bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/build.make
 bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable naive_stl.exe"
@@ -126,7 +126,7 @@ bin/CMakeFiles/naive_stl.dir/build: bin/naive_stl.exe
 .PHONY : bin/CMakeFiles/naive_stl.dir/build
 
 bin/CMakeFiles/naive_stl.dir/requires: bin/CMakeFiles/naive_stl.dir/main.cpp.o.requires
-bin/CMakeFiles/naive_stl.dir/requires: bin/CMakeFiles/naive_stl.dir/net/File.cpp.o.requires
+bin/CMakeFiles/naive_stl.dir/requires: bin/CMakeFiles/naive_stl.dir/io/File.cpp.o.requires
 
 .PHONY : bin/CMakeFiles/naive_stl.dir/requires
 

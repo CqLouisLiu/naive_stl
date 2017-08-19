@@ -16,6 +16,7 @@ set(SOURCE_FILES
         type_traits.h
         util/Vector.h util/Map.h
         util/Set.h util/Stack.h util/String.h
-        util/Deque.h util/Queue.h stl_rb_tree.h net/File.h net/File.h net/File.cpp)
+        util/Deque.h util/Queue.h stl_rb_tree.h
+        io/File.h io/File.h io/File.cpp)
 
 add_executable(naive_stl ${SOURCE_FILES})

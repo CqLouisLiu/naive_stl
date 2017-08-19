@@ -115,6 +115,24 @@ clean: bin/CMakeFiles/naive_stl.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory src/net
+
+# Convenience name for "all" pass in the directory.
+src/net/all:
+
+.PHONY : src/net/all
+
+# Convenience name for "clean" pass in the directory.
+src/net/clean:
+
+.PHONY : src/net/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/net/preinstall:
+
+.PHONY : src/net/preinstall
+
+#=============================================================================
 # Directory level rules for directory src/util
 
 # Convenience name for "all" pass in the directory.

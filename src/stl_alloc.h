@@ -42,31 +42,25 @@ namespace naive
 		};
 
 		//Default constructor;
-		allocator() noexcept{
-			//Nothing to do;
-		}
+		allocator()= default;
 
 		//Default copying constructor;
-		allocator(const allocator& _alloc) noexcept{
-			//Nothing to do;
-		}
+		allocator(const allocator& _alloc)= default;
 
-		allocator(const allocator<_T>&& _alloc)= delete;
+		allocator(allocator<_T>&& _alloc) noexcept = default;
 
 		// Convert to related Allocator;
 		template <typename U>
-		allocator(const allocator<U>& _alloc){
-			//Nothing to do, because Allocator has any member fileds.
-		}
+		allocator(const allocator<U>& _alloc){}
 
-		allocator& operator=(const allocator&) = delete;
-		allocator& operator=(const allocator&&)= delete;
+		allocator& operator=(const allocator&) = default;
+		allocator& operator=(allocator&&)= default;
 
 		~allocator() {}
 
 		// Allocate arrary of _n*sizeof(T) size;
 		pointer allocate(size_type _n, const void *hint = nullptr){
-			std::set_new_handler(nullptr); //暂时不抛出异常;
+			std::set_new_handler(nullptr);
 
 			if (_n == 0)
 				return nullptr;

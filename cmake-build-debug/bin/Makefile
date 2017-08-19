@@ -125,6 +125,33 @@ naive_stl/fast:
 	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/build
 .PHONY : naive_stl/fast
 
+io/File.o: io/File.cpp.o
+
+.PHONY : io/File.o
+
+# target to build an object file
+io/File.cpp.o:
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/io/File.cpp.o
+.PHONY : io/File.cpp.o
+
+io/File.i: io/File.cpp.i
+
+.PHONY : io/File.i
+
+# target to preprocess a source file
+io/File.cpp.i:
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/io/File.cpp.i
+.PHONY : io/File.cpp.i
+
+io/File.s: io/File.cpp.s
+
+.PHONY : io/File.s
+
+# target to generate assembly for a file
+io/File.cpp.s:
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/io/File.cpp.s
+.PHONY : io/File.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -152,33 +179,6 @@ main.cpp.s:
 	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-net/File.o: net/File.cpp.o
-
-.PHONY : net/File.o
-
-# target to build an object file
-net/File.cpp.o:
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/net/File.cpp.o
-.PHONY : net/File.cpp.o
-
-net/File.i: net/File.cpp.i
-
-.PHONY : net/File.i
-
-# target to preprocess a source file
-net/File.cpp.i:
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/net/File.cpp.i
-.PHONY : net/File.cpp.i
-
-net/File.s: net/File.cpp.s
-
-.PHONY : net/File.s
-
-# target to generate assembly for a file
-net/File.cpp.s:
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/net/File.cpp.s
-.PHONY : net/File.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -188,12 +188,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... naive_stl"
+	@echo "... io/File.o"
+	@echo "... io/File.i"
+	@echo "... io/File.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... net/File.o"
-	@echo "... net/File.i"
-	@echo "... net/File.s"
 .PHONY : help
 
 
