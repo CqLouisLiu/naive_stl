@@ -83,6 +83,39 @@
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/algorithm.h">
 			<Option target="naive_stl"/>
 		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/functional.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/dynamic_string.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_algo.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_alloc.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_array.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_config.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_construct.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_iterator.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_rb_tree.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_type_traits.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_uninitialized.h">
+			<Option target="naive_stl"/>
+		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/io/File.cpp">
 			<Option target="naive_stl"/>
 		</Unit>
@@ -98,33 +131,6 @@
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/memory.h">
 			<Option target="naive_stl"/>
 		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/stl_algo.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/stl_alloc.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/stl_array.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/stl_config.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/stl_construct.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/stl_iterator.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/stl_rb_tree.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/stl_type_traits.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/stl_uninitialized.h">
-			<Option target="naive_stl"/>
-		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/type_traits.h">
 			<Option target="naive_stl"/>
 		</Unit>
@@ -138,6 +144,9 @@
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Map.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Pair.h">
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Queue.h">

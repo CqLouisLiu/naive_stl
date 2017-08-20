@@ -6,9 +6,9 @@
 #define NAIVE_STL_DEQUE_H
 
 
-#include "../stl_alloc.h"
-#include "../stl_uninitialized.h"
-#include "../stl_alloc.h"
+#include "../internal/stl_alloc.h"
+#include "../internal/stl_uninitialized.h"
+#include "../internal/stl_alloc.h"
 
 namespace naive {
 

@@ -5,14 +5,14 @@ bin/CMakeFiles/naive_stl.dir/io/File.cpp.o
  /cygdrive/f/workspaces/naive_stl/src/io/File.cpp
  /cygdrive/f/workspaces/naive_stl/src/io/File.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o
+ /cygdrive/f/workspaces/naive_stl/src/internal/stl_algo.h
+ /cygdrive/f/workspaces/naive_stl/src/internal/stl_alloc.h
+ /cygdrive/f/workspaces/naive_stl/src/internal/stl_config.h
+ /cygdrive/f/workspaces/naive_stl/src/internal/stl_construct.h
+ /cygdrive/f/workspaces/naive_stl/src/internal/stl_iterator.h
+ /cygdrive/f/workspaces/naive_stl/src/internal/stl_type_traits.h
+ /cygdrive/f/workspaces/naive_stl/src/internal/stl_uninitialized.h
  /cygdrive/f/workspaces/naive_stl/src/main.cpp
- /cygdrive/f/workspaces/naive_stl/src/stl_algo.h
- /cygdrive/f/workspaces/naive_stl/src/stl_alloc.h
- /cygdrive/f/workspaces/naive_stl/src/stl_config.h
- /cygdrive/f/workspaces/naive_stl/src/stl_construct.h
- /cygdrive/f/workspaces/naive_stl/src/stl_iterator.h
- /cygdrive/f/workspaces/naive_stl/src/stl_type_traits.h
- /cygdrive/f/workspaces/naive_stl/src/stl_uninitialized.h
  /cygdrive/f/workspaces/naive_stl/src/util/Deque.h
  /cygdrive/f/workspaces/naive_stl/src/util/Queue.h
  /cygdrive/f/workspaces/naive_stl/src/util/Stack.h

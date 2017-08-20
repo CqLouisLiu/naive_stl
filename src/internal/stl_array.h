@@ -1,7 +1,7 @@
 #ifndef _NAIVE_STL_ARRAY_H
 #define _NAIVE_STL_ARRAY_H
-#include "memory.h"
-#include "algorithm.h"
+#include "../memory.h"
+#include "../algorithm.h"
 
 namespace naive {
 
