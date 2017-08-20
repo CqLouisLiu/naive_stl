@@ -17,6 +17,6 @@ set(SOURCE_FILES
         util/Vector.h util/Map.h
         util/Set.h util/Stack.h util/String.h
         util/Deque.h util/Queue.h internal/stl_rb_tree.h
-        io/File.h io/File.h io/File.cpp internal/dynamic_string.h functional.h util/Pair.h)
+        io/File.h io/File.h io/File.cpp internal/stl_dynamic_str.h functional.h utility.h internal/stl_pair.h internal/stl_hash_map.h internal/stl_hash_set.h util/MultiMap.h util/MultiSet.h internal/stl_hash_table.h)
 
 add_executable(naive_stl ${SOURCE_FILES})
