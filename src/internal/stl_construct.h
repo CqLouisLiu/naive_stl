@@ -1,6 +1,8 @@
 #ifndef _NAIVE_STL_CONSTRUCT_H
 #define _NAIVE_STL_CONSTRUCT_H
 
+
+
 #include <new>
 #include "stl_iterator.h"
 #include "stl_type_traits.h"

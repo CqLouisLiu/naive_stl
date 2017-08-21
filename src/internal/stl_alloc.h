@@ -1,3 +1,9 @@
+/*
+ * NOTE: This is an internal header file, included by other C++ headers.
+ * You should not attempt to use it directly.
+ *
+*/
+
 #ifndef _NAIVE_STL_ALLOC_H
 #define _NAIVE_STL_ALLOC_H
 

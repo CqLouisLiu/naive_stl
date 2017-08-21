@@ -113,6 +113,9 @@
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_hash_table.h">
 			<Option target="naive_stl"/>
 		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_heap.h">
+			<Option target="naive_stl"/>
+		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_iterator.h">
 			<Option target="naive_stl"/>
 		</Unit>

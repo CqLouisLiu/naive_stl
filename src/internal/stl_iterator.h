@@ -6,7 +6,6 @@
 namespace naive
 {
 
-	// 迭代器类型标记;
 	// Input&Output->Forward->Bidirectional->Random;
 	struct input_iterator_tag{};
 
@@ -18,19 +17,17 @@ namespace naive
 
 	struct random_access_iterator_tag : public bidirectional_iterator_tag{};
 
-	//自行开发的迭代器需要继承这个类;
 	template <typename _Category, typename _T, typename _Distance = ptrdiff_t, typename _Pointer = _T *, typename _Reference = _T &>
 	struct iterator
 	{
-		typedef _Category iterator_category;			 //迭代器种类;
-		typedef _T value_type;               //迭代器所指类型;
-		typedef _Distance difference_type;   //迭代器距离;
-		typedef _Pointer pointer;            //所指元素的指针类型;
-		typedef _Reference reference;        //引用;
+		typedef _Category iterator_category;
+		typedef _T value_type;
+		typedef _Distance difference_type;
+		typedef _Pointer pointer;
+		typedef _Reference reference;
 	};
 
-	
-	//获取迭代器相关类型的trait;
+
 	template <typename _Iterator>
 	struct iterator_traits
 	{
@@ -60,6 +57,26 @@ namespace naive
 		typedef _T *pointer;
 		typedef _T &reference;
 	};
+
+
+	template<typename It>
+	inline typename iterator_traits<It>::iterator_category Iterator_category(const It& _it) {
+
+		typedef typename iterator_traits<It>::iterator_category _Category;
+		return _Category();
+	}
+
+	template<typename It>
+	inline typename iterator_traits<It>::value_type* Value_type(const It& _it) {
+
+		//typedef typename iterator_traits<It>::value_type _Value_type;
+		return static_cast<typename iterator_traits<It>::value_type*>(0);
+	}
+
+	template<typename It>
+	inline typename iterator_traits<It>::difference_type* Distance_type(const It &_it) {
+		return static_cast<typename iterator_traits<It>::difference_type*>(0);
+	}
 
 	template <typename _InputIterator, typename _Distance>
 	inline void __advance(_InputIterator &iter, _Distance _n, naive::input_iterator_tag){
@@ -128,6 +145,10 @@ namespace naive
 		using category = typename naive::iterator_traits<InputIt>::iterator_category;
 		return __distance(first,last,category());
 	}
+
+
+
+
 
 #ifdef _NAIVA_STL_LIST_H
 	/*
