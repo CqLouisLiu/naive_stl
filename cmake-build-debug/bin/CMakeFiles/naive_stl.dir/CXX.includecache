@@ -85,6 +85,8 @@ iterator
 /cygdrive/f/workspaces/naive_stl/src/main.cpp
 iostream
 -
+vector
+-
 util/Vector.h
 /cygdrive/f/workspaces/naive_stl/src/util/Vector.h
 internal/stl_heap.h

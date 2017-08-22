@@ -63,29 +63,29 @@ namespace naive{
 		// the first iterator point to the start position of basic container;
 		_Distance _topIndex=_holeIndex;
 
-		_Distance _secondChild = 2 * _holeIndex + 2;//get the right child of root;
+		_Distance _rightChild = 2 * _holeIndex + 2;//get the right child of root;
 
-		while(_secondChild<_len){
+		while(_rightChild<_len){
 
 			// if the right child is smaller than left child, then secondChild is change to the left child;
-			if(*(_first+_secondChild)<*(_first+(_secondChild-1))){
+			if(*(_first+_rightChild)<*(_first+(_rightChild-1))){
 
-				_secondChild--;
+				_rightChild--;
 			}
 
 			// let the bigger value between right and left child to the hole position;
-			*(_first+_holeIndex)=*(_first+_secondChild);
+			*(_first+_holeIndex)=*(_first+_rightChild);
 
-			_holeIndex=_secondChild;
+			_holeIndex=_rightChild;
 
-			_secondChild=2*(_secondChild+1);// percolate down the hole;
+			_rightChild=2*_rightChild+2;// percolate down the hole;
 		}
 
 		// at now, deal with the last elements in basic container;
-		if(_secondChild==_len){
+		if(_rightChild==_len){
 
-			*(_first+_holeIndex)=*(_first+(_secondChild-1));
-			_holeIndex=_secondChild-1;
+			*(_first+_holeIndex)=*(_first+(_rightChild-1));
+			_holeIndex=_rightChild-1;
 		}
 
 		_push_heap(_first,_holeIndex,_topIndex,_value);
