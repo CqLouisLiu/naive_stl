@@ -167,6 +167,9 @@
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/MultiSet.h">
 			<Option target="naive_stl"/>
 		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/PriorityQueue.h">
+			<Option target="naive_stl"/>
+		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Queue.h">
 			<Option target="naive_stl"/>
 		</Unit>

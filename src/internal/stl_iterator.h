@@ -66,6 +66,7 @@ namespace naive
 		return _Category();
 	}
 
+	// return as a pointer can avoid copy a object;
 	template<typename It>
 	inline typename iterator_traits<It>::value_type* Value_type(const It& _it) {
 
@@ -79,13 +80,13 @@ namespace naive
 	}
 
 	template <typename _InputIterator, typename _Distance>
-	inline void __advance(_InputIterator &iter, _Distance _n, naive::input_iterator_tag){
+	inline void _advance(_InputIterator &iter, _Distance _n, naive::input_iterator_tag){
 		while (_n--)
 			++iter;
 	}
 
 	template <typename _BidiectionalIterator, typename _Distance>
-	inline void __advance(_BidiectionalIterator &iter, _Distance _n, naive::bidirectional_iterator_tag){
+	inline void _advance(_BidiectionalIterator &iter, _Distance _n, naive::bidirectional_iterator_tag){
 		if (_n >= 0)
 		{
 			while (_n--)
@@ -99,14 +100,14 @@ namespace naive
 	}
 
 	template <typename _RandomAccessIterator, typename _Distance>
-	inline void __advance(_RandomAccessIterator &iter, _Distance _n, naive::random_access_iterator_tag){
+	inline void _advance(_RandomAccessIterator &iter, _Distance _n, naive::random_access_iterator_tag){
 		iter += _n;
 	}
 
 	template <typename InputIterator, typename Distance>
 	inline void advance(InputIterator &iter, Distance n){
 		//获得迭代器类型后向下调用;
-		__advance(iter, n, typename iterator_traits<InputIterator>::iterator_category());
+		_advance(iter, n, typename iterator_traits<InputIterator>::iterator_category());
 	}
 
 

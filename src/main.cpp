@@ -1,37 +1,21 @@
 #include <iostream>
-#include "util/Stack.h"
-#include "util/Queue.h"
-#include "util/Deque.h"
-//#include <util/Queue.h>
-
+#include "util/Vector.h"
+#include "internal/stl_heap.h"
 
 using namespace std;
 
 int main(){
 
-	naive::Queue<int>   s;
+	naive::Vector<int> ivec(10);
 
-	s.push( 2 );
-	s.push( 6 );
-	s.push( 51 );
+	for(auto i=0;i<10;++i)
+		ivec[i]=i;
 
-	std::cout << s.size() << " elements on stack\n";
-	std::cout << "Top element: "
-			  << s.front()         // Leaves element on stack
-			  << "\n";
-	std::cout << s.size() << " elements on stack\n";
-	s.pop();
-	std::cout << s.size() << " elements on stack\n";
-	std::cout << "Top element: " << s.front() << "\n";
+	naive::make_heap(ivec.begin(),ivec.end());
 
-
-	naive::Deque<int> idq(20,1);
-
-	naive::Deque<int>::iterator it=idq.begin();
-
-	it++;
-
-	cout<<*it<<endl;
+	for(auto i=0;i<ivec.size();++i)
+		cout<<ivec[i]<<" ";
+	cout<<endl;
 
 	return 0;
 }
