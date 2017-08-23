@@ -27,7 +27,7 @@ inline void destroy(std::string* p) {
 
 
 template<typename InputIterator>
-inline void _destroy_aux(InputIterator first, InputIterator last,naive::false_type) {
+inline void _destroy_aux(InputIterator first, InputIterator last,naive::_false_type) {
 
 	for (; first < last; ++first) {
 		::destroy(&(*first));
@@ -36,7 +36,7 @@ inline void _destroy_aux(InputIterator first, InputIterator last,naive::false_ty
 }
 
 template<typename InputIterator>
-inline void _destroy_aux(InputIterator first, InputIterator last,naive::true_type) {
+inline void _destroy_aux(InputIterator first, InputIterator last,naive::_true_type) {
 	return;
 }
 

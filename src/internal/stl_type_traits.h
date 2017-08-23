@@ -4,21 +4,9 @@
 
 namespace naive {
 
-	struct false_type {};
-	struct true_type {};
+	struct _false_type {};
+	struct _true_type {};
 
-	template<bool T>
-	struct is_integral_type;
-
-	template<>
-	struct is_integral_type<false> :public false_type {
-		typedef false_type is_integral;
-	};
-
-	template<>
-	struct is_integral_type<true> :public true_type {
-		typedef true_type is_integral;
-	};
 
 
 	template<bool T>
@@ -26,13 +14,13 @@ namespace naive {
 
 
 	template<>
-	struct is_pod_type<false> :public false_type {
-		typedef false_type is_pod;
+	struct is_pod_type<false> :public _false_type {
+		typedef _false_type is_pod;
 	};
 
 	template<>
-	struct is_pod_type<true> :public true_type {
-		typedef true_type is_pod;
+	struct is_pod_type<true> :public _true_type {
+		typedef _true_type is_pod;
 	};
 
 
@@ -40,23 +28,15 @@ namespace naive {
 	struct has_trivial_destructor;
 
 	template<>
-	struct has_trivial_destructor<false> :public false_type {
-		typedef false_type is_trivial_destructor;
+	struct has_trivial_destructor<false> :public _false_type {
+		typedef _false_type is_trivial_destructor;
 	};
 
 	template<>
-	struct has_trivial_destructor<true> :public true_type {
-		typedef true_type is_trivial_destructor;
+	struct has_trivial_destructor<true> :public _true_type {
+		typedef _true_type is_trivial_destructor;
 	};
 
-
-	template<bool B, class T = void>
-	struct enable_if {};
-
-	template<typename T>
-	struct enable_if<true, T> {
-		typedef T type;
-	};
 
 }
 

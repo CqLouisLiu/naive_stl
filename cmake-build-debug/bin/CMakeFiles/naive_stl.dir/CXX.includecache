@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/cygdrive/f/workspaces/naive_stl/src/functional.h
+functional
+-
+
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_algo.h
 stl_config.h
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_config.h
@@ -85,12 +89,8 @@ iterator
 /cygdrive/f/workspaces/naive_stl/src/main.cpp
 iostream
 -
-vector
--
-util/Vector.h
-/cygdrive/f/workspaces/naive_stl/src/util/Vector.h
-internal/stl_heap.h
-/cygdrive/f/workspaces/naive_stl/src/internal/stl_heap.h
+util/PriorityQueue.h
+/cygdrive/f/workspaces/naive_stl/src/util/PriorityQueue.h
 
 /cygdrive/f/workspaces/naive_stl/src/memory.h
 internal/stl_alloc.h
@@ -101,6 +101,14 @@ internal/stl_config.h
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_config.h
 memory
 -
+
+/cygdrive/f/workspaces/naive_stl/src/util/PriorityQueue.h
+Vector.h
+/cygdrive/f/workspaces/naive_stl/src/util/Vector.h
+../internal/stl_heap.h
+/cygdrive/f/workspaces/naive_stl/src/internal/stl_heap.h
+../functional.h
+/cygdrive/f/workspaces/naive_stl/src/functional.h
 
 /cygdrive/f/workspaces/naive_stl/src/util/Vector.h
 utility

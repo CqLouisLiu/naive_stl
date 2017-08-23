@@ -4,6 +4,7 @@
 bin/CMakeFiles/naive_stl.dir/io/File.cpp.o: ../src/io/File.cpp
 bin/CMakeFiles/naive_stl.dir/io/File.cpp.o: ../src/io/File.h
 
+bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/functional.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_algo.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_alloc.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_config.h
@@ -15,5 +16,6 @@ bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_uninitialized.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/iterator.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/main.cpp
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/memory.h
+bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/util/PriorityQueue.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/util/Vector.h
 

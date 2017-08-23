@@ -33,7 +33,9 @@ namespace naive {
 			return _data_allocator;
 		}
 
-		explicit _Vector_base(const allocator_type& _alloc) :_start(nullptr), _finish(nullptr),
+		_Vector_base():_data_allocator(allocator_type()),_start(nullptr),_finish(nullptr),_end_of_storage(nullptr){}
+
+		explicit _Vector_base(const allocator_type& _alloc) :_data_allocator(allocator_type()),_start(nullptr), _finish(nullptr),
 													_end_of_storage(nullptr) {}
 
 		_Vector_base(size_t n, const allocator_type& _alloc) :_data_allocator(_alloc), _start(nullptr), _finish(nullptr),
@@ -82,7 +84,9 @@ namespace naive {
 		typedef std::size_t size_type;
 		typedef ptrdiff_t difference_type;
 
-		typedef typename _MyBase::allocator_type allocator_type;
+	public:
+		using allocator_type=typename _MyBase::allocator_type ;
+		using _MyBase::get_allocator;
 
 
 	protected:
@@ -110,11 +114,17 @@ namespace naive {
 			}
 		}
 
+		void _M_integer_init();
+
+		void _M_iterator_int();
+
 	public:
 
+		Vector():_MyBase(){}
+
 		//The construtors of Vector;
-		explicit Vector(const allocator_type& __a = allocator_type())
-				: _MyBase(__a) {}
+		explicit Vector(const allocator_type& alloc)
+				: _MyBase(alloc) {}
 
 		explicit Vector(size_type n)  : _MyBase(n, allocator_type()) {
 			_finish = naive::uninitialized_fill_n(_start, n, value_type());
@@ -129,6 +139,11 @@ namespace naive {
 			_finish = naive::uninitialized_copy(init.begin(), init.end(), _start);
 		}
 
+		template <typename InputIterator>
+		Vector(InputIterator first, InputIterator last,const allocator_type& alloc=allocator_type()):_MyBase(alloc){
+
+		}
+
 
 		/*
 		* Becasue we set allcate memory functions in _Vector_base, so copy constructor should as following;
@@ -141,14 +156,19 @@ namespace naive {
 		}
 
 		//move-constructor;
-		Vector(Vector&& rhs) noexcept : _MyBase(rhs.get_allocator()) {
+		Vector(Vector&& rhs) noexcept : _MyBase(rhs.get_allocator()){
 
-			std::swap(_start, rhs._start);
-			std::swap(_finish, rhs._finish);
-			std::swap(_end_of_storage, rhs._end_of_storage);
-			_data_allocator = rhs.get_allocator();
+			/*_start(rhs._start),_finish(rhs._finish), _end_of_storage(rhs._end_of_storage),_data_allocator(rhs._data_allocator)*/
+
+			_start=rhs._start;
+			_finish=rhs._finish;
+			_end_of_storage=rhs._end_of_storage;
+			_data_allocator=rhs._data_allocator;
+
 			rhs._start = rhs._finish = rhs._end_of_storage = nullptr;
 		}
+
+
 
 		//copy-swap, it determine by the object if it has move-constructor;
 		Vector& operator= (const Vector rhs) {
@@ -157,10 +177,13 @@ namespace naive {
 		}
 
 		Vector& operator= (Vector&& rhs) noexcept {
+
 			std::swap(_start, rhs._start);
 			std::swap(_finish, rhs._finish);
 			std::swap(_end_of_storage, rhs._end_of_storage);
 			_data_allocator = rhs.get_allocator();
+
+			rhs._start = rhs._finish = rhs._end_of_storage = nullptr;
 
 			return *this;
 		}
@@ -316,12 +339,12 @@ namespace naive {
 
 	protected:
 		template<typename InputIt>
-		void __initialize_aux(InputIt first, InputIt last, naive::false_type) {
+		void __initialize_aux(InputIt first, InputIt last, naive::_false_type) {
 
 		}
 
 		template<typename InputIt>
-		void __initialize_aux(InputIt first, InputIt last, naive::true_type) {
+		void __initialize_aux(InputIt first, InputIt last, naive::_true_type) {
 
 		}
 
