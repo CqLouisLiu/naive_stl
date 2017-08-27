@@ -41,7 +41,7 @@ namespace naive
 	template <typename _T>
 	struct iterator_traits<_T *>
 	{
-		typedef random_access_iterator_tag iterator_category;
+		typedef naive::random_access_iterator_tag iterator_category;
 		typedef _T value_type;
 		typedef ptrdiff_t difference_type;
 		typedef _T *pointer;
@@ -51,7 +51,7 @@ namespace naive
 	template <typename _T>
 	struct iterator_traits<const _T *>
 	{
-		typedef random_access_iterator_tag iterator_category;
+		typedef naive::random_access_iterator_tag iterator_category;
 		typedef _T value_type;
 		typedef ptrdiff_t difference_type;
 		typedef _T *pointer;
@@ -106,31 +106,31 @@ namespace naive
 
 	template <typename InputIterator, typename Distance>
 	inline void advance(InputIterator &iter, Distance n){
-		//获得迭代器类型后向下调用;
+
 		_advance(iter, n, typename iterator_traits<InputIterator>::iterator_category());
 	}
 
 
 	template< typename InputIt >
 	typename naive::iterator_traits<InputIt>::difference_type
-		__distance(InputIt first, InputIt last,naive::input_iterator_tag) {
+		_distance(InputIt first, InputIt last,naive::input_iterator_tag) {
 		
-		typename naive::iterator_traits<InputIt>::difference_type _n= 0;
+		typename naive::iterator_traits<InputIt>::difference_type _t_size= 0;
 		
 		while (first != last) {
 			first++;
-			_n++;
+			++_t_size;
 		}
 
-		return _n;
+		return _t_size;
 	}
 
 
 
 	template< typename RandomAccessIt >
 	typename naive::iterator_traits<RandomAccessIt>::difference_type
-		__distance(RandomAccessIt first, RandomAccessIt last,naive::random_access_iterator_tag) {
-		return (first - last);
+		_distance(RandomAccessIt first, RandomAccessIt last,naive::random_access_iterator_tag) {
+		return (last - first);
 	}
 
 	/*
@@ -143,8 +143,8 @@ namespace naive
 	typename naive::iterator_traits<InputIt>::difference_type
 		distance(InputIt first, InputIt last) {
 		
-		using category = typename naive::iterator_traits<InputIt>::iterator_category;
-		return __distance(first,last,category());
+		typedef typename naive::iterator_traits<InputIt>::iterator_category _iterator_category;
+		return _distance(first,last,_iterator_category());
 	}
 
 

@@ -5,7 +5,7 @@
 
 #include <new>
 #include "stl_iterator.h"
-#include "stl_type_traits.h"
+#include "../type_traits.h"
 #include <iostream>
 #include <string>
 

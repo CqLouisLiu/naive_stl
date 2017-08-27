@@ -7,6 +7,7 @@
 
 #include <utility>
 #include "../memory.h"
+#include "../algorithm.h"
 
 namespace naive {
 
@@ -35,7 +36,7 @@ namespace naive {
 
 		_Vector_base():_data_allocator(allocator_type()),_start(nullptr),_finish(nullptr),_end_of_storage(nullptr){}
 
-		explicit _Vector_base(const allocator_type& _alloc) :_data_allocator(allocator_type()),_start(nullptr), _finish(nullptr),
+		explicit _Vector_base(const allocator_type& _alloc) :_data_allocator(_alloc),_start(nullptr), _finish(nullptr),
 													_end_of_storage(nullptr) {}
 
 		_Vector_base(size_t n, const allocator_type& _alloc) :_data_allocator(_alloc), _start(nullptr), _finish(nullptr),
@@ -114,9 +115,42 @@ namespace naive {
 			}
 		}
 
-		void _M_integer_init();
+	private:
 
-		void _M_iterator_int();
+		template <typename Integer>
+		void _M_range_init(Integer n,Integer value,naive::true_type){
+
+			_start = _data_allocator.allocate(n);
+			_finish = naive::uninitialized_fill_n(_start, n, value);
+			_end_of_storage = _start + n;
+		}
+
+		template <typename Iterator>
+		void _M_range_init(Iterator first,Iterator last,naive::false_type){
+
+			typedef typename naive::iterator_traits<Iterator>::iterator_category _iterator_category;
+			_M_iterator_int(first,last,_iterator_category());
+		}
+
+		template <typename InputIt>
+		void _M_iterator_int(InputIt first,InputIt last,naive::input_iterator_tag){
+
+			for(;first!=last;++first){
+				push_back(*first);
+			}
+		}
+
+		template <typename ForwardIt>
+		void _M_iterator_int(ForwardIt first,ForwardIt last,naive::forward_iterator_tag){
+
+			const size_type n = static_cast<size_type>(naive::distance(first,last));
+			//typedef typename naive::iterator_traits<ForwardIt>::value_type _value_type;
+
+			_start=_data_allocator.allocate(n);
+			_finish=_start;
+			_finish = naive::uninitialized_copy(first,last,_start);
+			_end_of_storage=_start+n;
+		}
 
 	public:
 
@@ -134,16 +168,16 @@ namespace naive {
 			_finish = naive::uninitialized_fill_n(_start, n, value);
 		}
 
-		Vector(std::initializer_list<_T> init,
-			   const allocator_type& alloc = allocator_type()) :_MyBase(init.size(), alloc) {
+		Vector(std::initializer_list<_T> init, const allocator_type& alloc = allocator_type()) :
+				_MyBase(init.size(), alloc) {
 			_finish = naive::uninitialized_copy(init.begin(), init.end(), _start);
 		}
 
 		template <typename InputIterator>
 		Vector(InputIterator first, InputIterator last,const allocator_type& alloc=allocator_type()):_MyBase(alloc){
 
+			_M_range_init(first,last,naive::is_integral<InputIterator>());
 		}
-
 
 		/*
 		* Becasue we set allcate memory functions in _Vector_base, so copy constructor should as following;
@@ -237,11 +271,29 @@ namespace naive {
 			return *begin();
 		}
 
+		const_reference front() const{
+
+			return *begin();
+		}
+
 		reference back() {
 			return *(end() - 1);
 		}
 
+		const_reference back() const{
+			return *(end() - 1);
+		}
+
 		reference& at(size_type pos) {
+
+			if (pos >= size()) {
+				throw std::out_of_range("out of range at function Vector<T,Alloc>::at(size_type pos)");
+			}
+			else
+				return *(_start + pos);
+		}
+
+		const_reference& at(size_type pos) const{
 
 			if (pos >= size()) {
 				throw std::out_of_range("out of range at function Vector<T,Alloc>::at(size_type pos)");
@@ -452,6 +504,45 @@ namespace naive {
 	inline void Vector<_T, _Alloc>::insert(iterator pos, InputIt first, InputIt last) {
 
 	}
+
+	template< typename T, typename Alloc >
+	bool operator==( const naive::Vector<T,Alloc>& lhs, const naive::Vector<T,Alloc>& rhs ){
+
+		return (lhs.size()==rhs.size()) && (naive::equal(lhs.begin(),lhs.end(),rhs.begin()));
+	}
+
+	template< typename T, typename Alloc >
+	bool operator!=( const naive::Vector<T,Alloc>& lhs, const naive::Vector<T,Alloc>& rhs ){
+
+		return (lhs.size()!=rhs.size()) || !(naive::equal(lhs.begin(),lhs.end(),rhs.begin()));
+	}
+
+
+	template< typename T, typename Alloc >
+	bool operator<( const naive::Vector<T,Alloc>& lhs, const naive::Vector<T,Alloc>& rhs ){
+
+		return naive::lexicographical_compare(lhs.begin(),lhs.end(),rhs.begin(),rhs.end());
+	}
+
+
+	template< typename T, typename Alloc >
+	bool operator>( const naive::Vector<T,Alloc>& lhs, const naive::Vector<T,Alloc>& rhs ){
+
+		return (rhs<lhs);
+	}
+
+	template< typename T, typename Alloc >
+	bool operator<=( const naive::Vector<T,Alloc>& lhs, const naive::Vector<T,Alloc>& rhs ){
+
+		return !(rhs<lhs);
+	}
+
+	template< typename T, typename Alloc >
+	bool operator>=( const naive::Vector<T,Alloc>& lhs, const naive::Vector<T,Alloc>& rhs ){
+
+		return !(lhs<rhs);
+	}
+
 
 }
 

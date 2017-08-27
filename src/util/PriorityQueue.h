@@ -40,7 +40,13 @@ namespace naive{
 		*/
 
 		template<typename InputIt>
-		explicit PriorityQueue(InputIt first,InputIt last,const _Compare_type& cmp):_M_container(first,last) {
+		explicit PriorityQueue(InputIt first,InputIt last):_M_container(first,last),_M_compare() {
+
+			naive::make_heap(_M_container.begin(),_M_container.end(),_M_compare);
+		}
+
+		template<typename InputIt>
+		explicit PriorityQueue(InputIt first,InputIt last,const _Compare_type& cmp):_M_container(first,last),_M_compare(cmp){
 
 			naive::make_heap(_M_container.begin(),_M_container.end(),cmp);
 		}
