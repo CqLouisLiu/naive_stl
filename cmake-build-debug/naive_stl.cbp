@@ -119,6 +119,9 @@
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_iterator.h">
 			<Option target="naive_stl"/>
 		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_move.h">
+			<Option target="naive_stl"/>
+		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_pair.h">
 			<Option target="naive_stl"/>
 		</Unit>
@@ -153,6 +156,12 @@
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Deque.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/HashMap.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/HashSet.h">
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/List.h">

@@ -1,6 +1,9 @@
-//
-// Created by Shuai on 2017/8/16.
-//
+
+/*
+ * NOTE: This is an internal header file, included by other C++ headers.
+ * You should not attempt to use it directly.
+ *
+*/
 
 #ifndef NAIVE_STL_RB_TREE_H
 #define NAIVE_STL_RB_TREE_H
@@ -23,6 +26,7 @@
 #include <cstddef>
 #include "../memory.h"
 #include "../functional.h"
+#include "../utility.h"
 
 namespace naive {
 
@@ -30,6 +34,10 @@ namespace naive {
 	const _Node_color_type _M_color_red = false;//read is false and black is true;
 	const _Node_color_type _M_color_black = true;
 
+
+	/////////////////////////////////////
+	//// The node of RB-Tree
+	////////////////////////////////////
 	template <typename _T>
 	struct _RBTree_node {
 
@@ -45,15 +53,15 @@ namespace naive {
 		_RBTree_node() :_M_color(), _M_parent(nullptr), _M_left(nullptr), _M_right(nullptr),
 						_M_node_value(nullptr) {}
 
-		_RBTree_node(const _RBTree_node& _node) :_M_color(_node._M_color), _M_parent(_node._M_parent), _M_left(_node._M_left), _M_right(_node._M_right),
+		_RBTree_node(const _Self_type& _node) :_M_color(_node._M_color), _M_parent(_node._M_parent), _M_left(_node._M_left), _M_right(_node._M_right),
 												 _M_node_value(_node._M_node_value) {}
 
-		_RBTree_node(const _RBTree_node&& _node) noexcept : _M_color(_node._M_color), _M_parent(_node._M_parent), _M_left(_node._M_left),
+		_RBTree_node(const _Self_type&& _node) noexcept : _M_color(_node._M_color), _M_parent(_node._M_parent), _M_left(_node._M_left),
 															_M_right(_node._M_right), _M_node_value(std::move(_node._M_node_value)) {
 			_M_left = _M_right = _M_parent = nullptr;
 		}
 
-		_RBTree_node& operator=(const _RBTree_node& _node) {
+		_Self_type& operator=(const _Self_type& _node) {
 			_M_color = _node._M_color;
 			_M_parent = _node._M_parent;
 			_M_left = _node._M_left;
@@ -61,7 +69,7 @@ namespace naive {
 			_M_node_value = _node._M_node_value;
 		}
 
-		_RBTree_node& operator=(_RBTree_node&& _node) noexcept {
+		_Self_type& operator=(_Self_type&& _node) noexcept {
 			_M_color = _node._M_color;
 			_M_parent = _node._M_parent;
 			_M_left = _node._M_left;
@@ -75,6 +83,10 @@ namespace naive {
 
 	};
 
+
+	/////////////////////////////////////////////////////////////
+	//// The iterator of RB-tree
+	///////////////////////////////////////////////////////////
 	template <typename _Value, typename _Ref, typename _Ptr>
 	class _RBTree_iterator {
 
@@ -87,9 +99,13 @@ namespace naive {
 		typedef naive::bidirectional_iterator_tag iterator_category;
 		typedef _RBTree_iterator<_Value, _Value&, _Value*> iterator;
 		typedef _RBTree_iterator<_Value, const _Value&, const _Value*> const_iterator;
-		typedef _RBTree_iterator<_Value, _Ref, _Ptr> _Self;
+		typedef _RBTree_iterator<_Value, _Ref, _Ptr> _Self_type;
 		typedef typename _RBTree_node<value_type>::_Link_type _Link_type;
 
+	protected:
+		_Link_type _M_node;// Point to _RBTree_node;
+
+	public:
 		_RBTree_iterator() = default;
 
 		explicit _RBTree_iterator(_Link_type _lt) :_M_node(_lt) {}
@@ -109,12 +125,15 @@ namespace naive {
 		* The Red-black tree is a sorted tree, so the first elements is the most-left node;
 		* On the other hand the last node is the most-right node;
 		* The sequence is defined according to right-root-left recursively;
+		* @return the next element in sequence;
+		*
 		*/
-		_Self& operator++() {
+		_Self_type& operator++() {
 
 			/*
 			* The current node have a right child node means that the node just bigger than
 			* the current node in red-black tree is the most-left node in its right child tree;
+			* Otherwise, we need to percolate up to find the next element;
 			*/
 			if (_M_node->_M_right != nullptr) {
 
@@ -146,33 +165,36 @@ namespace naive {
 		}
 
 		// expression (it++);
-		_Self operator++(int) {
-			_Self _temp = *this;
+		_Self_type operator++(int) {
+			_Self_type _temp = *this;
 			++(*this);
 			return _temp;
 		}
 
 		// expression (--it)
-		_Self& operator--() {
+		_Self_type& operator--() {
 
 		}
 
-		_Self operator--(int);
+		_Self_type operator--(int){
+			_Self_type _temp = *this;
+			--(*this);
+			return _temp;
+		}
 
-		//bool operator==(const _RBTree_iterator& l_rf,const_iterator& r_rf);
-
-	protected:
-		_Link_type _M_node;// Point to _RBTree_node_base;
 	};
 
-	//template <typename _T>
+	//////////////////////////////////////////////////
+	//// The memory allocate base class of RB-Tree
+	/////////////////////////////////////////////////
 	template<typename _T, typename _Alloc>
 	class _RBTree_alloc_base {
 
+	private:
+		const std::size_t _ALLOC_SINGLE_NODE = 1;
+
 	public:
-		//typedef _RBTree_node<_T>* _ptr_tree_node;
 		using allocator_type = typename _Alloc::template rebind<_RBTree_node<_T>>::other;
-		//std::allocator_traits<_Alloc>::rebind_alloc ;
 
 		allocator_type get_allocator() const {
 			return _M_node_allocator;
@@ -186,20 +208,22 @@ namespace naive {
 
 	protected:
 		allocator_type _M_node_allocator;
-		_RBTree_node<_T>* _M_header;
+
+		_RBTree_node<_T>* _M_header;//the _M_header is a trick;
 
 		_RBTree_node<_T>* _M_node_allocate() {
-			return _M_node_allocator.allocate(_NUM_ALLOC_NODE);
+			return _M_node_allocator.allocate(_ALLOC_SINGLE_NODE);
 		}
 
 		void _M_deallocate_node(_RBTree_node<_T>* _p) {
-			_M_node_allocator.deallocate(_p, _NUM_ALLOC_NODE);
+			_M_node_allocator.deallocate(_p, _ALLOC_SINGLE_NODE);
 		}
 
-	private:
-		const std::size_t _NUM_ALLOC_NODE = 1;
 	};
 
+	//////////////////////////////////////////////////
+	//// The base class of RB-Tree
+	/////////////////////////////////////////////////
 	template<typename _T, typename _Alloc>
 	class _RBTree_base :public _RBTree_alloc_base<_T, _Alloc> {
 
@@ -221,7 +245,11 @@ namespace naive {
 		using _Base::_M_header;
 	};
 
-	template <typename _Key, typename _Value, typename _KeyOfValue, typename _Compare = naive::less<_Value>,
+
+	//////////////////////////////////////////////////
+	//// The RB-Tree class
+	/////////////////////////////////////////////////
+	template <typename _Key, typename _Value, typename _KeyOfValue, typename _Compare =naive::less<_Value>,
 			typename _Alloc = naive::allocator<_Value>>
 	class RBTree :protected _RBTree_base<_Value, _Alloc> {
 
@@ -242,8 +270,8 @@ namespace naive {
 		typedef std::size_t size_type;
 		typedef std::ptrdiff_t difference_type;
 		typedef _RBTree_node_type* _Link_type;
-		typedef _RBTree_iterator<value_type, reference, pointer > iterator;
-		typedef _RBTree_iterator<value_type, const_reference, const_pointer > const_iterator;
+		typedef _RBTree_iterator<value_type, reference, pointer> iterator;
+		typedef _RBTree_iterator<value_type, const_reference, const_pointer> const_iterator;
 
 	protected:
 		typedef typename _MyBase::allocator_type allocator_type;
@@ -283,49 +311,50 @@ namespace naive {
 			return _tmp;
 		}
 
-		void destroy_node(_Link_type _node)
-		{
+		void destroy_node(_Link_type _node) {
+
 			::destroy(&_node->_M_node_value);
+
 			_M_deallocate_node(_node);
 		}
 
-		_Link_type& _M_root() const {
+		_Link_type& _M_get_root() const {
 			return _M_header->_M_parent;
 		}
 
-		_Link_type& _M_leftmost() const {
+		_Link_type& _M_get_leftmost() const {
 			return _M_header->_M_left;
 		}
 
-		_Link_type& _M_rightmost() const {
+		_Link_type& _M_get_rightmost() const {
 			return _M_header->_M_right;
 		}
 
-		static _Link_type& _S_left(_Link_type _node) {
+		static _Link_type& _M_get_left(_Link_type _node) {
 			return (_node->_M_left);
 		}
 
-		static _Link_type& _S_right(_Link_type _node) {
+		static _Link_type& _M_get_right(_Link_type _node) {
 			return (_node->_M_right);
 		}
 
-		static _Link_type& _S_parent(_Link_type _node) {
+		static _Link_type& _M_get_parent(_Link_type _node) {
 			return (_node->_M_parent);
 		}
 
-		static reference _S_value(_Link_type _node) {
+		static reference _M_get_value(_Link_type _node) {
 			return _node->_M_node_value;
 		}
 
-		static const _Key& _S_key(_Link_type _node) {
-			return _KeyOfValue()(_S_value(_node));
+		static const _Key& _M_get_key(_Link_type _node) {
+			return _KeyOfValue()(_M_get_value(_node));
 		}
 
-		static _Node_color_type& _S_color(_Link_type _node) {
+		static _Node_color_type& _M_get_color(_Link_type _node) {
 			return (_node->_M_color);
 		}
 
-		static _Link_type _M_minimum(_Link_type _node) {
+		static _Link_type _M_get_minimum(_Link_type _node) {
 
 			while (_node->_M_left != nullptr) {
 				_node = _node->_M_left;
@@ -334,7 +363,7 @@ namespace naive {
 			return _node;
 		}
 
-		static _Link_type _M_maxmum(_Link_type _node) {
+		static _Link_type _M_get_maxmum(_Link_type _node) {
 
 			while (_node->_M_right != nullptr) {
 				_node = _node->_M_right;
@@ -356,11 +385,11 @@ namespace naive {
 		}
 
 		iterator begin() {
-			return iterator(_M_leftmost());
+			return iterator(_M_get_leftmost());
 		}
 
 		const_iterator begin() const {
-			return const_iterator(_M_leftmost());
+			return const_iterator(_M_get_leftmost());
 		}
 
 		iterator end() {
@@ -383,36 +412,64 @@ namespace naive {
 			return size_type(-1);
 		}
 
-		iterator insert_unique(iterator _position, const value_type& _value);
+		naive::Pair<iterator,bool> insert_unique(const value_type& _value);
 
 		iterator insert_equal(iterator _position, const value_type& _value);
 
 
-
-
 	private:
 		void _M_empty_initialize() {
-			_S_color(_M_header) = _M_color_red;// because the root must be black, so the _M_header should be red;
-			_M_root() = nullptr;
-			_M_leftmost() = _M_header;
-			_M_rightmost() = _M_header;
+			_M_get_color(_M_header) = _M_color_red;// because the root must be black, so the _M_header should be red;
+			_M_get_root() = nullptr;
+			_M_get_leftmost() = _M_header;
+			_M_get_rightmost() = _M_header;
 		}
+
+		iterator _M_insert(_Link_type lt1,_Link_type lt2,const value_type& _value);
 	};
 
 
+	/*
+	 * Insert the element into the red-black tree, if the element is unique, then insert success.
+	 * Otherwise, the insert is failure;
+	 *
+	 * @return: a naive::pair, the first element is a iterator point to the new element; the second element indicates
+	 * 			the insert if success;
+	 * */
+	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
+	inline naive::Pair<typename RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>::iterator,bool> RBTree<_Key, _Value,
+			_KeyOfValue, _Compare, _Alloc>::insert_unique(const value_type & _value){
+
+		return naive::Pair();
+	}
 
 	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
-	inline iterator RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::insert_unique(iterator _position, const value_type & _value){
+	inline typename RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>::iterator RBTree<_Key, _Value, _KeyOfValue,
+			_Compare, _Alloc>::insert_equal(iterator _position, const value_type & _value){
+
+		_Link_type _t_node=_M_get_root();
+		_Link_type _t_parent=_M_header;
+
+		while(_t_node!= nullptr){
+
+			_t_parent=_t_node;
+			_t_node=_M_key_compare(_KeyOfValue()(_value),_M_get_key(_t_node)?_M_get_key(_t_node):_M_get_right(_t_node));
+		}
+
+		return _M_insert(_t_node,_t_parent,_value);
+	}
+
+
+	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
+	inline typename RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>::iterator RBTree<_Key, _Value, _KeyOfValue,
+			_Compare, _Alloc>::_M_insert(_Link_type lt1, _Link_type lt2, const value_type & _value) {
+
+
+
 
 		return iterator();
 	}
 
-	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
-	inline iterator RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::insert_equal(iterator _position, const value_type & _value){
-
-
-		return iterator();
-	}
 
 }
 #endif //NAIVE_STL_STL_RB_TREE_H
