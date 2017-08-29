@@ -505,6 +505,9 @@ namespace naive {
 
 	}
 
+	/////////////////////////////////////////////////////////
+	//// global operator functions
+	////////////////////////////////////////////////////////
 	template< typename T, typename Alloc >
 	bool operator==( const naive::Vector<T,Alloc>& lhs, const naive::Vector<T,Alloc>& rhs ){
 
@@ -544,7 +547,8 @@ namespace naive {
 	}
 
 
-}
+}// namespace naive
+
 
 
 

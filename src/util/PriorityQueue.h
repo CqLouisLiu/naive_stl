@@ -98,38 +98,44 @@ namespace naive{
 		}
 	};
 
+
+	/////////////////////////////////////////
+	//// global operator functions
+	////////////////////////////////////////
 	template <typename T,typename Container,typename Compare>
-	bool operator==(const PriorityQueue<T,Container,Compare>& p1,const PriorityQueue<T,Container,Compare>& p2){
+	bool operator==(const naive::PriorityQueue<T,Container,Compare>& p1,const naive::PriorityQueue<T,Container,Compare>& p2){
 
 		return p1._M_container==p2._M_container;
 	}
 
 	template <typename T, typename Container, typename Compare>
-	bool operator<(const PriorityQueue<T, Container, Compare>& p1, const PriorityQueue<T, Container, Compare>& p2){
+	bool operator<(const naive::PriorityQueue<T, Container, Compare>& p1, const naive::PriorityQueue<T, Container, Compare>& p2){
 		return (p1._M_container < p2._M_container);
 	}
 
 	template <typename T, typename Container, typename Compare>
-	inline bool operator!=(const PriorityQueue<T, Container, Compare>& p1, const PriorityQueue<T, Container, Compare>& p2){
+	inline bool operator!=(const naive::PriorityQueue<T, Container, Compare>& p1, const naive::PriorityQueue<T, Container, Compare>& p2){
 		return !(p1._M_container == p2._M_container);
 	}
 
 	template <typename T, typename Container, typename Compare>
-	inline bool operator>(const PriorityQueue<T, Container, Compare>& p1, const PriorityQueue<T, Container, Compare>& p2){
+	inline bool operator>(const naive::PriorityQueue<T, Container, Compare>& p1, const naive::PriorityQueue<T, Container, Compare>& p2){
 		return (p2._M_container < p1._M_container);
 	}
 
 	template <typename T, typename Container, typename Compare>
-	inline bool operator<=(const PriorityQueue<T, Container, Compare>& p1, const PriorityQueue<T, Container, Compare>& p2){
+	inline bool operator<=(const naive::PriorityQueue<T, Container, Compare>& p1, const naive::PriorityQueue<T, Container, Compare>& p2){
 		return !(p2._M_container < p1._M_container);
 	}
 
 	template <typename T, typename Container, typename Compare>
-	inline bool operator>=(const PriorityQueue<T, Container, Compare>& p1, const PriorityQueue<T, Container, Compare>& p2){
+	inline bool operator>=(const naive::PriorityQueue<T, Container, Compare>& p1, const naive::PriorityQueue<T, Container, Compare>& p2){
 		return !(p1._M_container < p2._M_container);
 	}
 
-}
+
+}// namespace naive
+
 
 
 #endif //NAIVE_STL_PRIORITYQUEUE_H

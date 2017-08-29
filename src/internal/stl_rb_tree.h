@@ -30,10 +30,12 @@
 
 namespace naive {
 
+
+
+
 	typedef bool _Node_color_type;
 	const _Node_color_type _M_color_red = false;//read is false and black is true;
 	const _Node_color_type _M_color_black = true;
-
 
 	/////////////////////////////////////
 	//// The node of RB-Tree
@@ -246,10 +248,46 @@ namespace naive {
 	};
 
 
+
+
+
+	/////////////////////////////////////////////////////////////////
+	//// the global function to balance the red-black tree
+	/////////////////////////////////////////////////////////////////
+	inline void _RBTree_rebalance(_RBTree_node* _node,_RBTree_node* _root){
+
+		_node->_M_color=_M_color_red;
+
+		while((_node!=_root) && (_node->_M_parent->_M_color==_M_color_red)){
+
+			// the parent of new node is the left child of grandparent;
+			if(_node->_M_parent==_node->_M_parent->_M_parent->_M_left){
+
+				//get new node's uncle node;
+				_RBTree_node* _uncle_node=_node->_M_parent->_M_parent->_M_right;
+			}
+		}
+
+
+		_root->_M_color=_M_color_black;
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 	//////////////////////////////////////////////////
 	//// The RB-Tree class
 	/////////////////////////////////////////////////
-	template <typename _Key, typename _Value, typename _KeyOfValue, typename _Compare =naive::less<_Value>,
+	template <typename _Key, typename _Value, typename _KeyOfValue=naive::identity<_Value>, typename _Compare =naive::less<_Value>,
 			typename _Alloc = naive::allocator<_Value>>
 	class RBTree :protected _RBTree_base<_Value, _Alloc> {
 
@@ -414,7 +452,7 @@ namespace naive {
 
 		naive::Pair<iterator,bool> insert_unique(const value_type& _value);
 
-		iterator insert_equal(iterator _position, const value_type& _value);
+		iterator insert_equal(const value_type& _value);
 
 
 	private:
@@ -445,7 +483,7 @@ namespace naive {
 
 	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
 	inline typename RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>::iterator RBTree<_Key, _Value, _KeyOfValue,
-			_Compare, _Alloc>::insert_equal(iterator _position, const value_type & _value){
+			_Compare, _Alloc>::insert_equal(const value_type & _value){
 
 		_Link_type _t_node=_M_get_root();
 		_Link_type _t_parent=_M_header;
@@ -453,7 +491,8 @@ namespace naive {
 		while(_t_node!= nullptr){
 
 			_t_parent=_t_node;
-			_t_node=_M_key_compare(_KeyOfValue()(_value),_M_get_key(_t_node)?_M_get_key(_t_node):_M_get_right(_t_node));
+			_t_node=_M_key_compare(_KeyOfValue()(_value),_M_get_key(_t_node))?_M_get_left(_t_node):_M_get_right(_t_node);
+
 		}
 
 		return _M_insert(_t_node,_t_parent,_value);
@@ -464,10 +503,44 @@ namespace naive {
 	inline typename RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>::iterator RBTree<_Key, _Value, _KeyOfValue,
 			_Compare, _Alloc>::_M_insert(_Link_type lt1, _Link_type lt2, const value_type & _value) {
 
+		_Link_type _t_node=lt1;
+		_Link_type _t_parent=lt2;
 
+		_Link_type _temp=nullptr;
 
+		// if _value<_t_parent->value, the the insert operation should inset new element in the left;
+		if(_t_parent==_M_header||_t_node!= nullptr||_M_key_compare(_KeyOfValue()(_value),_M_get_key(_t_parent))){
 
-		return iterator();
+			_temp=_M_create_node(_value);
+			_M_get_left(_t_parent)=_temp;
+
+			if(_t_parent==_M_header){
+				_M_get_root()=_temp;
+				_M_get_rightmost()=_temp;
+			}
+			else if(_t_parent==_M_get_leftmost()){
+				_M_get_leftmost()=_temp;
+			}
+		}
+		else{// insert in the right;
+
+			_temp=_M_create_node(_value);
+			_M_get_right(_t_parent)=_temp;
+
+			if(_t_parent==_M_get_rightmost()){
+				_M_get_rightmost()=_temp;
+			}
+		}
+
+		_M_get_parent(_temp)=_t_parent;
+		_M_get_left(_temp)= nullptr;
+		_M_get_right(_temp)=nullptr;
+
+		_RBTree_rebalance(_temp,_M_header->_M_parent);
+
+		++_M_node_count;
+
+		return iterator(_temp);
 	}
 
 
