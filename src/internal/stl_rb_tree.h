@@ -37,33 +37,56 @@ namespace naive {
 	const _Node_color_type _M_color_red = false;//read is false and black is true;
 	const _Node_color_type _M_color_black = true;
 
+	struct _RBTree_node_base{
+
+		typedef _RBTree_node_base _Base_node_type;
+		typedef _Base_node_type* _Base_node_ptr;
+
+		_Base_node_ptr _M_parent;
+		_Base_node_ptr _M_left;
+		_Base_node_ptr _M_right;
+		_Node_color_type _M_color;
+
+		static _Base_node_ptr _M_minimum(_Base_node_ptr _node) {
+			while (_node->_M_left != 0)
+				_node = _node->_M_left;
+			return _node;
+		}
+
+		static _Base_node_ptr _M_maximum(_Base_node_ptr _node) {
+
+			while (_node->_M_right != 0)
+				_node = _node->_M_right;
+			return _node;
+
+		}
+	};
+
 	/////////////////////////////////////
 	//// The node of RB-Tree
 	////////////////////////////////////
 	template <typename _T>
-	struct _RBTree_node {
+	struct _RBTree_node :public _RBTree_node_base{
 
-		typedef _RBTree_node<_T> _Self_type;
-		typedef _Self_type* _Link_type;
+		typedef _T _Node_value_type;
+		typedef _RBTree_node<_T>* _Link_type;
 
-		_Node_color_type _M_color;
-		_Link_type _M_parent;
-		_Link_type _M_left;
-		_Link_type _M_right;
-		_T _M_node_value;
+		_Node_value_type _M_node_value;
 
+
+		/*
 		_RBTree_node() :_M_color(), _M_parent(nullptr), _M_left(nullptr), _M_right(nullptr),
 						_M_node_value(nullptr) {}
 
-		_RBTree_node(const _Self_type& _node) :_M_color(_node._M_color), _M_parent(_node._M_parent), _M_left(_node._M_left), _M_right(_node._M_right),
+		_RBTree_node(const _Base_node_type& _node) :_M_color(_node._M_color), _M_parent(_node._M_parent), _M_left(_node._M_left), _M_right(_node._M_right),
 												 _M_node_value(_node._M_node_value) {}
 
-		_RBTree_node(const _Self_type&& _node) noexcept : _M_color(_node._M_color), _M_parent(_node._M_parent), _M_left(_node._M_left),
+		_RBTree_node(const _Base_node_type&& _node) noexcept : _M_color(_node._M_color), _M_parent(_node._M_parent), _M_left(_node._M_left),
 															_M_right(_node._M_right), _M_node_value(std::move(_node._M_node_value)) {
 			_M_left = _M_right = _M_parent = nullptr;
 		}
 
-		_Self_type& operator=(const _Self_type& _node) {
+		_Base_node_type& operator=(const _Base_node_type& _node) {
 			_M_color = _node._M_color;
 			_M_parent = _node._M_parent;
 			_M_left = _node._M_left;
@@ -71,7 +94,7 @@ namespace naive {
 			_M_node_value = _node._M_node_value;
 		}
 
-		_Self_type& operator=(_Self_type&& _node) noexcept {
+		_Base_node_type& operator=(_Base_node_type&& _node) noexcept {
 			_M_color = _node._M_color;
 			_M_parent = _node._M_parent;
 			_M_left = _node._M_left;
@@ -82,38 +105,84 @@ namespace naive {
 		}
 
 		~_RBTree_node() = default;
-
+		*/
 	};
+
+
+	struct _RBTree_iterator_base{
+
+		typedef ptrdiff_t difference_type;
+		typedef naive::bidirectional_iterator_tag iterator_category;
+		typedef _RBTree_node_base::_Base_node_ptr _Base_node_ptr;
+		_Base_node_ptr _M_node;
+
+		void _M_Tree_increment(){
+
+			/*
+			* The current node have a right child node means that the node just bigger than
+			* the current node in red-black tree is the most-left node in its right child tree;
+			* Otherwise, we need to percolate up to find the next element;
+			*/
+			if (_M_node->_M_right != nullptr) {
+
+				_M_node = _M_node->_M_right;//get the right child tree;
+
+				while (_M_node->_M_left != nullptr) {
+					_M_node = _M_node->_M_left;//go to the left-most node;
+				}
+			}
+			else {
+
+				/* If the current node not have a right child tree, according to properties of
+				* red-black tree, we need go back to the first node that is not a right child,
+				* then it is the node just bigger than the current node;
+				*/
+				_Base_node_ptr _t_parent = _M_node->_M_parent;
+
+				while (_M_node == _t_parent->_M_right) {
+					_M_node = _t_parent;
+					_t_parent = _t_parent->_M_parent;
+				}
+
+				// A special case that the iterator point to the root;
+				if (_M_node->_M_right != _t_parent) {
+					_M_node = _t_parent;
+				}
+			}
+
+		}
+
+		void _M_Tree_decrement(){}
+	};
+
 
 
 	/////////////////////////////////////////////////////////////
 	//// The iterator of RB-tree
 	///////////////////////////////////////////////////////////
 	template <typename _Value, typename _Ref, typename _Ptr>
-	class _RBTree_iterator {
+	struct _RBTree_iterator:public _RBTree_iterator_base{
 
-	public:
 		typedef _Value value_type;
 		typedef _Ref reference;
 		typedef std::size_t size_type;
-		typedef ptrdiff_t difference_type;
 		typedef _Ptr pointer;
-		typedef naive::bidirectional_iterator_tag iterator_category;
 		typedef _RBTree_iterator<_Value, _Value&, _Value*> iterator;
 		typedef _RBTree_iterator<_Value, const _Value&, const _Value*> const_iterator;
 		typedef _RBTree_iterator<_Value, _Ref, _Ptr> _Self_type;
-		typedef typename _RBTree_node<value_type>::_Link_type _Link_type;
+		typedef _RBTree_node<_Value>* _Link_type;
 
-	protected:
-		_Link_type _M_node;// Point to _RBTree_node;
+		//_Link_type _M_node;
 
-	public:
 		_RBTree_iterator() = default;
 
-		explicit _RBTree_iterator(_Link_type _lt) :_M_node(_lt) {}
+		explicit _RBTree_iterator(_Link_type _lt){
+			_M_node=_lt;
+		}
 
-		explicit _RBTree_iterator(const iterator& _it) :_M_node(_M_node = _it._M_node) {}
-
+		explicit _RBTree_iterator(const iterator& _it){
+			_M_node=_it._M_node;
+		}
 
 		reference operator*() const {
 			return static_cast<_Link_type>(_M_node)->_M_node_value;
@@ -132,36 +201,7 @@ namespace naive {
 		*/
 		_Self_type& operator++() {
 
-			/*
-			* The current node have a right child node means that the node just bigger than
-			* the current node in red-black tree is the most-left node in its right child tree;
-			* Otherwise, we need to percolate up to find the next element;
-			*/
-			if (_M_node->_M_right != nullptr) {
-
-				_M_node = _M_node->_M_right;//get the right child tree;
-				while (_M_node->_M_left != nullptr) {
-					_M_node = _M_node->_M_left;//go to the left-most node;
-				}
-			}
-			else {
-
-				/* If the current node not have a right child tree, according to properties of
-				* red-black tree, we need go back to the first node that is not a right child,
-				* then it is the node just bigger than the current node;
-				*/
-				_Link_type _t_parent = _M_node->_M_parent;
-
-				while (_M_node == _t_parent->_M_right) {
-					_M_node = _t_parent;
-					_t_parent = _t_parent->_M_parent;
-				}
-
-				// A special case that the iterator point to the root;
-				if (_M_node->_M_right != _t_parent) {
-					_M_node = _t_parent;
-				}
-			}
+			_M_Tree_increment();
 
 			return *this;
 		}
@@ -176,6 +216,8 @@ namespace naive {
 		// expression (--it)
 		_Self_type& operator--() {
 
+			_M_Tree_decrement();
+			return *this;
 		}
 
 		_Self_type operator--(int){
@@ -249,22 +291,61 @@ namespace naive {
 
 
 
+	inline void _RBTree_rotate_left(_RBTree_node_base* _node1, _RBTree_node_base*& _root){
 
+	}
 
-	/////////////////////////////////////////////////////////////////
+	inline void _RBTree_rotate_right(_RBTree_node_base* _node1, _RBTree_node_base*& _root){
+
+	}
+
+	///////////////////////////////////////////////////////////////////////////
 	//// the global function to balance the red-black tree
-	/////////////////////////////////////////////////////////////////
-	inline void _RBTree_rebalance(_RBTree_node* _node,_RBTree_node* _root){
+	//////////////////////////////////////////////////////////////////////////
+	inline void _RBTree_rebalance(_RBTree_node_base* _node,_RBTree_node_base*& _root){
 
-		_node->_M_color=_M_color_red;
+		_node->_M_color=_M_color_red;// the new element must be red node;
 
+		// the new node and its parent node are both red;
 		while((_node!=_root) && (_node->_M_parent->_M_color==_M_color_red)){
 
 			// the parent of new node is the left child of grandparent;
 			if(_node->_M_parent==_node->_M_parent->_M_parent->_M_left){
 
 				//get new node's uncle node;
-				_RBTree_node* _uncle_node=_node->_M_parent->_M_parent->_M_right;
+				_RBTree_node_base* _uncle_node=_node->_M_parent->_M_parent->_M_right;
+
+				// this mean the uncle node and parent node are both red node;
+				// use top-down procedure;
+				if(_uncle_node && _uncle_node->_M_color==_M_color_red){
+
+					_node->_M_parent->_M_color=_M_color_black;
+					_uncle_node->_M_color=_M_color_black;
+					_node->_M_parent->_M_parent->_M_color=_M_color_red;
+					_node=_node->_M_parent->_M_parent;
+
+				}
+				else{//Note: the null nodes are considered as black node;
+
+					// "inside" means that the parent node of new node is the left child of of grandparent node;
+					// And the new node is the right child of its parent node;
+					// we need rotate left firstly;
+					if(_node==_node->_M_parent->_M_right){
+
+						_node=_node->_M_parent;
+						_RBTree_rotate_left(_node,_root);
+					}
+
+					//the new node's parent and grandparent node should change its color;
+					_node->_M_parent->_M_color=_M_color_black;
+					_node->_M_parent->_M_parent->_M_color=_M_color_red;
+
+					_RBTree_rotate_right(_node->_M_parent->_M_parent,_root);
+				}
+			}
+			else{
+
+
 			}
 		}
 
@@ -272,14 +353,6 @@ namespace naive {
 		_root->_M_color=_M_color_black;
 
 	}
-
-
-
-
-
-
-
-
 
 
 
@@ -308,8 +381,11 @@ namespace naive {
 		typedef std::size_t size_type;
 		typedef std::ptrdiff_t difference_type;
 		typedef _RBTree_node_type* _Link_type;
+		typedef _RBTree_node_base::_Base_node_ptr _Base_node_ptr;
 		typedef _RBTree_iterator<value_type, reference, pointer> iterator;
 		typedef _RBTree_iterator<value_type, const_reference, const_pointer> const_iterator;
+		typedef naive::reverse_iterator<const_iterator> const_reverse_iterator;
+		typedef naive::reverse_iterator<iterator> reverse_iterator;
 
 	protected:
 		typedef typename _MyBase::allocator_type allocator_type;
@@ -356,28 +432,30 @@ namespace naive {
 			_M_deallocate_node(_node);
 		}
 
+	protected:
+
 		_Link_type& _M_get_root() const {
-			return _M_header->_M_parent;
+			return (_Link_type&)(_M_header->_M_parent);
 		}
 
 		_Link_type& _M_get_leftmost() const {
-			return _M_header->_M_left;
+			return (_Link_type&)(_M_header->_M_left);
 		}
 
 		_Link_type& _M_get_rightmost() const {
-			return _M_header->_M_right;
+			return (_Link_type&)(_M_header->_M_right);
 		}
 
 		static _Link_type& _M_get_left(_Link_type _node) {
-			return (_node->_M_left);
+			return (_Link_type&)(_node->_M_left);
 		}
 
 		static _Link_type& _M_get_right(_Link_type _node) {
-			return (_node->_M_right);
+			return (_Link_type&)(_node->_M_right);
 		}
 
 		static _Link_type& _M_get_parent(_Link_type _node) {
-			return (_node->_M_parent);
+			return (_Link_type&)(_node->_M_parent);
 		}
 
 		static reference _M_get_value(_Link_type _node) {
@@ -389,25 +467,44 @@ namespace naive {
 		}
 
 		static _Node_color_type& _M_get_color(_Link_type _node) {
-			return (_node->_M_color);
+			return (_Node_color_type&)(_node->_M_color);
 		}
 
 		static _Link_type _M_get_minimum(_Link_type _node) {
 
-			while (_node->_M_left != nullptr) {
-				_node = _node->_M_left;
-			}
-
-			return _node;
+			return static_cast<_Link_type&>(_RBTree_node_base::_M_minimum(_node));
 		}
 
 		static _Link_type _M_get_maxmum(_Link_type _node) {
 
-			while (_node->_M_right != nullptr) {
-				_node = _node->_M_right;
-			}
+			return static_cast<_Link_type&>(_RBTree_node_base::_M_maximum(_node));
+		}
 
-			return _node;
+
+	protected:
+
+		static _Link_type& _M_get_left(_Base_node_ptr _node) {
+			return (_Link_type&)(_node->_M_left);
+		}
+
+		static _Link_type& _M_get_right(_Base_node_ptr _node) {
+			return (_Link_type&)(_node->_M_right);
+		}
+
+		static _Link_type& _M_get_parent(_Base_node_ptr _node) {
+			return (_Link_type&)(_node->_M_parent);
+		}
+
+		static reference _M_get_value(_Base_node_ptr _node) {
+			return ((_Link_type)_node)->_M_node_value;
+		}
+
+		static const _Key& _M_get_key(_Base_node_ptr _node) {
+			return _KeyOfValue()(_M_get_value((_Link_type)_node));
+		}
+
+		static _Node_color_type& _M_get_color(_Base_node_ptr _node) {
+			return (_Node_color_type&)(((_Link_type)_node)->_M_color);
 		}
 
 
@@ -457,13 +554,14 @@ namespace naive {
 
 	private:
 		void _M_empty_initialize() {
+
 			_M_get_color(_M_header) = _M_color_red;// because the root must be black, so the _M_header should be red;
 			_M_get_root() = nullptr;
 			_M_get_leftmost() = _M_header;
 			_M_get_rightmost() = _M_header;
 		}
 
-		iterator _M_insert(_Link_type lt1,_Link_type lt2,const value_type& _value);
+		iterator _M_insert(_Base_node_ptr lt1,_Base_node_ptr lt2,const value_type& _value);
 	};
 
 
@@ -474,12 +572,14 @@ namespace naive {
 	 * @return: a naive::pair, the first element is a iterator point to the new element; the second element indicates
 	 * 			the insert if success;
 	 * */
+
+	/*
 	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
 	inline naive::Pair<typename RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>::iterator,bool> RBTree<_Key, _Value,
 			_KeyOfValue, _Compare, _Alloc>::insert_unique(const value_type & _value){
 
 		return naive::Pair();
-	}
+	}*/
 
 	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
 	inline typename RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>::iterator RBTree<_Key, _Value, _KeyOfValue,
@@ -501,10 +601,10 @@ namespace naive {
 
 	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
 	inline typename RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>::iterator RBTree<_Key, _Value, _KeyOfValue,
-			_Compare, _Alloc>::_M_insert(_Link_type lt1, _Link_type lt2, const value_type & _value) {
+			_Compare, _Alloc>::_M_insert(_Base_node_ptr lt1, _Base_node_ptr lt2, const value_type & _value) {
 
-		_Link_type _t_node=lt1;
-		_Link_type _t_parent=lt2;
+		_Link_type _t_node=(_Link_type)lt1;
+		_Link_type _t_parent=(_Link_type)lt2;
 
 		_Link_type _temp=nullptr;
 
