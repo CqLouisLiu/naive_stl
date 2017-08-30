@@ -47,22 +47,27 @@ namespace naive {
 		_Node_color_type _M_color;
 
 		static _Base_node_ptr _M_minimum(_Base_node_ptr _node) {
-			while (_node->_M_left != 0)
+
+			while (_node->_M_left != nullptr) {
 				_node = _node->_M_left;
+			}
+
 			return _node;
 		}
 
 		static _Base_node_ptr _M_maximum(_Base_node_ptr _node) {
 
-			while (_node->_M_right != 0)
+			while (_node->_M_right != nullptr){
 				_node = _node->_M_right;
+			}
+
 			return _node;
 		}
 	};
 
-	/////////////////////////////////////
+	////////////////////////////////////////////////////////////////
 	//// The node of RB-Tree
-	////////////////////////////////////
+	////////////////////////////////////////////////////////////////
 	template <typename _T>
 	struct _RBTree_node :public _RBTree_node_base {
 
@@ -110,15 +115,21 @@ namespace naive {
 
 		void _M_Tree_decrement() {
 
-			if (_M_node->_M_color == _M_color_red && _M_node->_M_parent->_M_parent == _M_node)
+			if (_M_node->_M_color == _M_color_red && _M_node->_M_parent->_M_parent == _M_node){
 				_M_node = _M_node->_M_right;
-			else if (_M_node->_M_left != 0) {
+			}
+			else if (_M_node->_M_left != nullptr) {
+
 				_Base_node_ptr _t_parent = _M_node->_M_left;
-				while (_t_parent->_M_right != 0)
+
+				while (_t_parent->_M_right != nullptr){
 					_t_parent = _t_parent->_M_right;
+				}
+
 				_M_node = _t_parent;
 			}
 			else {
+
 				_Base_node_ptr _t_parent = _M_node->_M_parent;
 				while (_M_node == _t_parent->_M_left) {
 					_M_node = _t_parent;
@@ -375,7 +386,7 @@ namespace naive {
 		typedef _RBTree_alloc_base<_T, _Alloc> _Base;
 		typedef typename _Base::allocator_type allocator_type;
 
-		explicit _RBTree_base(const allocator_type& _alloc = allocator_type()) :_Base(_alloc) {
+		_RBTree_base(const allocator_type& _alloc) :_Base(_alloc) {
 			_M_header = _M_node_allocate();
 		}
 
@@ -594,7 +605,7 @@ namespace naive {
 			_M_get_rightmost() = _M_header;
 		}
 
-		iterator _M_insert(_Base_node_ptr _node1, _Base_node_ptr _node2, const value_type& _value);
+		iterator _M_insert(_RBTree_node_base* x, _RBTree_node_base* y, const value_type& _value);
 	};
 
 
@@ -605,8 +616,6 @@ namespace naive {
 	* @return: a naive::pair, the first element is a iterator point to the new element; the second element indicates
 	* 			the insert if success;
 	* */
-
-
 	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
 	inline naive::Pair<typename RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::iterator, bool> RBTree<_Key, _Value,
 			_KeyOfValue, _Compare, _Alloc>::insert_unique(const value_type & _value) {
@@ -616,7 +625,7 @@ namespace naive {
 
 		bool _t_cmp = true;
 
-		while (_t_parent != 0) {
+		while (_t_parent != nullptr) {
 
 			_t_node = _t_parent;
 			_t_cmp = _M_key_compare(_KeyOfValue()(_value), _M_get_key(_t_parent));
@@ -664,45 +673,39 @@ namespace naive {
 
 	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
 	inline typename RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::iterator RBTree<_Key, _Value, _KeyOfValue,
-			_Compare, _Alloc>::_M_insert(_Base_node_ptr _node1, _Base_node_ptr _node2, const value_type & _value) {
+			_Compare, _Alloc>::_M_insert(_RBTree_node_base* x, _RBTree_node_base* y, const value_type & _value) {
 
-		_Link_type _t_node = (_Link_type)_node1;
-		_Link_type _t_parent = (_Link_type)_node2;
+		_Link_type _t_node = (_Link_type) x;
+		_Link_type _t_parent = (_Link_type) y;
+		_Link_type _temp=nullptr;
 
-		_Link_type _temp = nullptr;
-
-		// if _value<_t_parent->value, the the insert operation should inset new element in the left;
 		if (_t_parent == _M_header || _t_node != nullptr || _M_key_compare(_KeyOfValue()(_value), _M_get_key(_t_parent))) {
 
 			_temp = _M_create_node(_value);
 			_M_get_left(_t_parent) = _temp;
 
 			if (_t_parent == _M_header) {
+
 				_M_get_root() = _temp;
 				_M_get_rightmost() = _temp;
-			}
-			else if (_t_parent == _M_get_leftmost()) {
-				_M_get_leftmost() = _temp;
-			}
-		}
-		else {// insert in the right;
 
+			}
+			else if (_t_parent == _M_get_leftmost())
+				_M_get_leftmost() = _temp;
+		}
+		else {
 			_temp = _M_create_node(_value);
 			_M_get_right(_t_parent) = _temp;
-
-			if (_t_parent == _M_get_rightmost()) {
+			if (_t_parent == _M_get_rightmost())
 				_M_get_rightmost() = _temp;
-			}
 		}
 
 		_M_get_parent(_temp) = _t_parent;
+
 		_M_get_left(_temp) = nullptr;
 		_M_get_right(_temp) = nullptr;
-
 		_RBTree_rebalance(_temp, _M_header->_M_parent);
-
 		++_M_node_count;
-
 		return iterator(_temp);
 	}
 
