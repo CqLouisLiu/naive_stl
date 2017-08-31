@@ -111,6 +111,31 @@ namespace naive
 	}
 
 
+	template <typename _InputIt, typename _Distance>
+	inline void _distance(_InputIt _first, _InputIt _last,
+						   _Distance& _n, input_iterator_tag) {
+
+		while (_first != _last) {
+			++_first; ++_n;
+		}
+	}
+
+	template <typename _RandomAccessIt, typename _Distance>
+	inline void _distance(_RandomAccessIt _first,
+						  _RandomAccessIt _last,
+						   _Distance& _n, random_access_iterator_tag) {
+		_n += _last - _first;
+	}
+
+	template <typename InputIt, typename _Distance>
+	inline void distance(InputIt first,
+						 InputIt last, _Distance& n) {
+
+		typedef typename naive::iterator_traits<InputIt>::iterator_category _iterator_category;
+		_distance(first, last, n, _iterator_category());
+	}
+
+
 	template< typename InputIt >
 	typename naive::iterator_traits<InputIt>::difference_type
 		_distance(InputIt first, InputIt last,naive::input_iterator_tag) {

@@ -17,6 +17,16 @@ namespace naive {
 		return true;
 	}
 
+	template<typename InputIt1, class InputIt2, typename BinaryPredicate>
+	bool equal(InputIt1 first1, InputIt1 last1, InputIt2 first2, BinaryPredicate p) {
+		for (; first1 != last1; ++first1, ++first2) {
+			if (!p(*first1, *first2)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	/////////////////////////////////////////////////////////////////////////////////
 	//// Checks if the first range [first1, last1) is lexicographically
 	///  less than the second range [first2, last2).

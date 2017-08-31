@@ -1,1 +1,1 @@
-/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/naive_stl.dir/main.cpp.o CMakeFiles/naive_stl.dir/io/File.cpp.o CMakeFiles/naive_stl.dir/test/Test_RBTree.cpp.o  -o naive_stl.exe -Wl,--out-implib,libnaive_stl.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/naive_stl.dir/main.cpp.o CMakeFiles/naive_stl.dir/io/File.cpp.o  -o naive_stl.exe -Wl,--out-implib,libnaive_stl.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

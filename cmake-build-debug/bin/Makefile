@@ -179,33 +179,6 @@ main.cpp.s:
 	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-test/Test_RBTree.o: test/Test_RBTree.cpp.o
-
-.PHONY : test/Test_RBTree.o
-
-# target to build an object file
-test/Test_RBTree.cpp.o:
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/test/Test_RBTree.cpp.o
-.PHONY : test/Test_RBTree.cpp.o
-
-test/Test_RBTree.i: test/Test_RBTree.cpp.i
-
-.PHONY : test/Test_RBTree.i
-
-# target to preprocess a source file
-test/Test_RBTree.cpp.i:
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/test/Test_RBTree.cpp.i
-.PHONY : test/Test_RBTree.cpp.i
-
-test/Test_RBTree.s: test/Test_RBTree.cpp.s
-
-.PHONY : test/Test_RBTree.s
-
-# target to generate assembly for a file
-test/Test_RBTree.cpp.s:
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/test/Test_RBTree.cpp.s
-.PHONY : test/Test_RBTree.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -221,9 +194,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... test/Test_RBTree.o"
-	@echo "... test/Test_RBTree.i"
-	@echo "... test/Test_RBTree.s"
 .PHONY : help
 
 

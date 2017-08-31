@@ -38,5 +38,26 @@ int main(){
 	}
 	cout<<endl;
 
+	auto it=rbtree.find(5);
+	cout<<*it<<endl;
+
+	rbtree.erase(11);
+	for(auto c:rbtree) {
+		cout << c <<" ";
+	}
+	cout<<endl;
+
+	int ia[]={1,2,3,12,9,7,4,5};
+	naive::RBTree<int,int,naive::identity<int>> rbtree2;
+	rbtree2.insert_unique(ia,ia+8);
+	for(auto c:rbtree2) {
+		cout << c <<" ";
+	}
+	cout<<endl;
+
+	rbtree2.clear();
+	cout<<rbtree2.size()<<endl;
+
+
 	return 0;
 }

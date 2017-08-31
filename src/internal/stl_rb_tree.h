@@ -2,7 +2,7 @@
 /*
  * NOTE: This is an internal header file, included by other C++ headers.
  * You should not attempt to use it directly.
- * This file is from sgi_stl_312;
+ * This file is modified from sgi_stl_312;
  *
 */
 
@@ -28,6 +28,7 @@
 #include "../memory.h"
 #include "../functional.h"
 #include "../utility.h"
+#include "../algorithm.h"
 
 namespace naive {
 
@@ -355,6 +356,205 @@ namespace naive {
 		_root->_M_color = _M_color_black;
 	}
 
+	inline _RBTree_node_base* _RBTree_rebalance_for_erase(_RBTree_node_base* _x,
+														  _RBTree_node_base*& _root, _RBTree_node_base*& _leftmost,
+														  _RBTree_node_base*& _rightmost) {
+		_RBTree_node_base* _rt_node = _x;
+		_RBTree_node_base* _t_node = nullptr;
+		_RBTree_node_base* t_parent = nullptr;
+
+		if (_rt_node->_M_left == nullptr) {
+
+			_t_node = _rt_node->_M_right;
+		}
+		else {
+
+			if (_rt_node->_M_right == nullptr) {
+
+				_t_node = _rt_node->_M_left;
+			}
+			else {
+
+				_rt_node = _rt_node->_M_right;
+
+				while (_rt_node->_M_left != nullptr) {
+					_rt_node = _rt_node->_M_left;
+				}
+
+				_t_node = _rt_node->_M_right;
+			}
+		}
+		if(_rt_node != _x) {
+
+			_x->_M_left->_M_parent = _rt_node;
+
+			_rt_node->_M_left = _x->_M_left;
+
+			if (_rt_node != _x->_M_right) {
+
+				t_parent = _rt_node->_M_parent;
+
+				if(_t_node) {
+					_t_node->_M_parent = _rt_node->_M_parent;
+				}
+
+				_rt_node->_M_parent->_M_left = _t_node;
+				_rt_node->_M_right = _x->_M_right;
+				_x->_M_right->_M_parent = _rt_node;
+			}
+			else {
+
+				t_parent = _rt_node;
+			}
+
+			if (_root == _x) {
+
+				_root = _rt_node;
+			}
+			else if(_x->_M_parent->_M_left == _x) {
+				_x->_M_parent->_M_left = _rt_node;
+			}
+
+			else {
+				_x->_M_parent->_M_right = _rt_node;
+			}
+			_rt_node->_M_parent = _x->_M_parent;
+			std::swap(_rt_node->_M_color, _x->_M_color);
+			_rt_node = _x;
+		}
+
+		else {
+
+			t_parent = _rt_node->_M_parent;
+
+			if(_t_node) {
+
+				_t_node->_M_parent = _rt_node->_M_parent;
+			}
+			if(_root == _x) {
+				_root = _t_node;
+			}
+			else {
+				if (_x->_M_parent->_M_left == _x)
+					_x->_M_parent->_M_left = _t_node;
+				else
+					_x->_M_parent->_M_right = _t_node;
+			}
+			if (_leftmost == _x) {
+
+				if (_x->_M_right == nullptr) {
+					_leftmost = _x->_M_parent;
+				}
+				else{
+					_leftmost = _RBTree_node_base::_M_minimum(_t_node);
+				}
+			}
+
+			if (_rightmost == _x){
+
+				if (_x->_M_left == 0) {
+					_rightmost = _x->_M_parent;
+				}
+				else{
+					_rightmost = _RBTree_node_base::_M_minimum(_t_node);
+				}
+			}
+		}
+		if (_rt_node->_M_color != _M_color_red) {
+
+			while (_t_node != _root && (_t_node == 0 || _t_node->_M_color == _M_color_black)) {
+
+				if (_t_node == t_parent->_M_left) {
+
+					_RBTree_node_base *_w = t_parent->_M_right;
+
+					if (_w->_M_color == _M_color_red) {
+
+						_w->_M_color = _M_color_black;
+						t_parent->_M_color = _M_color_red;
+						_RBTree_rotate_left(t_parent, _root);
+						_w = t_parent->_M_right;
+					}
+					if ((_w->_M_left == 0 || _w->_M_left->_M_color == _M_color_black) &&
+							(_w->_M_right == 0 || _w->_M_right->_M_color == _M_color_black)) {
+
+						_w->_M_color = _M_color_red;
+						_t_node = t_parent;
+						t_parent = t_parent->_M_parent;
+					} else {
+						if (_w->_M_right == 0 || _w->_M_right->_M_color == _M_color_black) {
+
+							if (_w->_M_left){
+								_w->_M_left->_M_color = _M_color_black;
+							}
+
+							_w->_M_color = _M_color_red;
+							_RBTree_rotate_right(_w, _root);
+							_w = t_parent->_M_right;
+						}
+
+						_w->_M_color = t_parent->_M_color;
+						t_parent->_M_color = _M_color_black;
+
+						if (_w->_M_right) {
+
+							_w->_M_right->_M_color = _M_color_black;
+						}
+
+						_RBTree_rotate_left(t_parent, _root);
+						break;
+					}
+				} else {
+
+					_RBTree_node_base *__w = t_parent->_M_left;
+
+					if (__w->_M_color == _M_color_red) {
+
+						__w->_M_color = _M_color_black;
+						t_parent->_M_color = _M_color_red;
+						_RBTree_rotate_right(t_parent, _root);
+						__w = t_parent->_M_left;
+					}
+					if ((__w->_M_right == 0 || __w->_M_right->_M_color == _M_color_black) &&
+							(__w->_M_left == 0 || __w->_M_left->_M_color == _M_color_black)) {
+
+						__w->_M_color = _M_color_red;
+						_t_node = t_parent;
+						t_parent = t_parent->_M_parent;
+
+					} else {
+						if (__w->_M_left == 0 || __w->_M_left->_M_color == _M_color_black) {
+
+							if (__w->_M_right) {
+								__w->_M_right->_M_color = _M_color_black;
+							}
+							__w->_M_color = _M_color_red;
+
+							_RBTree_rotate_left(__w, _root);
+
+							__w = t_parent->_M_left;
+						}
+						__w->_M_color = t_parent->_M_color;
+
+						t_parent->_M_color = _M_color_black;
+
+						if (__w->_M_left){
+							__w->_M_left->_M_color = _M_color_black;
+						}
+						_RBTree_rotate_right(t_parent, _root);
+						break;
+					}
+				}
+			}
+
+			if (_t_node){
+				_t_node->_M_color = _M_color_black;
+			}
+		}
+		return _rt_node;
+	}
+
+
 
 	//////////////////////////////////////////////////
 	//// The memory allocate base class of RB-Tree
@@ -593,6 +793,38 @@ namespace naive {
 			_M_empty_initialize();
 		}
 
+		RBTree(const _Compare& _cmp, const allocator_type& __a) : _MyBase(__a), _M_node_count(0), _M_key_compare(_cmp) {
+			_M_empty_initialize();
+		}
+
+		RBTree& operator=(const RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>& rhs){
+
+			if (this != &rhs) {
+
+				clear();
+				_M_node_count = 0;
+				_M_key_compare = rhs._M_key_compare;
+
+				if (rhs._M_get_root() == nullptr) {
+
+					_M_get_root() = nullptr;
+					_M_get_leftmost() = _M_header;
+					_M_get_rightmost() = _M_header;
+				}
+				else {
+					_M_get_root() = _M_copy(rhs._M_get_root(), _M_header);
+					_M_get_leftmost() = _M_get_minimum(_M_get_root());
+					_M_get_rightmost() = _M_get_maxmum(_M_get_root());
+					_M_node_count = rhs._M_node_count;
+				}
+			}
+			return *this;
+		}
+
+		~RBTree(){
+			clear();
+		}
+
 		// Return the function object;
 		_Compare key_compare() const {
 			return _M_key_compare;
@@ -655,29 +887,135 @@ namespace naive {
 
 	public:
 
-		naive::pair<iterator, bool> insert_unique(const value_type& value);
+		void clear() {
+			if (_M_node_count != 0) {
+				_M_erase(_M_get_root());
+				_M_get_leftmost() = _M_header;
+				_M_get_root() = nullptr;
+				_M_get_rightmost() = _M_header;
+				_M_node_count = 0;
+			}
+		}
 
+		naive::pair<iterator, bool> insert_unique(const value_type& value);
 		iterator insert_unique(iterator pos, const value_type& value);
 		void insert_unique(const_iterator first, const_iterator last);
-		void insert_unique(const value_type* first, const value_type* last);
-
 		template <typename InputIt>
 		void insert_unique(InputIt first, InputIt last);
 
 		iterator insert_equal(const value_type& _value);
-		iterator insert_equal(iterator position, const value_type& value);
+		iterator insert_equal(iterator pos, const value_type& value);
 		template <typename InputIt>
 		void insert_equal(InputIt first, InputIt last);
 
 
-		iterator find(const key_type& __x);
+		iterator find(const key_type& key);
 		const_iterator find(const key_type& __x) const;
 
 
 		void erase(iterator pos);
-		size_type erase(const key_type& x);
-		void erase(iterator first, iterator last);
-		void erase(const key_type* first, const key_type* last);
+		size_type erase(const key_type& key);
+
+		void erase(iterator first, iterator last){
+
+			if (first == begin() && last == end()) {
+				clear();
+			}
+			else{
+				while (first != last) {
+					erase(first++);
+				}
+			}
+		}
+
+		void erase(const key_type* first, const key_type* last){
+
+			while (first != last){
+				erase(*first++);
+			}
+		}
+
+		iterator lower_bound(const key_type& key){
+
+			_Link_type _t_curr = _M_get_root();
+			_Link_type _t_last = _M_header;
+
+			while (_t_curr != 0)
+				if (!_M_key_compare(_M_get_key(_t_curr), key)){
+
+					_t_last = _t_curr;
+					_t_curr = _M_get_left(_t_curr);
+
+				}
+				else {
+					_t_curr = _M_get_right(_t_curr);
+				}
+
+			return iterator(_t_last);
+		}
+
+		const_iterator lower_bound(const key_type& key) const{
+
+			_Link_type _t_curr = _M_get_root();
+			_Link_type _t_last = _M_header;
+
+			while (_t_curr != 0)
+				if (!_M_key_compare(_M_get_key(_t_curr), key)){
+
+					_t_last = _t_curr;
+					_t_curr = _M_get_left(_t_curr);
+
+				}
+				else {
+					_t_curr = _M_get_right(_t_curr);
+				}
+
+			return const_iterator(_t_last);
+		}
+
+		iterator upper_bound(const key_type& key){
+
+			_Link_type _t_curr = _M_get_root();
+			_Link_type _t_last = _M_header;
+
+			while (_t_curr != 0)
+				if (_M_key_compare(key, _M_get_key(_t_curr))){
+
+					_t_last = _t_curr;
+					_t_curr = _M_get_left(_t_curr);
+				}
+				else {
+					_t_curr = _M_get_right(_t_curr);
+				}
+			return iterator(_t_last);
+		}
+
+		const_iterator upper_bound(const key_type& key) const{
+
+			_Link_type _t_curr = _M_get_root();
+			_Link_type _t_last = _M_header;
+
+			while (_t_curr != 0)
+				if (_M_key_compare(key, _M_get_key(_t_curr))){
+
+					_t_last = _t_curr;
+					_t_curr = _M_get_left(_t_curr);
+				}
+				else {
+					_t_curr = _M_get_right(_t_curr);
+				}
+			return const_iterator(_t_last);
+		}
+
+		naive::pair<iterator,iterator> equal_range(const key_type& key){
+
+			return pair<iterator, iterator>(lower_bound(key), upper_bound(key));
+		}
+
+		naive::pair<const_iterator, const_iterator> equal_range(const key_type& key) const{
+
+			return pair<const_iterator,const_iterator>(lower_bound(key), upper_bound(key));
+		}
 
 
 	private:
@@ -690,7 +1028,54 @@ namespace naive {
 		}
 
 		iterator _M_insert(_RBTree_node_base* x, _RBTree_node_base* y, const value_type& _value);
+
+		void _M_erase(_Link_type _node){
+
+			while (_node != nullptr) {
+				_M_erase(_M_get_right(_node));
+
+				_Link_type _temp = _M_get_left(_node);
+				destroy_node(_node);
+				_node = _temp;
+			}
+		}
+
+		_Link_type _M_copy(_Link_type _t_node, _Link_type _t_parent){
+
+			_Link_type __top = _M_clone_node(_t_node);
+			__top->_M_parent = _t_parent;
+
+			try {
+				if (_t_node->_M_right) {
+					__top->_M_right = _M_copy(_M_get_right(_t_node), __top);
+				}
+				_t_parent = __top;
+				_t_node = _M_get_left(_t_node);
+
+					while (_t_node != nullptr) {
+
+						_Link_type _temp = _M_clone_node(_t_node);
+
+						_t_parent->_M_left = _temp;
+
+						_temp->_M_parent = _t_parent;
+
+						if (_t_node->_M_right)
+							_temp->_M_right = _M_copy(_M_get_right(_t_node), _temp);
+						_t_parent = _temp;
+						_t_node = _M_get_left(_t_node);
+					}
+			}
+			catch (...){
+				_M_erase(__top);
+			};
+
+			return __top;
+		}
+
 	};
+
+
 
 
 	/*
@@ -701,8 +1086,7 @@ namespace naive {
 	* 			the insert if success;
 	* */
 	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
-	inline naive::pair<typename RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::iterator, bool> RBTree<_Key, _Value,
-			_KeyOfValue, _Compare, _Alloc>::insert_unique(const value_type& value) {
+	inline naive::pair<typename RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::iterator, bool> RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::insert_unique(const value_type& value) {
 
 		_Link_type _t_node = _M_header;
 		_Link_type _t_parent = _M_get_root();
@@ -738,6 +1122,91 @@ namespace naive {
 	}
 
 	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
+	inline typename RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::iterator RBTree<_Key, _Value,
+			_KeyOfValue, _Compare, _Alloc>::insert_unique(iterator pos, const value_type & value) {
+
+		if (pos._M_node == _M_header->_M_left) {
+			if (size() > 0 && _M_key_compare(_KeyOfValue()(value), _M_get_key(pos._M_node))) {
+				return _M_insert(pos._M_node, pos._M_node, value);
+			}
+			else {
+				return insert_unique(value).first;
+			}
+		} else if (pos._M_node == _M_header) {
+
+			if (_M_key_compare(_M_get_key(_M_get_rightmost()), _KeyOfValue()(value))){
+				return _M_insert(0, _M_get_rightmost(), value);
+			}
+			else{
+				return insert_unique(value).first;
+			}
+
+		} else {
+
+			iterator _t_before = pos;
+			--_t_before;
+
+			if (_M_key_compare(_M_get_key(_t_before._M_node), _KeyOfValue()(value)) &&
+					_M_key_compare(_KeyOfValue()(value), _M_get_key(pos._M_node))) {
+
+				if (_M_get_right(_t_before._M_node) == 0) {
+					return _M_insert(0, _t_before._M_node, value);
+				}
+				else {
+					return _M_insert(pos._M_node, pos._M_node, value);
+				}
+			} else {
+				return insert_unique(value).first;
+			}
+		}
+	}
+
+
+	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
+	inline void RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::insert_unique(const_iterator first, const_iterator last) {
+
+		for ( ; first != last; ++first){
+			insert_unique(*first);
+		}
+	}
+
+	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
+	template<typename InputIt>
+	inline void RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::insert_unique(InputIt first, InputIt last) {
+
+		for ( ; first != last; ++first){
+			insert_equal(*first);
+		}
+	}
+
+
+	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
+	inline void RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::erase(iterator pos){
+
+		_Link_type _temp = (_Link_type) _RBTree_rebalance_for_erase(pos._M_node, _M_header->_M_parent,
+																	_M_header->_M_left, _M_header->_M_right);
+		destroy_node(_temp);
+		--_M_node_count;
+	}
+
+
+	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
+	inline typename RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::size_type RBTree<_Key, _Value,
+			_KeyOfValue, _Compare, _Alloc>::erase(const key_type & key) {
+
+		naive::pair<iterator,iterator> _t_pair = equal_range(key);
+
+		size_type _n = 0;
+
+		distance(_t_pair.first, _t_pair.second, _n);
+
+		erase(_t_pair.first, _t_pair.second);
+
+		return _n;
+
+	}
+
+	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
 	inline typename RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::iterator RBTree<_Key, _Value, _KeyOfValue,
 			_Compare, _Alloc>::insert_equal(const value_type & _value) {
 
@@ -752,6 +1221,55 @@ namespace naive {
 		}
 
 		return _M_insert(_t_node, _t_parent, _value);
+	}
+
+	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
+	inline typename RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::iterator RBTree<_Key, _Value,
+			_KeyOfValue, _Compare, _Alloc>::insert_equal(iterator pos, const value_type & value) {
+
+		if (pos._M_node == _M_header->_M_left) {
+			if (size() > 0 && _M_key_compare(_KeyOfValue()(value), _M_get_key(pos._M_node))){
+				return _M_insert(pos._M_node, pos._M_node, value);
+
+			}
+			else {
+				return insert_equal(value);
+			}
+		}
+		else if (pos._M_node == _M_header) {
+			if (!_M_key_compare(_KeyOfValue()(value), _M_get_key(_M_get_rightmost()))) {
+				return _M_insert(0, _M_get_rightmost(), value);
+			}
+			else {
+				return insert_equal(value);
+			}
+		}
+		else {
+
+			iterator _t_before = pos;
+			--_t_before;
+			if (!_M_key_compare(_KeyOfValue()(value), _M_get_key(_t_before._M_node)) &&
+					!_M_key_compare(_M_get_key(pos._M_node), _KeyOfValue()(value))) {
+
+				if (_M_get_right(_t_before._M_node) == nullptr) {
+					return _M_insert(0, _t_before._M_node, value);
+				}
+				else {
+					return _M_insert(pos._M_node, pos._M_node, value);
+				}
+			}
+			else {
+				return insert_equal(value);
+			}
+		}
+	}
+
+	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
+	template<typename InputIt>
+	inline void RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::insert_equal(InputIt first, InputIt last) {
+
+		for (; first != last; ++first)
+			insert_equal(*first);
 	}
 
 
@@ -793,5 +1311,117 @@ namespace naive {
 		return iterator(_temp);
 	}
 
+	/*
+	 * Search in the tree if there is a element with key value x;
+	 * @ key: the key of search value;
+	 * @return: if success returen a iterator point to the element;
+	 * */
+	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
+	inline typename RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::iterator RBTree<_Key, _Value, _KeyOfValue,
+			_Compare, _Alloc>::find(const key_type & key) {
+
+		_Link_type _t_curr=_M_get_root();
+		_Link_type _t_last=_M_header;
+
+		while(_t_curr!=nullptr){
+
+			if(!_M_key_compare(_M_get_key(_t_curr),key)){//_t_curr>=key;
+
+				_t_last=_t_curr;
+				_t_curr=_M_get_left(_t_curr);
+				//_t_curr=(_Link_type)_t_curr->_M_left;
+
+			}else{//t_node<key;
+				_t_curr=_M_get_right(_t_curr);
+			}
+		}
+
+		iterator _it=iterator(_t_last);
+
+		if(_it==end()||_M_key_compare(key,_M_get_key(_it._M_node))){
+
+			return end();
+		}
+
+		return _it;
+	}
+
+	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
+	inline typename RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::const_iterator RBTree<_Key, _Value, _KeyOfValue,
+			_Compare, _Alloc>::find(const key_type & key) const{
+
+		_Link_type _t_curr=_M_get_root();
+		_Link_type _t_last=_M_header;
+
+		while(_t_curr!=nullptr){
+
+			if(!_M_key_compare(_M_get_key(_t_curr),key)){//_t_curr>=key;
+
+				_t_last=_t_curr;
+				_t_curr=_M_get_left(_t_curr);
+				//_t_curr=(_Link_type)_t_curr->_M_left;
+
+			}else{//t_node<key;
+				_t_curr=_M_get_right(_t_curr);
+			}
+		}
+
+		const_iterator _it=const_iterator(_t_last);
+
+		if(_it==end()||_M_key_compare(key,_M_get_key(_it._M_node))){
+
+			return end();
+		}
+
+		return _it;
+	}
+
+	template <typename _Key, typename _Value, typename _KeyOfValue,
+			typename _Compare, typename _Alloc>
+	inline bool operator==(const RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>& lhs,
+			   const RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>& rhs) {
+
+		return lhs.size() == rhs.size() && naive::equal(lhs.begin(), lhs.end(), rhs.begin());
+	}
+
+	template <typename _Key, typename _Value, typename _KeyOfValue,
+			typename _Compare, typename _Alloc>
+	inline bool operator!=(const RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>& lhs,
+						   const RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>& rhs) {
+
+		return !(lhs==rhs);
+	}
+
+	template <typename _Key, typename _Value, typename _KeyOfValue,
+			typename _Compare, typename _Alloc>
+	inline bool operator<(const RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>& lhs,
+						   const RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>& rhs) {
+
+		return naive::lexicographical_compare(lhs.begin(),lhs.end(),rhs.begin(),rhs.end());
+	}
+
+	template <typename _Key, typename _Value, typename _KeyOfValue,
+			typename _Compare, typename _Alloc>
+	inline bool operator>(const RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>& lhs,
+						  const RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>& rhs) {
+
+		return rhs<lhs;
+	}
+
+	template <typename _Key, typename _Value, typename _KeyOfValue,
+			typename _Compare, typename _Alloc>
+	inline bool operator>=(const RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>& lhs,
+						  const RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>& rhs) {
+
+		return !(lhs<rhs);
+	}
+
+	template <typename _Key, typename _Value, typename _KeyOfValue,
+			typename _Compare, typename _Alloc>
+	inline bool operator<=(const RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>& lhs,
+						   const RBTree<_Key,_Value,_KeyOfValue,_Compare,_Alloc>& rhs) {
+
+		return !(rhs<lhs);
+	}
 }
 #endif //NAIVE_STL_STL_RB_TREE_H
