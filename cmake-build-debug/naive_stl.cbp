@@ -149,6 +149,9 @@
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/memory.h">
 			<Option target="naive_stl"/>
 		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/test/Test_RBTree.cpp">
+			<Option target="naive_stl"/>
+		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/type_traits.h">
 			<Option target="naive_stl"/>
 		</Unit>

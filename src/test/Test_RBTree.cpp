@@ -1,6 +1,5 @@
 #include <iostream>
-#include <string>
-#include "internal/stl_rb_tree.h"
+#include "../internal/stl_rb_tree.h"
 using namespace std;
 
 int main(){
