@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/cygdrive/f/workspaces/naive_stl/src/algorithm.h
+internal/stl_algo.h
+/cygdrive/f/workspaces/naive_stl/src/internal/stl_algo.h
+internal/stl_heap.h
+/cygdrive/f/workspaces/naive_stl/src/internal/stl_heap.h
+
 /cygdrive/f/workspaces/naive_stl/src/functional.h
 functional
 -
@@ -44,6 +50,10 @@ iostream
 string
 -
 
+/cygdrive/f/workspaces/naive_stl/src/internal/stl_heap.h
+../iterator.h
+/cygdrive/f/workspaces/naive_stl/src/iterator.h
+
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_iterator.h
 cstddef
 -
@@ -69,6 +79,8 @@ cstddef
 /cygdrive/f/workspaces/naive_stl/src/functional.h
 ../utility.h
 /cygdrive/f/workspaces/naive_stl/src/utility.h
+../algorithm.h
+/cygdrive/f/workspaces/naive_stl/src/algorithm.h
 
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_type_traits.h
 type_traits
@@ -105,10 +117,12 @@ iterator
 /cygdrive/f/workspaces/naive_stl/src/main.cpp
 iostream
 -
-string
+util/Set.h
+/cygdrive/f/workspaces/naive_stl/src/util/Set.h
+cmath
 -
-internal/stl_rb_tree.h
-/cygdrive/f/workspaces/naive_stl/src/internal/stl_rb_tree.h
+vector
+-
 
 /cygdrive/f/workspaces/naive_stl/src/memory.h
 internal/stl_alloc.h
@@ -123,6 +137,10 @@ memory
 /cygdrive/f/workspaces/naive_stl/src/type_traits.h
 internal/stl_type_traits.h
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_type_traits.h
+
+/cygdrive/f/workspaces/naive_stl/src/util/Set.h
+../internal/stl_rb_tree.h
+/cygdrive/f/workspaces/naive_stl/src/internal/stl_rb_tree.h
 
 /cygdrive/f/workspaces/naive_stl/src/utility.h
 internal/stl_pair.h

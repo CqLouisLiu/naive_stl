@@ -161,12 +161,19 @@ namespace naive {
 		typedef _RBTree_iterator<_Value, _Ref, _Ptr> _Self_type;
 
 		typedef _RBTree_node<_Value>* _Link_type;
+		typedef _RBTree_node_base* _Link_type_base;
+
 
 		_RBTree_iterator()= default;
 
 		 _RBTree_iterator(_Link_type _node) {
 			_M_node = _node;
 		}
+
+		_RBTree_iterator(_Link_type_base _node) {
+			_M_node = _node;
+		}
+
 
 		_RBTree_iterator(const iterator& rhs) {
 			_M_node = rhs._M_node;
@@ -625,8 +632,7 @@ namespace naive {
 	//////////////////////////////////////////////////////////////////////
 	//// The RB-Tree class
 	////////////////////////////////////////////////////////////////////
-	template <typename _Key, typename _Value, typename _KeyOfValue, typename _Compare = naive::less<_Value>,
-			typename _Alloc = naive::allocator<_Value>>
+	template <typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
 	class RBTree :protected _RBTree_base<_Value, _Alloc> {
 
 	private:
@@ -838,11 +844,19 @@ namespace naive {
 			return _M_get_leftmost();
 		}
 
+		const_iterator cbegin() const {
+			return _M_get_leftmost();
+		}
+
 		iterator end() {
 			return iterator(_M_header);
 		}
 
 		const_iterator end() const {
+			return _M_header;
+		}
+
+		const_iterator cend() const {
 			return _M_header;
 		}
 
@@ -856,11 +870,21 @@ namespace naive {
 			return const_reverse_iterator(end());
 		}
 
+		const_reverse_iterator crbegin() const {
+
+			return const_reverse_iterator(end());
+		}
+
 		reverse_iterator rend() {
 			return reverse_iterator(begin());
 		}
 
 		const_reverse_iterator rend() const {
+
+			return const_reverse_iterator(begin());
+		}
+
+		const_reverse_iterator crend() const {
 
 			return const_reverse_iterator(begin());
 		}
@@ -898,41 +922,49 @@ namespace naive {
 		}
 
 		naive::pair<iterator, bool> insert_unique(const value_type& value);
+
 		iterator insert_unique(iterator pos, const value_type& value);
+
 		void insert_unique(const_iterator first, const_iterator last);
+
 		template <typename InputIt>
 		void insert_unique(InputIt first, InputIt last);
 
 		iterator insert_equal(const value_type& _value);
+
 		iterator insert_equal(iterator pos, const value_type& value);
+
 		template <typename InputIt>
 		void insert_equal(InputIt first, InputIt last);
 
-
 		iterator find(const key_type& key);
+
 		const_iterator find(const key_type& __x) const;
 
+		iterator erase(const_iterator pos){
 
-		void erase(iterator pos);
-		size_type erase(const key_type& key);
+			iterator _t_pos(pos._M_node);
 
-		void erase(iterator first, iterator last){
+			_Link_type _temp = (_Link_type) _RBTree_rebalance_for_erase(_t_pos._M_node, _M_header->_M_parent,
+																		_M_header->_M_left, _M_header->_M_right);
 
-			if (first == begin() && last == end()) {
-				clear();
-			}
-			else{
-				while (first != last) {
-					erase(first++);
-				}
-			}
+			++pos;
+			destroy_node(_temp);
+			--_M_node_count;
+
+			return iterator(pos._M_node);
 		}
 
-		void erase(const key_type* first, const key_type* last){
+		size_type erase(const key_type& key);
 
-			while (first != last){
-				erase(*first++);
+		iterator erase(const_iterator first, const_iterator last){
+
+			while(first!=last){
+				first=erase(first);
 			}
+
+			return iterator(first._M_node);
+
 		}
 
 		iterator lower_bound(const key_type& key){
@@ -1179,15 +1211,15 @@ namespace naive {
 		}
 	}
 
-
+	/*
 	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
-	inline void RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::erase(iterator pos){
+	inline void RBTree<_Key, _Value, _KeyOfValue, _Compare, _Alloc>::erase(const_iterator pos){
 
 		_Link_type _temp = (_Link_type) _RBTree_rebalance_for_erase(pos._M_node, _M_header->_M_parent,
 																	_M_header->_M_left, _M_header->_M_right);
 		destroy_node(_temp);
 		--_M_node_count;
-	}
+	}*/
 
 
 	template<typename _Key, typename _Value, typename _KeyOfValue, typename _Compare, typename _Alloc>
