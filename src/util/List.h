@@ -3,6 +3,7 @@
 
 #include "../iterator.h"
 #include "../memory.h"
+#include "../algorithm.h"
 #include <initializer_list>
 
 namespace naive {
@@ -158,6 +159,8 @@ namespace naive {
 		typedef ptrdiff_t difference_type;
 		typedef _List_iterator<_T, _T&, _T*> iterator;
 		typedef _List_iterator<_T, const _T&, const _T*> const_iterator;
+		typedef naive::reverse_iterator<iterator>       reverse_iterator
+		typedef naive::reverse_iterator<const_iterator> const_reverse_iterator;
 
 		typedef typename _Base::allocator_type allocator_type;
 		typedef _List_node<_T> _Node;
@@ -387,6 +390,11 @@ namespace naive {
 			if (first != last)
 				transfer(pos, first, last);
 		}
+
+		void swap(List& rhs){
+
+			std::swap(_M_node,rhs._M_node);
+		}
 	};
 
 
@@ -459,6 +467,57 @@ namespace naive {
 		}
 	}
 
+	template< class T, class Alloc >
+	bool operator==( const List<T,Alloc>& lhs, const List<T,Alloc>& rhs ){
+
+		typename List<T,Alloc>::iterator _t_lhs_bg=lhs.begin();
+		typename List<T,Alloc>::iterator _t_lhs_ed=lhs.end();
+		typename List<T,Alloc>::iterator _t_rhs_bg=lhs.begin();
+		typename List<T,Alloc>::iterator _t_rhs_ed=lhs.end();
+
+		while((_t_lhs_bg!=_t_lhs_ed) && (_t_rhs_bg!=_t_rhs_ed) && (*_t_lhs_bg==*_t_rhs_bg)){
+
+			++_t_lhs_bg;
+			++_t_rhs_bg;
+		}
+
+		return (_t_lhs_bg==_t_lhs_ed)&&(_t_rhs_bg==_t_rhs_ed);
+	}
+
+	template< class T, class Alloc >
+	bool operator!=( const List<T,Alloc>& lhs, const List<T,Alloc>& rhs ){
+
+		return !(lhs==rhs);
+	}
+
+	template< class T, class Alloc >
+	bool operator<(const List<T,Alloc>& lhs, const List<T,Alloc>& rhs ){
+
+		return naive::lexicographical_compare(lhs.begin(),lhs.end(),rhs.begin(),rhs.end());
+	}
+
+	template< class T, class Alloc >
+	bool operator>( const List<T,Alloc>& lhs, const List<T,Alloc>& rhs ){
+
+		return rhs<lhs;
+	}
+
+	template< class T, class Alloc >
+	bool operator<=( const List<T,Alloc>& lhs, const List<T,Alloc>& rhs ){
+
+		return !(rhs<lhs);
+	}
+
+	template< class T, class Alloc >
+	bool operator>=( const List<T,Alloc>& lhs, const List<T,Alloc>& rhs ){
+
+		return !(lhs<rhs);
+	}
+
+	template< class T, class Alloc >
+	void swap( List<T,Alloc>& lhs, List<T,Alloc>& rhs){
+		lhs.swap(rhs);
+	}
 }
 
 #endif

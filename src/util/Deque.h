@@ -8,7 +8,6 @@
 
 #include "../internal/stl_alloc.h"
 #include "../internal/stl_uninitialized.h"
-#include "../internal/stl_alloc.h"
 
 namespace naive {
 

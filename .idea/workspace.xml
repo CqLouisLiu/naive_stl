@@ -12,15 +12,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18d6fa73-0142-40fb-9e33-b1d38ece29b7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/Test_Set.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/CXX.includecache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/depend.internal" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/depend.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/bin/naive_stl.exe.stackdump" afterPath="$PROJECT_DIR$/cmake-build-debug/bin/naive_stl.exe.stackdump" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/internal/stl_rb_tree.h" afterPath="$PROJECT_DIR$/src/internal/stl_rb_tree.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/Set.h" afterPath="$PROJECT_DIR$/src/util/Set.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/internal/stl_alloc.h" afterPath="$PROJECT_DIR$/src/internal/stl_alloc.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/internal/stl_hash_table.h" afterPath="$PROJECT_DIR$/src/internal/stl_hash_table.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/Deque.h" afterPath="$PROJECT_DIR$/src/util/Deque.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/List.h" afterPath="$PROJECT_DIR$/src/util/List.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/Stack.h" afterPath="$PROJECT_DIR$/src/util/Stack.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +28,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -48,7 +45,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/stl_vector.h" />
         <option value="$PROJECT_DIR$/src/stl_array.h" />
         <option value="$PROJECT_DIR$/src/util/Array.h" />
         <option value="$PROJECT_DIR$/src/File.cpp.cpp" />
@@ -57,7 +53,6 @@
         <option value="$PROJECT_DIR$/src/stl_algo.h" />
         <option value="$PROJECT_DIR$/src/stl_config.h" />
         <option value="$PROJECT_DIR$/src/util/Queue.h" />
-        <option value="$PROJECT_DIR$/src/util/Stack.h" />
         <option value="$PROJECT_DIR$/src/stl_bstree.h" />
         <option value="$PROJECT_DIR$/src/File.h" />
         <option value="$PROJECT_DIR$/src/File.cpp" />
@@ -66,14 +61,11 @@
         <option value="$PROJECT_DIR$/src/io/File.h" />
         <option value="$PROJECT_DIR$/src/io/File.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/src/util/List.h" />
         <option value="$PROJECT_DIR$/src/stl_alloc.h" />
-        <option value="$PROJECT_DIR$/src/util/Deque.h" />
         <option value="$PROJECT_DIR$/src/stl_rb_tree.h" />
         <option value="$PROJECT_DIR$/src/dynamic_string.h" />
         <option value="$PROJECT_DIR$/src/util/Pair.h" />
         <option value="$PROJECT_DIR$/src/internal/stl_algo.h" />
-        <option value="$PROJECT_DIR$/src/internal/stl_alloc.h" />
         <option value="$PROJECT_DIR$/src/internal/stl_array.h" />
         <option value="$PROJECT_DIR$/src/iterator.h" />
         <option value="$PROJECT_DIR$/src/internal/stl_heap.h" />
@@ -99,6 +91,11 @@
         <option value="$PROJECT_DIR$/src/util/Set.h" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/test/Test_Set.cpp" />
+        <option value="$PROJECT_DIR$/src/util/Deque.h" />
+        <option value="$PROJECT_DIR$/src/internal/stl_hash_table.h" />
+        <option value="$PROJECT_DIR$/src/util/Stack.h" />
+        <option value="$PROJECT_DIR$/src/internal/stl_alloc.h" />
+        <option value="$PROJECT_DIR$/src/util/List.h" />
       </list>
     </option>
   </component>
@@ -166,6 +163,12 @@
               <item name="naive_stl" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="naive_stl" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="naive_stl" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="naive_stl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="internal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="naive_stl" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
@@ -459,19 +462,19 @@
       <workItem from="1504151440661" duration="16135000" />
       <workItem from="1504171665758" duration="1096000" />
       <workItem from="1504179301798" duration="762000" />
-      <workItem from="1504233784910" duration="10195000" />
+      <workItem from="1504233784910" duration="10227000" />
+      <workItem from="1504247350087" duration="1816000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="227560000" />
+    <option name="totallyTimeSpent" value="229408000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.159375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32560706" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23777173" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -482,6 +485,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39955848" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32560706" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -508,13 +512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Stack.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -570,20 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/MultiSet.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/internal/stl_hash_table.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/MultiMap.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -602,13 +585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Deque.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="369" column="25" lean-forward="false" selection-start-line="369" selection-start-column="21" selection-end-line="369" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -644,13 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/List.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1824">
-          <caret line="86" column="17" lean-forward="false" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -745,32 +714,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/internal/red_black_tree.h" />
-    <entry file="file://$PROJECT_DIR$/src/internal/stl_alloc.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1008">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utility.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/internal/stl_pair.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/type_traits.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2171">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -807,7 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -825,18 +771,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/algorithm.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Test_Set.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1968">
           <caret line="82" column="1" lean-forward="false" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -845,16 +783,16 @@
         <state relative-caret-position="385">
           <caret line="1006" column="0" lean-forward="true" selection-start-line="1006" selection-start-column="0" selection-end-line="1006" selection-end-column="0" />
           <folding>
-            <element signature="e#769#793#0" expanded="true" />
-            <element signature="e#1805#1818#0" expanded="true" />
-            <element signature="e#3654#3701#0" expanded="true" />
+            <element signature="e#769#793#0" expanded="false" />
+            <element signature="e#1805#1818#0" expanded="false" />
+            <element signature="e#3654#3701#0" expanded="false" />
             <element signature="e#5579#6148#0" expanded="false" />
-            <element signature="e#13856#13886#0" expanded="true" />
-            <element signature="e#14733#14763#0" expanded="true" />
-            <element signature="e#15540#15630#0" expanded="true" />
+            <element signature="e#13856#13886#0" expanded="false" />
+            <element signature="e#14733#14763#0" expanded="false" />
+            <element signature="e#15540#15630#0" expanded="false" />
             <element signature="e#20407#20433#0" expanded="false" />
-            <element signature="e#22222#22240#0" expanded="true" />
-            <element signature="e#22421#22439#0" expanded="true" />
+            <element signature="e#22222#22240#0" expanded="false" />
+            <element signature="e#22421#22439#0" expanded="false" />
             <element signature="e#22583#22907#0" expanded="false" />
             <element signature="e#22952#23104#0" expanded="false" />
             <element signature="e#23108#23460#0" expanded="false" />
@@ -867,32 +805,32 @@
             <element signature="e#25229#25424#0" expanded="false" />
             <element signature="e#25428#26126#0" expanded="false" />
             <element signature="e#26137#26422#0" expanded="false" />
-            <element signature="e#26432#26522#0" expanded="true" />
+            <element signature="e#26432#26522#0" expanded="false" />
             <element signature="e#26137#27434#0" expanded="false" />
-            <element signature="e#27445#27535#0" expanded="true" />
+            <element signature="e#27445#27535#0" expanded="false" />
             <element signature="e#27621#27669#0" expanded="false" />
-            <element signature="e#28662#28752#0" expanded="true" />
+            <element signature="e#28662#28752#0" expanded="false" />
             <element signature="e#28654#28946#0" expanded="false" />
-            <element signature="e#28957#29047#0" expanded="true" />
-            <element signature="e#29057#29075#0" expanded="true" />
+            <element signature="e#28957#29047#0" expanded="false" />
+            <element signature="e#29057#29075#0" expanded="false" />
             <element signature="e#28949#29254#0" expanded="false" />
-            <element signature="e#29668#29758#0" expanded="true" />
+            <element signature="e#29668#29758#0" expanded="false" />
             <element signature="e#29845#29893#0" expanded="false" />
-            <element signature="e#30125#30215#0" expanded="true" />
-            <element signature="e#30712#30802#0" expanded="true" />
-            <element signature="e#31921#32011#0" expanded="true" />
-            <element signature="e#32021#32039#0" expanded="true" />
-            <element signature="e#32223#32313#0" expanded="true" />
-            <element signature="e#33552#33642#0" expanded="true" />
+            <element signature="e#30125#30215#0" expanded="false" />
+            <element signature="e#30712#30802#0" expanded="false" />
+            <element signature="e#31921#32011#0" expanded="false" />
+            <element signature="e#32021#32039#0" expanded="false" />
+            <element signature="e#32223#32313#0" expanded="false" />
+            <element signature="e#33552#33642#0" expanded="false" />
             <element signature="e#33728#33776#0" expanded="false" />
-            <element signature="e#34286#34376#0" expanded="true" />
+            <element signature="e#34286#34376#0" expanded="false" />
             <element signature="e#34468#34516#0" expanded="false" />
-            <element signature="e#35044#35137#0" expanded="true" />
-            <element signature="e#35393#35486#0" expanded="true" />
-            <element signature="e#35679#35772#0" expanded="true" />
-            <element signature="e#36028#36121#0" expanded="true" />
-            <element signature="e#36308#36401#0" expanded="true" />
-            <element signature="e#36592#36685#0" expanded="true" />
+            <element signature="e#35044#35137#0" expanded="false" />
+            <element signature="e#35393#35486#0" expanded="false" />
+            <element signature="e#35679#35772#0" expanded="false" />
+            <element signature="e#36028#36121#0" expanded="false" />
+            <element signature="e#36308#36401#0" expanded="false" />
+            <element signature="e#36592#36685#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -902,17 +840,44 @@
         <state relative-caret-position="163">
           <caret line="60" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="82" selection-end-column="1" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/Deque.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13632">
+          <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <element signature="e#92#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utility.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+          <folding>
+            <element signature="e#58#88#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/type_traits.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2171">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/Set.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="217" column="6" lean-forward="true" selection-start-line="217" selection-start-column="6" selection-end-line="217" selection-end-column="6" />
+        <state relative-caret-position="336">
+          <caret line="14" column="80" lean-forward="false" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="80" />
           <folding>
-            <element signature="e#617#708#0" expanded="true" />
             <element signature="e#2358#2373#0" expanded="true" />
             <element signature="e#2521#2536#0" expanded="true" />
             <element signature="e#4832#4847#0" expanded="true" />
@@ -922,6 +887,72 @@
             <element signature="e#6219#6261#0" expanded="true" />
             <element signature="e#6419#6461#0" expanded="true" />
             <element signature="e#6624#6666#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/MultiSet.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/Stack.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="29" />
+          <folding>
+            <element signature="e#139#188#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/internal/stl_hash_table.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/internal/stl_alloc.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2483">
+          <caret line="45" column="10" lean-forward="true" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
+          <folding>
+            <element signature="e#184#202#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algorithm.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <element signature="e#146#184#0" expanded="false" />
+            <element signature="e#385#446#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/List.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="687">
+          <caret line="515" column="0" lean-forward="true" selection-start-line="515" selection-start-column="0" selection-end-line="515" selection-end-column="0" />
+          <folding>
+            <element signature="e#45#69#0" expanded="true" />
+            <element signature="e#10294#10318#0" expanded="true" />
+            <element signature="e#10286#10805#0" expanded="false" />
+            <element signature="e#10816#10840#0" expanded="true" />
+            <element signature="e#10949#10973#0" expanded="true" />
+            <element signature="e#11144#11168#0" expanded="true" />
+            <element signature="e#11272#11296#0" expanded="true" />
+            <element signature="e#11404#11428#0" expanded="true" />
+            <element signature="e#11536#11560#0" expanded="true" />
+            <element signature="e#11528#11633#0" expanded="false" />
           </folding>
         </state>
       </provider>

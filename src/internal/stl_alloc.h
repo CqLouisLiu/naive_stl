@@ -39,7 +39,8 @@ namespace naive
 	public:
 		/*
 		* The inside template rebind is used when value_type/T need to
-		* transform to another defined inside a _container, for example, std::List<int,naive::Allocate<int>> should		* transform int to List<int>::node defined in class List, and we can use Allocate<int>::rebind<node> inside
+		* transform to another defined inside a _container, for example, std::List<int,naive::Allocate<int>> should
+		* transform int to List<int>::node defined in class List, and we can use Allocate<int>::rebind<node> inside
 		* the List;
 		*
 		*/

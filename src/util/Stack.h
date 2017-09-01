@@ -12,14 +12,16 @@ namespace naive {
 	template<typename T, typename _CONTAINER=naive::Deque<T>>
 	class Stack {
 
+	protected:
+		_CONTAINER _container;
+
 	public:
 		typedef typename _CONTAINER::value_type value_type;
 		typedef typename _CONTAINER::size_type size_type;
 		typedef typename _CONTAINER::reference reference;
 		typedef typename _CONTAINER::const_reference const_reference;
 
-	protected:
-		_CONTAINER _container;
+
 
 	public:
 
