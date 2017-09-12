@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include "stl_construct.h"
 #include <utility>
+#include <memory>
 
 /*
 * @Author: Shuai Liu
@@ -145,36 +146,7 @@ namespace naive
 	}
 
 
-	template<typename P>
-	struct pointer_traits {
 
-	};
-
-	template<typename P>
-	struct pointer_traits<P*> {
-
-		typedef P* pointer;
-		typedef P element_type;
-		typedef ptrdiff_t difference_type;
-
-		template<typename U>
-		using rebind = U*;
-
-		//Constructs a dereferenceable pointer or pointer-like object ("fancy pointer") to its argument;
-		static pointer pointer_to(element_type& x) noexcept {
-			return std::addressof(x);
-		}
-	};
-
-	//The allocator_traits class template provides the standardized way to access various properties of Allocators. 
-	template<typename _Alloc>
-	struct allocator_traits {
-		typedef _Alloc allocator_type;
-		typedef typename _Alloc::value_type value_type;
-		typedef typename _Alloc::pointer pointer;
-		//typedef typename Alloc::const_pointer;
-
-	};
 
 };
 #endif

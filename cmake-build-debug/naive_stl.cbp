@@ -92,6 +92,9 @@
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_alloc.h">
 			<Option target="naive_stl"/>
 		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_alloc_traits.h">
+			<Option target="naive_stl"/>
+		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_array.h">
 			<Option target="naive_stl"/>
 		</Unit>
@@ -102,6 +105,9 @@
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_dynamic_str.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_hash_base.h">
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_hash_map.h">
@@ -125,7 +131,13 @@
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_pair.h">
 			<Option target="naive_stl"/>
 		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_point_traits.h">
+			<Option target="naive_stl"/>
+		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_rb_tree.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_traits_base.h">
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_type_traits.h">

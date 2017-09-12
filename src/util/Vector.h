@@ -391,12 +391,12 @@ namespace naive {
 
 	protected:
 		template<typename InputIt>
-		void __initialize_aux(InputIt first, InputIt last, naive::_false_type) {
+		void __initialize_aux(InputIt first, InputIt last, naive::_false_type_tag) {
 
 		}
 
 		template<typename InputIt>
-		void __initialize_aux(InputIt first, InputIt last, naive::_true_type) {
+		void __initialize_aux(InputIt first, InputIt last, naive::_true_type_tag) {
 
 		}
 

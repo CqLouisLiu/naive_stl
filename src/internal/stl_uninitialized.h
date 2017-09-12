@@ -8,13 +8,13 @@
 namespace naive {
 
 	template<typename InputIt, typename ForwardIt>
-	inline ForwardIt _uninitialized_copy_aux(InputIt __first, InputIt __last, ForwardIt __d_first,naive::_true_type) {
+	inline ForwardIt _uninitialized_copy_aux(InputIt __first, InputIt __last, ForwardIt __d_first,naive::_true_type_tag) {
 
 		return naive::copy(__first, __last, __d_first);
 	}
 
 	template<typename InputIt, typename ForwardIt>
-	inline ForwardIt _uninitialized_copy_aux(InputIt __first, InputIt __last, ForwardIt __d_first,naive::_false_type) {
+	inline ForwardIt _uninitialized_copy_aux(InputIt __first, InputIt __last, ForwardIt __d_first,naive::_false_type_tag) {
 
 		//commit or rollback rule;
 		ForwardIt __current = __d_first;
@@ -59,7 +59,7 @@ namespace naive {
 
 
 	template<typename ForwardIt, typename T1>
-	void _uninitialized_fill_aux(ForwardIt __first, ForwardIt __last, const T1& __value,naive::_false_type) {
+	void _uninitialized_fill_aux(ForwardIt __first, ForwardIt __last, const T1& __value,naive::_false_type_tag) {
 
 		//commit of rollback;
 		ForwardIt _current = __first;
@@ -78,7 +78,7 @@ namespace naive {
 	}
 
 	template<typename ForwardIt, typename T1>
-	void _uninitialized_fill_aux(ForwardIt __first, ForwardIt __last, const T1& __value,naive::_true_type) {
+	void _uninitialized_fill_aux(ForwardIt __first, ForwardIt __last, const T1& __value,naive::_true_type_tag) {
 
 		naive::fill(__first, __last, __value);
 	}
@@ -97,13 +97,13 @@ namespace naive {
 	}
 
 	template< typename ForwardIt, typename Size, typename _T>
-	ForwardIt _uninitialized_fill_n_aux(ForwardIt __first, Size __count, const _T& __value, naive::_true_type) {
+	ForwardIt _uninitialized_fill_n_aux(ForwardIt __first, Size __count, const _T& __value, naive::_true_type_tag) {
 
 		return naive::fill_n(__first, __count, __value);
 	}
 
 	template< typename ForwardIt, typename Size, typename _T>
-	ForwardIt _uninitialized_fill_n_aux(ForwardIt __first, Size __count, const _T& __value, naive::_false_type) {
+	ForwardIt _uninitialized_fill_n_aux(ForwardIt __first, Size __count, const _T& __value, naive::_false_type_tag) {
 
 		ForwardIt _current = __first;
 

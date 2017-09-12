@@ -19,6 +19,8 @@ functional
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_algo.h
 stl_config.h
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_config.h
+cstddef
+-
 
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_alloc.h
 cstddef
@@ -31,6 +33,10 @@ stl_construct.h
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_construct.h
 utility
 -
+memory
+-
+
+/cygdrive/f/workspaces/naive_stl/src/internal/stl_alloc_traits.h
 
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_config.h
 cassert
@@ -55,8 +61,6 @@ string
 /cygdrive/f/workspaces/naive_stl/src/iterator.h
 
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_iterator.h
-cstddef
--
 stl_type_traits.h
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_type_traits.h
 
@@ -67,6 +71,8 @@ stl_type_traits.h
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_pair.h
 stl_move.h
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_move.h
+
+/cygdrive/f/workspaces/naive_stl/src/internal/stl_point_traits.h
 
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_rb_tree.h
 ../iterator.h
@@ -111,8 +117,6 @@ fcntl.h
 /cygdrive/f/workspaces/naive_stl/src/iterator.h
 internal/stl_iterator.h
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_iterator.h
-iterator
--
 
 /cygdrive/f/workspaces/naive_stl/src/main.cpp
 iostream
@@ -129,10 +133,10 @@ internal/stl_alloc.h
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_alloc.h
 internal/stl_uninitialized.h
 /cygdrive/f/workspaces/naive_stl/src/internal/stl_uninitialized.h
-internal/stl_config.h
-/cygdrive/f/workspaces/naive_stl/src/internal/stl_config.h
-memory
--
+internal/stl_alloc_traits.h
+/cygdrive/f/workspaces/naive_stl/src/internal/stl_alloc_traits.h
+internal/stl_point_traits.h
+/cygdrive/f/workspaces/naive_stl/src/internal/stl_point_traits.h
 
 /cygdrive/f/workspaces/naive_stl/src/type_traits.h
 internal/stl_type_traits.h

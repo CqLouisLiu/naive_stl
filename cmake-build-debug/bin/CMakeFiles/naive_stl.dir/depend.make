@@ -8,12 +8,14 @@ bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/algorithm.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/functional.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_algo.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_alloc.h
+bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_alloc_traits.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_config.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_construct.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_heap.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_iterator.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_move.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_pair.h
+bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_point_traits.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_rb_tree.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_type_traits.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_uninitialized.h

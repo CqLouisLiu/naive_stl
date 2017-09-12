@@ -9,6 +9,7 @@
 #define _NAIVE_STL_ALGO_H
 
 #include "stl_config.h"
+#include <cstddef>
 
 namespace naive {
 

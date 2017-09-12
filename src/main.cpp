@@ -78,6 +78,7 @@ int main(){
 		std::cout << n << ' ';
 	cout<<endl;
 
+	//unsigned
 
 	return 0;
 }

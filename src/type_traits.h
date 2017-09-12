@@ -146,13 +146,10 @@ namespace naive{
 	template<typename T>
 	struct is_integral:public _Is_integral_type<typename naive::remove_cv<T>::type>{};
 
-
-
 	///////////////////////////////////////////////////////////////////////////////////
 	//// If B is true, std::enable_if has a public member typedef type, equal to T;
 	/// otherwise, there is no member typedef.
 	///////////////////////////////////////////////////////////////////////////////////
-
 	template<bool B, class T = void>
 	struct enable_if {};
 

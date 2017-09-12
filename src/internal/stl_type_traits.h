@@ -4,8 +4,8 @@
 
 namespace naive {
 
-	struct _false_type {};
-	struct _true_type {};
+	struct _false_type_tag {};
+	struct _true_type_tag {};
 
 
 
@@ -14,13 +14,13 @@ namespace naive {
 
 
 	template<>
-	struct is_pod_type<false> :public _false_type {
-		typedef _false_type is_pod;
+	struct is_pod_type<false> :public _false_type_tag {
+		typedef _false_type_tag is_pod;
 	};
 
 	template<>
-	struct is_pod_type<true> :public _true_type {
-		typedef _true_type is_pod;
+	struct is_pod_type<true> :public _true_type_tag {
+		typedef _true_type_tag is_pod;
 	};
 
 
@@ -28,15 +28,14 @@ namespace naive {
 	struct has_trivial_destructor;
 
 	template<>
-	struct has_trivial_destructor<false> :public _false_type {
-		typedef _false_type is_trivial_destructor;
+	struct has_trivial_destructor<false> :public _false_type_tag {
+		typedef _false_type_tag is_trivial_destructor;
 	};
 
 	template<>
-	struct has_trivial_destructor<true> :public _true_type {
-		typedef _true_type is_trivial_destructor;
+	struct has_trivial_destructor<true> :public _true_type_tag {
+		typedef _true_type_tag is_trivial_destructor;
 	};
-
 
 }
 

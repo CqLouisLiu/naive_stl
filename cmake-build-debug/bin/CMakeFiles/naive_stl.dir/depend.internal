@@ -9,12 +9,14 @@ bin/CMakeFiles/naive_stl.dir/main.cpp.o
  /cygdrive/f/workspaces/naive_stl/src/functional.h
  /cygdrive/f/workspaces/naive_stl/src/internal/stl_algo.h
  /cygdrive/f/workspaces/naive_stl/src/internal/stl_alloc.h
+ /cygdrive/f/workspaces/naive_stl/src/internal/stl_alloc_traits.h
  /cygdrive/f/workspaces/naive_stl/src/internal/stl_config.h
  /cygdrive/f/workspaces/naive_stl/src/internal/stl_construct.h
  /cygdrive/f/workspaces/naive_stl/src/internal/stl_heap.h
  /cygdrive/f/workspaces/naive_stl/src/internal/stl_iterator.h
  /cygdrive/f/workspaces/naive_stl/src/internal/stl_move.h
  /cygdrive/f/workspaces/naive_stl/src/internal/stl_pair.h
+ /cygdrive/f/workspaces/naive_stl/src/internal/stl_point_traits.h
  /cygdrive/f/workspaces/naive_stl/src/internal/stl_rb_tree.h
  /cygdrive/f/workspaces/naive_stl/src/internal/stl_type_traits.h
  /cygdrive/f/workspaces/naive_stl/src/internal/stl_uninitialized.h

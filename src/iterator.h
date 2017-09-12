@@ -2,9 +2,8 @@
 #define _NAIVE_ITERATOR_H
 
 #include "internal/stl_iterator.h"
-#include <iterator>
-namespace naive {
 
+namespace naive{
 
 
 /*
@@ -161,6 +160,9 @@ namespace naive {
 												const reverse_iterator<Iterator>& it) {
 		return reverse_iterator<Iterator>(it.base() - n);
 	}
+
+
+
 
 
 }

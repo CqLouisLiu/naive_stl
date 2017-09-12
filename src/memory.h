@@ -3,7 +3,11 @@
 
 #include "internal/stl_alloc.h"
 #include "internal/stl_uninitialized.h"
-#include "internal/stl_config.h"
-#include <memory>
+#include "internal/stl_alloc_traits.h"
+#include "internal/stl_point_traits.h"
+
+
+
+
 
 #endif

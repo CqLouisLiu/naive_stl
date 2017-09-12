@@ -1,6 +1,6 @@
 #ifndef _NAIVE_STL_ITERATOR_H
 #define _NAIVE_STL_ITERATOR_H
-#include <cstddef>
+
 #include "stl_type_traits.h"
 
 namespace naive
@@ -171,9 +171,6 @@ namespace naive
 		typedef typename naive::iterator_traits<InputIt>::iterator_category _iterator_category;
 		return _distance(first,last,_iterator_category());
 	}
-
-
-
 
 
 #ifdef _NAIVA_STL_LIST_H
