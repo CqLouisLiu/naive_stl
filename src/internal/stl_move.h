@@ -22,6 +22,7 @@ namespace naive {
 
 	template<class T>
 	typename naive::remove_reference<T>::type &&move(T &&t) noexcept {
+
 		return static_cast<typename naive::remove_reference<T>::type &&>(t);
 	}
 

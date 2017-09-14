@@ -7,8 +7,6 @@ namespace naive {
 	struct _false_type_tag {};
 	struct _true_type_tag {};
 
-
-
 	template<bool T>
 	struct is_pod_type;
 
@@ -36,6 +34,9 @@ namespace naive {
 	struct has_trivial_destructor<true> :public _true_type_tag {
 		typedef _true_type_tag is_trivial_destructor;
 	};
+
+
+
 
 }
 

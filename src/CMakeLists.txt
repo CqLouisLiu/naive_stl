@@ -27,6 +27,6 @@ set(SOURCE_FILES
         util/MultiSet.h internal/stl_hash_table.h
         internal/stl_heap.h util/PriorityQueue.h
         util/HashMap.h
-        util/HashSet.h internal/stl_move.h internal/stl_hash_base.h internal/stl_point_traits.h internal/stl_traits_base.h internal/stl_alloc_traits.h)
+        util/HashSet.h internal/stl_move.h internal/stl_hash_base.h internal/stl_point_traits.h internal/stl_traits_base.h internal/stl_alloc_traits.h internal/stl_memory_base.h)
 
 add_executable(naive_stl ${SOURCE_FILES})

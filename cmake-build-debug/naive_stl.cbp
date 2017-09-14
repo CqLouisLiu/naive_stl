@@ -125,6 +125,9 @@
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_iterator.h">
 			<Option target="naive_stl"/>
 		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_memory_base.h">
+			<Option target="naive_stl"/>
+		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_move.h">
 			<Option target="naive_stl"/>
 		</Unit>
