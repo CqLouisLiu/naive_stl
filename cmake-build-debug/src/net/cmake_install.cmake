@@ -1,4 +1,4 @@
-# Install script for directory: /cygdrive/f/workspaces/naive_stl/src/net
+# Install script for directory: /Users/liushuai/Workspace/naive_stl/src/net
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
