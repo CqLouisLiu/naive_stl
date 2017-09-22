@@ -85,6 +85,9 @@
 		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/algorithm.h">
 			<Option target="naive_stl"/>
 		</Unit>
+		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/exception/exception.h">
+			<Option target="naive_stl"/>
+		</Unit>
 		<Unit filename="/Users/liushuai/Workspace/naive_stl/src/functional.h">
 			<Option target="naive_stl"/>
 		</Unit>
