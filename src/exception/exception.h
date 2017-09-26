@@ -7,9 +7,13 @@
 
 #include <exception>
 
-struct empty_stack: std::exception{
+namespace naive{
 
-    const char* what() const throw();
-};
+    struct Empty_stack: std::exception{
+
+        const char* what() const throw();
+    };
+}
+
 
 #endif //NAIVE_STL_EXCEPTION_H

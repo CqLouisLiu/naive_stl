@@ -1,4 +1,4 @@
-# Install script for directory: /Users/liushuai/Workspace/naive_stl/src
+# Install script for directory: /Users/shuai/Workspace/Cpp/Toy/naive_stl/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

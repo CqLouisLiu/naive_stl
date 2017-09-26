@@ -1,15 +1,18 @@
 #include "type_traits.h"
 #include <iostream>
 #include <typeinfo>
+#include "./thread/ThreadSafe_Stack.h"
 
-using namespace std;
+using namespace naive;
+
 int main() {
-	using nonref = int;
-	using lref = typename naive::add_lvalue_reference<nonref>::type;
-	using rref = typename naive::add_rvalue_reference<nonref>::type;
 
-	std::cout << std::boolalpha;
-	std::cout << naive::is_lvalue_reference<nonref>::value << '\n';
-	std::cout << naive::is_lvalue_reference<lref>::value << '\n';
-	std::cout << naive::is_rvalue_reference<rref>::value << '\n';
+	ThreadSafe_Stack<int> threadSafe_stack;
+
+	for(auto i=0;i<10;++i)
+		threadSafe_stack.push(i);
+
+
+
+	return 0;
 }

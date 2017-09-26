@@ -15,6 +15,8 @@ class File{
 
 	File(const char* name,int flags,mode_t mode);
 
+    ~File();
+
 private:
 	int _M_fd;
 };
