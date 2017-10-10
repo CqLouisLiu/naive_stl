@@ -1,16 +1,19 @@
-#include "type_traits.h"
-#include <iostream>
-#include <typeinfo>
-#include "./thread/ThreadSafe_Stack.h"
+#include<iostream>
+#include"internal/stl_sort.h"
+#include "util/Vector.h"
 
-using namespace naive;
+
+using namespace std;
 
 int main() {
 
-	ThreadSafe_Stack<int> threadSafe_stack;
+    naive::Vector<int> vec{9,8,7,6,5,4,3,2,1};
 
-	for(auto i=0;i<10;++i)
-		threadSafe_stack.push(i);
+    naive::insert_sort(vec.begin(),vec.end());
+
+    for(auto v:vec)
+        cout<<v<<",";
+    cout<<endl;
 
 
 

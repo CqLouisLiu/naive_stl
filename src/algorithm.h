@@ -3,6 +3,7 @@
 
 #include "internal/stl_algo.h"
 #include "internal/stl_heap.h"
+#include "internal/stl_sort.h"
 
 namespace naive {
 
@@ -73,12 +74,6 @@ namespace naive {
 
 		return first;
 	}
-
-
-
-
-
-
 
 }
 #endif

@@ -1,4 +1,3 @@
-
 /*
  * NOTE: This is an internal header file, included by other C++ headers.
  * You should not attempt to use it directly.

@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/shuai/Workspace/Cpp/Toy/naive_stl
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/shuai/Workspace/Cpp/naive_stl
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/shuai/Workspace/Cpp/Toy/naive_stl/cmake-build-debug
+-- Build files have been written to: /Users/shuai/Workspace/Cpp/naive_stl/cmake-build-debug

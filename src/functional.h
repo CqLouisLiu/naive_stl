@@ -23,7 +23,7 @@ namespace naive{
 	//// binary_function is a base class for creating
 	/// function objects with two arguments.
 	//////////////////////////////////////////////////
-	template <class _Value1, class _Value2, class _Result>
+	template <typename _Value1, typename _Value2, typename _Result>
 	struct binary_function{
 		//In C++ 17;
 		typedef _Value1   first_argument_type;
