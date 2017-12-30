@@ -1,4 +1,4 @@
-# Install script for directory: /Users/shuai/Workspace/Cpp/naive_stl
+# Install script for directory: /Users/shuai/Workspace/naive_stl
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -29,9 +29,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/shuai/Workspace/Cpp/naive_stl/cmake-build-debug/bin/cmake_install.cmake")
-  include("/Users/shuai/Workspace/Cpp/naive_stl/cmake-build-debug/src/net/cmake_install.cmake")
-  include("/Users/shuai/Workspace/Cpp/naive_stl/cmake-build-debug/src/util/cmake_install.cmake")
+  include("/Users/shuai/Workspace/naive_stl/cmake-build-debug/bin/cmake_install.cmake")
+  include("/Users/shuai/Workspace/naive_stl/cmake-build-debug/src/net/cmake_install.cmake")
+  include("/Users/shuai/Workspace/naive_stl/cmake-build-debug/src/util/cmake_install.cmake")
 
 endif()
 
@@ -43,5 +43,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/shuai/Workspace/Cpp/naive_stl/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/shuai/Workspace/naive_stl/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

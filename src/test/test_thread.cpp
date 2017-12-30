@@ -1,6 +1,7 @@
-#include "thread/Thread_base.h"
-#include <cstdio>
-#include <unistd.h>
+#include "../thread/Thread_base.h"
+
+
+using namespace naive;
 
 
 void* thread_func(void* arg){
