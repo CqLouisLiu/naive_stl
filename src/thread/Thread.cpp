@@ -4,7 +4,3 @@
 
 #include "Thread.h"
 
-naive::Thread(){
-
-    Thread_create(&id,NULL,);
-}

@@ -27,6 +27,6 @@ set(SOURCE_FILES
         util/MultiSet.h internal/stl_hash_table.h
         internal/stl_heap.h util/PriorityQueue.h
         util/HashMap.h
-        util/HashSet.h internal/stl_move.h internal/stl_hash_base.h internal/stl_point_traits.h internal/stl_traits_base.h internal/stl_alloc_traits.h internal/stl_memory_base.h thread/ThreadPool.h thread/ThreadPool.cpp exception/exception.h thread/ThreadSafe_Stack.h internal/stl_sort.h thread/Thread_base.cpp internal/stl_thread_base.h thread/Thread_base.h thread/Thread.h thread/Thread.cpp)
+        util/HashSet.h internal/stl_move.h internal/stl_hash_base.h internal/stl_point_traits.h internal/stl_traits_base.h internal/stl_alloc_traits.h internal/stl_memory_base.h thread/ThreadPool.h thread/ThreadPool.cpp exception/exception.h thread/ThreadSafe_Stack.h internal/stl_sort.h thread/Thread_base.cpp internal/stl_thread_base.h thread/Thread_base.h thread/Thread.h thread/Thread.cpp net/socket/Socket_base.h internal/stl_socket_base.h config.h)
 
 add_executable(naive_stl ${SOURCE_FILES})

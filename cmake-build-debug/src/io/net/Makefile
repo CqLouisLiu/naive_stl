@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles /cygdrive/f/workspaces/naive_stl/cmake-build-debug/src/util/CMakeFiles/progress.marks
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/util/all
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles /cygdrive/f/workspaces/naive_stl/cmake-build-debug/src/io/net/CMakeFiles/progress.marks
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/io/net/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/util/clean
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/io/net/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,12 +97,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/util/preinstall
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/io/net/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/util/preinstall
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/io/net/preinstall
 .PHONY : preinstall/fast
 
 # clear depends

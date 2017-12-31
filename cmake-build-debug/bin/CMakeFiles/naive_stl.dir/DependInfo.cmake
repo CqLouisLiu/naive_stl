@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/shuai/Workspace/naive_stl/src/io/File.cpp" "/Users/shuai/Workspace/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/io/File.cpp.o"
-  "/Users/shuai/Workspace/naive_stl/src/main.cpp" "/Users/shuai/Workspace/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/main.cpp.o"
-  "/Users/shuai/Workspace/naive_stl/src/thread/Thread.cpp" "/Users/shuai/Workspace/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o"
-  "/Users/shuai/Workspace/naive_stl/src/thread/ThreadPool.cpp" "/Users/shuai/Workspace/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o"
-  "/Users/shuai/Workspace/naive_stl/src/thread/Thread_base.cpp" "/Users/shuai/Workspace/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o"
+  "/cygdrive/f/workspaces/naive_stl/src/io/File.cpp" "/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/io/File.cpp.o"
+  "/cygdrive/f/workspaces/naive_stl/src/main.cpp" "/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/main.cpp.o"
+  "/cygdrive/f/workspaces/naive_stl/src/thread/Thread.cpp" "/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o"
+  "/cygdrive/f/workspaces/naive_stl/src/thread/ThreadPool.cpp" "/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o"
+  "/cygdrive/f/workspaces/naive_stl/src/thread/Thread_base.cpp" "/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

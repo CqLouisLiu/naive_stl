@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/bin/cmake
+CMAKE_COMMAND = /cygdrive/c/Users/Shuai/.CLion2017.3/system/cygwin_cmake/bin/cmake.exe
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
+RM = /cygdrive/c/Users/Shuai/.CLion2017.3/system/cygwin_cmake/bin/cmake.exe -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/shuai/Workspace/naive_stl
+CMAKE_SOURCE_DIR = /cygdrive/f/workspaces/naive_stl
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/shuai/Workspace/naive_stl/cmake-build-debug
+CMAKE_BINARY_DIR = /cygdrive/f/workspaces/naive_stl/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/shuai/Workspace/naive_stl/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/cygdrive/c/Users/Shuai/.CLion2017.3/system/cygwin_cmake/bin/cmake.exe -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/cygdrive/c/Users/Shuai/.CLion2017.3/system/cygwin_cmake/bin/cmake.exe -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /Users/shuai/Workspace/naive_stl/cmake-build-debug/CMakeFiles /Users/shuai/Workspace/naive_stl/cmake-build-debug/bin/CMakeFiles/progress.marks
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/shuai/Workspace/naive_stl/cmake-build-debug/CMakeFiles 0
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/CMakeFiles/progress.marks
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/clean
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/preinstall
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/preinstall
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 bin/CMakeFiles/naive_stl.dir/rule:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/CMakeFiles/naive_stl.dir/rule
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 bin/CMakeFiles/naive_stl.dir/rule
 .PHONY : bin/CMakeFiles/naive_stl.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ naive_stl: bin/CMakeFiles/naive_stl.dir/rule
 
 # fast build rule for target.
 naive_stl/fast:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/build
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/build
 .PHONY : naive_stl/fast
 
 io/File.o: io/File.cpp.o
@@ -131,7 +131,7 @@ io/File.o: io/File.cpp.o
 
 # target to build an object file
 io/File.cpp.o:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/io/File.cpp.o
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/io/File.cpp.o
 .PHONY : io/File.cpp.o
 
 io/File.i: io/File.cpp.i
@@ -140,7 +140,7 @@ io/File.i: io/File.cpp.i
 
 # target to preprocess a source file
 io/File.cpp.i:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/io/File.cpp.i
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/io/File.cpp.i
 .PHONY : io/File.cpp.i
 
 io/File.s: io/File.cpp.s
@@ -149,7 +149,7 @@ io/File.s: io/File.cpp.s
 
 # target to generate assembly for a file
 io/File.cpp.s:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/io/File.cpp.s
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/io/File.cpp.s
 .PHONY : io/File.cpp.s
 
 main.o: main.cpp.o
@@ -158,7 +158,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/main.cpp.o
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -167,7 +167,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/main.cpp.i
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -176,7 +176,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/main.cpp.s
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 thread/Thread.o: thread/Thread.cpp.o
@@ -185,7 +185,7 @@ thread/Thread.o: thread/Thread.cpp.o
 
 # target to build an object file
 thread/Thread.cpp.o:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o
 .PHONY : thread/Thread.cpp.o
 
 thread/Thread.i: thread/Thread.cpp.i
@@ -194,7 +194,7 @@ thread/Thread.i: thread/Thread.cpp.i
 
 # target to preprocess a source file
 thread/Thread.cpp.i:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.i
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.i
 .PHONY : thread/Thread.cpp.i
 
 thread/Thread.s: thread/Thread.cpp.s
@@ -203,7 +203,7 @@ thread/Thread.s: thread/Thread.cpp.s
 
 # target to generate assembly for a file
 thread/Thread.cpp.s:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.s
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.s
 .PHONY : thread/Thread.cpp.s
 
 thread/ThreadPool.o: thread/ThreadPool.cpp.o
@@ -212,7 +212,7 @@ thread/ThreadPool.o: thread/ThreadPool.cpp.o
 
 # target to build an object file
 thread/ThreadPool.cpp.o:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o
 .PHONY : thread/ThreadPool.cpp.o
 
 thread/ThreadPool.i: thread/ThreadPool.cpp.i
@@ -221,7 +221,7 @@ thread/ThreadPool.i: thread/ThreadPool.cpp.i
 
 # target to preprocess a source file
 thread/ThreadPool.cpp.i:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.i
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.i
 .PHONY : thread/ThreadPool.cpp.i
 
 thread/ThreadPool.s: thread/ThreadPool.cpp.s
@@ -230,7 +230,7 @@ thread/ThreadPool.s: thread/ThreadPool.cpp.s
 
 # target to generate assembly for a file
 thread/ThreadPool.cpp.s:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.s
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.s
 .PHONY : thread/ThreadPool.cpp.s
 
 thread/Thread_base.o: thread/Thread_base.cpp.o
@@ -239,7 +239,7 @@ thread/Thread_base.o: thread/Thread_base.cpp.o
 
 # target to build an object file
 thread/Thread_base.cpp.o:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o
 .PHONY : thread/Thread_base.cpp.o
 
 thread/Thread_base.i: thread/Thread_base.cpp.i
@@ -248,7 +248,7 @@ thread/Thread_base.i: thread/Thread_base.cpp.i
 
 # target to preprocess a source file
 thread/Thread_base.cpp.i:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.i
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.i
 .PHONY : thread/Thread_base.cpp.i
 
 thread/Thread_base.s: thread/Thread_base.cpp.s
@@ -257,7 +257,7 @@ thread/Thread_base.s: thread/Thread_base.cpp.s
 
 # target to generate assembly for a file
 thread/Thread_base.cpp.s:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.s
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.s
 .PHONY : thread/Thread_base.cpp.s
 
 # Help Target
@@ -295,6 +295,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/shuai/Workspace/naive_stl/cmake-build-debug && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

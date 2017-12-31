@@ -4,9 +4,14 @@
 bin/CMakeFiles/naive_stl.dir/io/File.cpp.o: ../src/io/File.cpp
 bin/CMakeFiles/naive_stl.dir/io/File.cpp.o: ../src/io/File.h
 
+bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/config.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/internal/stl_thread_base.h
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/main.cpp
 bin/CMakeFiles/naive_stl.dir/main.cpp.o: ../src/thread/Thread_base.h
+
+bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o: ../src/thread/./Thread_base.h
+bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o: ../src/thread/Thread.cpp
+bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o: ../src/thread/Thread.h
 
 bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o: ../src/algorithm.h
 bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o: ../src/functional.h
@@ -29,6 +34,7 @@ bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o: ../src/thread/ThreadPool.h
 bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o: ../src/type_traits.h
 bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o: ../src/util/Vector.h
 
+bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o: ../src/config.h
 bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o: ../src/internal/stl_thread_base.h
 bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o: ../src/thread/Thread_base.cpp
 bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o: ../src/thread/Thread_base.h

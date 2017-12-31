@@ -5,6 +5,9 @@
 #ifndef NAIVE_STL_STL_THREAD_BASE_H_H
 #define NAIVE_STL_STL_THREAD_BASE_H_H
 
+
+
+
 #include "../internal/stl_thread_base.h"
 
 
@@ -60,6 +63,9 @@ void Thread_exit(void *retval);
 * NOTES: 关于join的意思不是"加入"，而是"汇聚"在一起的意思，即调用线程和指定线程在指定点汇合(可能阻塞，但不是阻塞的意思，不是大学老师讲的那个意思！)；
 */
 int Thread_join(thread_id thread, void **retval);
+
+
+int Tread_cancel(thread_id thread);
 
 
 #endif //NAIVE_STL_STL_THREAD_BASE_H_H

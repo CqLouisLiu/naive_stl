@@ -33,3 +33,9 @@ int Thread_join(thread_id thread, void **retval) {
     return pthread_join(thread, retval);
 }
 
+int Thread_cancle(thread_id thread){
+
+    return pthread_cancel(thread);
+
+}
+
