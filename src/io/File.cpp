@@ -4,4 +4,4 @@
 
 
 #include "File.h"
-File::File(const char *name, int flags, mode_t mode):_M_fd(open(name,flags,mode)){}
+//File::File(const char *name, int flags, mode_t mode):_M_fd(open(name,flags,mode)){}

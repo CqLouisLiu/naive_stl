@@ -72,6 +72,7 @@ class thread::id {
     id() noexcept;
 };*/
 
+/*
 #include "./Thread_base.h"
 
 
@@ -123,5 +124,5 @@ namespace naive {
     };
 }
 
-
+*/
 #endif //NAIVE_STL_THREAD_H

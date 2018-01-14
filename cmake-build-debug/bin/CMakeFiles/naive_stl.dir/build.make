@@ -105,33 +105,9 @@ bin/CMakeFiles/naive_stl.dir/io/File.cpp.o.provides: bin/CMakeFiles/naive_stl.di
 bin/CMakeFiles/naive_stl.dir/io/File.cpp.o.provides.build: bin/CMakeFiles/naive_stl.dir/io/File.cpp.o
 
 
-bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o: bin/CMakeFiles/naive_stl.dir/flags.make
-bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o: ../src/thread/ThreadPool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o"
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && C:/cygwin64/bin/g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o -c /cygdrive/f/workspaces/naive_stl/src/thread/ThreadPool.cpp
-
-bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.i"
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && C:/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/f/workspaces/naive_stl/src/thread/ThreadPool.cpp > CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.i
-
-bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.s"
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && C:/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/f/workspaces/naive_stl/src/thread/ThreadPool.cpp -o CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.s
-
-bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o.requires:
-
-.PHONY : bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o.requires
-
-bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o.provides: bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o.requires
-	$(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o.provides.build
-.PHONY : bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o.provides
-
-bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o.provides.build: bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o
-
-
 bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o: bin/CMakeFiles/naive_stl.dir/flags.make
 bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o: ../src/thread/Thread_base.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o"
 	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && C:/cygwin64/bin/g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o -c /cygdrive/f/workspaces/naive_stl/src/thread/Thread_base.cpp
 
 bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.i: cmake_force
@@ -155,7 +131,7 @@ bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o.provides.build: bin/CMakeF
 
 bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o: bin/CMakeFiles/naive_stl.dir/flags.make
 bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o: ../src/thread/Thread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o"
 	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && C:/cygwin64/bin/g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/naive_stl.dir/thread/Thread.cpp.o -c /cygdrive/f/workspaces/naive_stl/src/thread/Thread.cpp
 
 bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.i: cmake_force
@@ -177,22 +153,46 @@ bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o.provides: bin/CMakeFiles/naive_
 bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o.provides.build: bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o
 
 
+bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o: bin/CMakeFiles/naive_stl.dir/flags.make
+bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o: ../src/internal/stl_dynamic_str.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o"
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && C:/cygwin64/bin/g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o -c /cygdrive/f/workspaces/naive_stl/src/internal/stl_dynamic_str.cpp
+
+bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.i"
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && C:/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/f/workspaces/naive_stl/src/internal/stl_dynamic_str.cpp > CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.i
+
+bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.s"
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin && C:/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/f/workspaces/naive_stl/src/internal/stl_dynamic_str.cpp -o CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.s
+
+bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o.requires:
+
+.PHONY : bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o.requires
+
+bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o.provides: bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o.requires
+	$(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o.provides.build
+.PHONY : bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o.provides
+
+bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o.provides.build: bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o
+
+
 # Object files for target naive_stl
 naive_stl_OBJECTS = \
 "CMakeFiles/naive_stl.dir/main.cpp.o" \
 "CMakeFiles/naive_stl.dir/io/File.cpp.o" \
-"CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o" \
 "CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o" \
-"CMakeFiles/naive_stl.dir/thread/Thread.cpp.o"
+"CMakeFiles/naive_stl.dir/thread/Thread.cpp.o" \
+"CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o"
 
 # External object files for target naive_stl
 naive_stl_EXTERNAL_OBJECTS =
 
 bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/main.cpp.o
 bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/io/File.cpp.o
-bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o
 bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o
 bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o
+bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o
 bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/build.make
 bin/naive_stl.exe: bin/CMakeFiles/naive_stl.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/f/workspaces/naive_stl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable naive_stl.exe"
@@ -205,9 +205,9 @@ bin/CMakeFiles/naive_stl.dir/build: bin/naive_stl.exe
 
 bin/CMakeFiles/naive_stl.dir/requires: bin/CMakeFiles/naive_stl.dir/main.cpp.o.requires
 bin/CMakeFiles/naive_stl.dir/requires: bin/CMakeFiles/naive_stl.dir/io/File.cpp.o.requires
-bin/CMakeFiles/naive_stl.dir/requires: bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o.requires
 bin/CMakeFiles/naive_stl.dir/requires: bin/CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o.requires
 bin/CMakeFiles/naive_stl.dir/requires: bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.o.requires
+bin/CMakeFiles/naive_stl.dir/requires: bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o.requires
 
 .PHONY : bin/CMakeFiles/naive_stl.dir/requires
 

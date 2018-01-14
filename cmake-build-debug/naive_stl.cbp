@@ -104,10 +104,16 @@
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_array.h">
 			<Option target="naive_stl"/>
 		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_cdef.h">
+			<Option target="naive_stl"/>
+		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_config.h">
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_construct.h">
+			<Option target="naive_stl"/>
+		</Unit>
+		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_dynamic_str.cpp">
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_dynamic_str.h">
@@ -186,12 +192,6 @@
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/thread/Thread.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/thread/ThreadPool.cpp">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/thread/ThreadPool.h">
 			<Option target="naive_stl"/>
 		</Unit>
 		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/thread/ThreadSafe_Stack.h">

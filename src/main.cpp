@@ -1,28 +1,11 @@
-#include "thread/Thread_base.h"
-#include <cstdio>
-#include <unistd.h>
 
-
-void* thread_func(void* arg){
-
-    printf("%lu\n",Thread_get_id());
-
-}
-
+#include "util/Vector.h"
+#include <iostream>
 int main(){
 
+    naive::Vector<int> vec(10,0);
 
-    thread_id tid;
-
-    int err;
-    if((err=Thread_create(&tid,NULL,thread_func,NULL))!=0){
-        fprintf(stderr,"error at create thread",err);
-    }
-
-    printf("%lu\n",Thread_get_id());
-
-
-    sleep(5);
-
+    for(auto v:vec)
+        std::cout<<v<<std::endl;
     return 0;
 }

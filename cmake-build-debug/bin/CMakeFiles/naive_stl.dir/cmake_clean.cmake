@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/naive_stl.dir/main.cpp.o"
   "CMakeFiles/naive_stl.dir/io/File.cpp.o"
-  "CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o"
   "CMakeFiles/naive_stl.dir/thread/Thread_base.cpp.o"
   "CMakeFiles/naive_stl.dir/thread/Thread.cpp.o"
+  "CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o"
   "naive_stl.pdb"
   "naive_stl.exe"
   "libnaive_stl.dll.a"

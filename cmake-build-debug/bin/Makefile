@@ -125,6 +125,33 @@ naive_stl/fast:
 	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/build
 .PHONY : naive_stl/fast
 
+internal/stl_dynamic_str.o: internal/stl_dynamic_str.cpp.o
+
+.PHONY : internal/stl_dynamic_str.o
+
+# target to build an object file
+internal/stl_dynamic_str.cpp.o:
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.o
+.PHONY : internal/stl_dynamic_str.cpp.o
+
+internal/stl_dynamic_str.i: internal/stl_dynamic_str.cpp.i
+
+.PHONY : internal/stl_dynamic_str.i
+
+# target to preprocess a source file
+internal/stl_dynamic_str.cpp.i:
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.i
+.PHONY : internal/stl_dynamic_str.cpp.i
+
+internal/stl_dynamic_str.s: internal/stl_dynamic_str.cpp.s
+
+.PHONY : internal/stl_dynamic_str.s
+
+# target to generate assembly for a file
+internal/stl_dynamic_str.cpp.s:
+	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/internal/stl_dynamic_str.cpp.s
+.PHONY : internal/stl_dynamic_str.cpp.s
+
 io/File.o: io/File.cpp.o
 
 .PHONY : io/File.o
@@ -206,33 +233,6 @@ thread/Thread.cpp.s:
 	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/Thread.cpp.s
 .PHONY : thread/Thread.cpp.s
 
-thread/ThreadPool.o: thread/ThreadPool.cpp.o
-
-.PHONY : thread/ThreadPool.o
-
-# target to build an object file
-thread/ThreadPool.cpp.o:
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.o
-.PHONY : thread/ThreadPool.cpp.o
-
-thread/ThreadPool.i: thread/ThreadPool.cpp.i
-
-.PHONY : thread/ThreadPool.i
-
-# target to preprocess a source file
-thread/ThreadPool.cpp.i:
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.i
-.PHONY : thread/ThreadPool.cpp.i
-
-thread/ThreadPool.s: thread/ThreadPool.cpp.s
-
-.PHONY : thread/ThreadPool.s
-
-# target to generate assembly for a file
-thread/ThreadPool.cpp.s:
-	cd /cygdrive/f/workspaces/naive_stl/cmake-build-debug && $(MAKE) -f bin/CMakeFiles/naive_stl.dir/build.make bin/CMakeFiles/naive_stl.dir/thread/ThreadPool.cpp.s
-.PHONY : thread/ThreadPool.cpp.s
-
 thread/Thread_base.o: thread/Thread_base.cpp.o
 
 .PHONY : thread/Thread_base.o
@@ -269,6 +269,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... naive_stl"
+	@echo "... internal/stl_dynamic_str.o"
+	@echo "... internal/stl_dynamic_str.i"
+	@echo "... internal/stl_dynamic_str.s"
 	@echo "... io/File.o"
 	@echo "... io/File.i"
 	@echo "... io/File.s"
@@ -278,9 +281,6 @@ help:
 	@echo "... thread/Thread.o"
 	@echo "... thread/Thread.i"
 	@echo "... thread/Thread.s"
-	@echo "... thread/ThreadPool.o"
-	@echo "... thread/ThreadPool.i"
-	@echo "... thread/ThreadPool.s"
 	@echo "... thread/Thread_base.o"
 	@echo "... thread/Thread_base.i"
 	@echo "... thread/Thread_base.s"
