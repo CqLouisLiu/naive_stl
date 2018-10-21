@@ -1,4 +1,3 @@
-ToolSet: 2.9.0@C:\cygwin64
 Options: 
 
-Options:-DCMAKE_CXX_COMPILER=C:/cygwin64/bin/g++.exe
+Options:

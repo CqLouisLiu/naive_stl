@@ -5,263 +5,97 @@
 		<Option title="naive_stl"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\src\net\;CMake Files\src\util\;"/>
+		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/cygdrive/f/workspaces/naive_stl/cmake-build-debug"/>
+				<Option working_dir="/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/cygdrive/f/workspaces/naive_stl/cmake-build-debug"/>
+				<Option working_dir="/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/cygdrive/f/workspaces/naive_stl/cmake-build-debug"/>
+				<Option working_dir="/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="naive_stl">
-				<Option output="/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/naive_stl.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin"/>
+			<Target title="naive">
+				<Option output="/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/naive" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/x86_64-pc-cygwin"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/../include/w32api"/>
+					<Add directory="/Users/shuai/Workspace/GitHub/naive_stl/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 naive_stl"/>
-					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 naive"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="naive_stl/fast">
-				<Option output="/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/naive_stl.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin"/>
+			<Target title="naive/fast">
+				<Option output="/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/naive" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/x86_64-pc-cygwin"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/include"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/../include/w32api"/>
+					<Add directory="/Users/shuai/Workspace/GitHub/naive_stl/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 naive_stl/fast"/>
-					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 naive/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/algorithm.h">
-			<Option target="naive_stl"/>
+		<Unit filename="/Users/shuai/Workspace/GitHub/naive_stl/main.cpp">
+			<Option target="naive"/>
 		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/config.h">
-			<Option target="naive_stl"/>
+		<Unit filename="/Users/shuai/Workspace/GitHub/naive_stl/src/File.cpp">
+			<Option target="naive"/>
 		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/exception/exception.h">
-			<Option target="naive_stl"/>
+		<Unit filename="/Users/shuai/Workspace/GitHub/naive_stl/src/Thread.cpp">
+			<Option target="naive"/>
 		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/functional.h">
-			<Option target="naive_stl"/>
+		<Unit filename="/Users/shuai/Workspace/GitHub/naive_stl/src/Thread_base.cpp">
+			<Option target="naive"/>
 		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_algo.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_alloc.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_alloc_traits.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_array.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_cdef.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_config.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_construct.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_dynamic_str.cpp">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_dynamic_str.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_hash_base.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_hash_map.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_hash_set.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_hash_table.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_heap.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_iterator.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_memory_base.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_move.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_pair.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_point_traits.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_rb_tree.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_socket_base.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_sort.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_thread_base.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_traits_base.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_type_traits.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/internal/stl_uninitialized.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/io/File.cpp">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/io/File.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/iterator.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/main.cpp">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/memory.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/net/socket/Socket_base.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/thread/Thread.cpp">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/thread/Thread.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/thread/ThreadSafe_Stack.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/thread/Thread_base.cpp">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/thread/Thread_base.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/type_traits.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Array.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Deque.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/HashMap.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/HashSet.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/List.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Map.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/MultiMap.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/MultiSet.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/PriorityQueue.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Queue.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Set.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Stack.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/String.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/Vector.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/utility.h">
-			<Option target="naive_stl"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/CMakeLists.txt">
+		<Unit filename="/Users/shuai/Workspace/GitHub/naive_stl/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\src\"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/net/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\src\net\"/>
-		</Unit>
-		<Unit filename="/cygdrive/f/workspaces/naive_stl/src/util/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\src\util\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

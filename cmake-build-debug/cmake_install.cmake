@@ -1,4 +1,4 @@
-# Install script for directory: /cygdrive/f/workspaces/naive_stl
+# Install script for directory: /Users/shuai/Workspace/GitHub/naive_stl
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,12 +27,9 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("/cygdrive/f/workspaces/naive_stl/cmake-build-debug/bin/cmake_install.cmake")
-  include("/cygdrive/f/workspaces/naive_stl/cmake-build-debug/src/net/cmake_install.cmake")
-  include("/cygdrive/f/workspaces/naive_stl/cmake-build-debug/src/util/cmake_install.cmake")
-
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -43,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/cygdrive/f/workspaces/naive_stl/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/shuai/Workspace/GitHub/naive_stl/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
